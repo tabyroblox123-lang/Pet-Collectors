@@ -1404,21 +1404,6 @@ svg[data-m~="rainbow"]{filter:url(#rbf) drop-shadow(0 0 5px rgba(255,255,255,.8)
 #pityc.hot .pb u{background:linear-gradient(90deg,#ffd34d,#ff7a3d)}
 @keyframes pityp{50%{transform:translateX(-50%) scale(1.07)}}
 #stage.tut #pityc{opacity:0}
-#rfx{position:absolute;inset:0;z-index:12;pointer-events:none;display:none;align-items:center;justify-content:center;flex-direction:column;overflow:hidden}
-#rfx.on{display:flex}
-#rfx .rf1{position:absolute;inset:0;background:radial-gradient(circle,transparent 20%,var(--c) 150%);opacity:0;animation:rfa 1.9s ease-out forwards}
-#rfx .rf2{position:absolute;left:50%;top:50%;width:40px;height:40px;margin:-20px;border-radius:50%;border:5px solid var(--c);box-shadow:0 0 30px var(--c);animation:rfr 1.2s ease-out forwards}
-#rfx.big .rf1{animation-duration:2.6s;opacity:0}
-#rfx .rft{position:relative;white-space:nowrap;text-align:center;font-size:34px;letter-spacing:2px;color:#fff;text-shadow:0 0 18px var(--c),0 3px 0 #000,0 0 40px var(--c);animation:rft 1.9s cubic-bezier(.2,1.6,.4,1) forwards}
-#rfx.big .rft{font-size:42px;animation-duration:2.6s}
-#rfx .rfs{position:relative;margin-top:4px;font-size:20px;color:#fff;text-shadow:0 2px 0 #000;animation:rft 1.9s .1s both}
-#rfx .rfp{position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c);opacity:0;animation:rfp 1.3s ease-out forwards}
-@keyframes rfa{0%{opacity:0}20%{opacity:.75}100%{opacity:0}}
-@keyframes rfr{to{transform:scale(22);opacity:0}}
-@keyframes rft{0%{transform:scale(.2);opacity:0}25%{transform:scale(1.15);opacity:1}80%{transform:scale(1);opacity:1}100%{transform:scale(1.1);opacity:0}}
-@keyframes rfp{0%{opacity:1;transform:rotate(var(--a)) translateX(0)}100%{opacity:0;transform:rotate(var(--a)) translateX(var(--d))}}
-#stage.rshk{animation:rshk .6s}
-@keyframes rshk{10%{transform:translate(-5px,3px)}30%{transform:translate(5px,-3px)}50%{transform:translate(-4px,-2px)}70%{transform:translate(3px,3px)}}
 #irw{position:absolute;left:12px;right:12px;top:50px;height:40px;z-index:2;display:flex;align-items:center;gap:10px;padding:0 12px;border-radius:12px;background:rgba(20,26,70,.8);border:2px solid #4a5590;font-size:13px;color:#cfd6f5}
 #irw+#iv,#irw~#iv{top:98px}
 #irw .irg{font-size:22px}#irw .irt{display:flex;flex-direction:column;line-height:1.1}#irw .irt b{font-weight:400;font-size:14px;color:#fff}#irw .irt small{font-size:11px;color:#9aa4d0}
@@ -1962,6 +1947,43 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
 .uq.mx{border-color:#111;box-shadow:inset 0 0 0 3px #ffe066,0 4px 0 rgba(0,0,0,.18)}
 #uwp{position:static;display:inline-block;margin:0 auto 6px;font-size:13px;padding:2px 12px;transform:none}
 .lbc{white-space:nowrap;font-size:14px;gap:4px;padding:0 6px}.lbc i{flex:none;white-space:nowrap}
+
+/* ===== Roll-Ansicht: feste Darstellungsfläche, Infos oberhalb des Pets ===== */
+#plats{top:130px}
+#pityc{top:72px;height:22px;padding:0 12px;line-height:20px;min-width:190px;overflow:hidden}
+#pityc .pb{position:absolute;left:8px;right:8px;bottom:2px;height:3px;margin:0}
+#plats .tag{top:-36px;height:20px;justify-content:flex-end}
+#plats .tag .tri{margin:0}
+#plats .tag .tri .ti{width:20px;height:20px;display:inline-block}#plats .tag .tri .ti svg{width:100%;height:100%;display:block}
+#plats .tag2{top:-16px;height:28px;left:-12px;right:-12px;justify-content:flex-end;transform:none;transition:opacity .35s ease}
+#plats .tag2 b{font-size:15px;line-height:16px}
+#plats .tag2 small{font-size:11px;line-height:12px;margin-top:0}
+#plats .tag3{position:absolute;left:-8px;right:-8px;top:112px;display:flex;justify-content:center;opacity:0;transition:opacity .35s ease;z-index:4;pointer-events:none;height:14px}
+#plats .tag.on~.tag3{opacity:1}
+#plats .tag.on+.tag2{opacity:1;transform:none}
+
+/* ===== Halloween-Event ===== */
+#hwbg{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.2s ease;overflow:hidden}
+#hwbg.on{opacity:1}
+#hwbg i,#hwbg span{position:absolute;display:block}
+#hwbg .hwimg{inset:0;background:var(--hw-bg,none) center/cover no-repeat;opacity:0;transition:opacity .8s}#hwbg.img .hwimg{opacity:1}
+#hwbg .hwt{inset:0;background:linear-gradient(180deg,rgba(34,6,66,.66) 0,rgba(84,22,108,.38) 46%,rgba(255,106,10,.17) 78%,rgba(18,3,28,.58) 100%)}
+#hwbg .hwmoon{left:66%;top:6%;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle at 40% 38%,#fff3d0 0,#ffc86a 46%,rgba(255,150,40,0) 72%);box-shadow:0 0 70px 26px rgba(255,160,50,.34);opacity:.85;animation:hwmoon 7s ease-in-out infinite}
+@keyframes hwmoon{50%{opacity:.62;transform:scale(.97)}}
+#hwbg .hwfog{left:-20%;width:140%;height:70px;background:radial-gradient(ellipse at 50% 50%,rgba(210,170,255,.28),rgba(210,170,255,0) 70%);filter:blur(7px);animation:hwfog 26s linear infinite}
+#hwbg .hwfog.a{bottom:92px}#hwbg .hwfog.b{bottom:140px;animation-duration:38s;animation-direction:reverse;opacity:.7}
+@keyframes hwfog{from{transform:translateX(-7%)}to{transform:translateX(7%)}}
+#hwbg .hwbat{width:34px;height:17px;transform:scale(var(--s));animation:hwbat linear infinite}
+#hwbg .hwbat svg{width:100%;height:100%;display:block;animation:hwflap .34s ease-in-out infinite alternate;transform-origin:50% 40%}
+@keyframes hwbat{0%{transform:translate(-90px,0) scale(var(--s))}50%{transform:translate(380px,-26px) scale(var(--s))}100%{transform:translate(860px,6px) scale(var(--s))}}
+@keyframes hwflap{from{transform:scaleY(1)}to{transform:scaleY(.42)}}
+#hwbg .hwp{bottom:7px;width:34px;height:31px;filter:drop-shadow(0 0 7px rgba(255,150,30,.65));opacity:.9}#hwbg .hwp.r{width:27px;height:25px}
+#hwbg .hwp svg{width:100%;height:100%;display:block}#hwbg .hwgl{animation:hwgl 2.6s ease-in-out infinite}
+@keyframes hwgl{50%{opacity:.55}}
+#hwbg .hwvig{inset:0;background:radial-gradient(ellipse at 50% 46%,rgba(0,0,0,0) 52%,rgba(14,0,26,.52) 100%)}
+#stage.evH #evb .evic{box-shadow:0 0 12px rgba(255,140,30,.7),0 2px 0 rgba(0,0,0,.4)}
+.aev.hwa{flex-wrap:wrap}.aev.hwa .aeb{width:116px}
+.hwa small.on{color:#ffb44a}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -2496,7 +2518,7 @@ Object.keys(own).forEach(n=>{const b=bn(n);if(pi(b)<0&&MIG[b]){const nk=mkKey(MI
 Object.assign(CPS,{'Cosmo Cat':500,'Cosmo Dog':750,'Cosmo Bunny':2500,'Cosmo Hamster':10000,'Cosmo Lion':25000,'Cosmo Dragon':50000,'Extinct Mammut':500,'Extinct Triceratops':1000,'Extinct Megalodon':3000,'Extinct T-Rex':10000,'Extinct Hydra':15000,'Extinct Demon':25000,'Cashy':850,'Comic Cat':1100,'Clocky':1800});
 EQ=EQ.map(n=>MIG[bn(n)]?mkKey(MIG[bn(n)],trk(n)):n).filter(n=>CPS[bn(n)]!=null);{const c={};EQ=EQ.filter(n=>(c[n]=(c[n]||0)+1)<=(own[n]||0)).slice(0,3)}
 if(!wUnl.includes(0))wUnl.push(0);
-const fmt=n=>Math.floor(n).toLocaleString('en-US'),TM={},cpsOf=k=>(CPS[bn(k)]||0)*trk(k).reduce((a,t)=>a*(TM[t]||1),1),cashMul=()=>(vip?1.05:1)*(typeof permMult==='function'?permMult():1),totalCps=()=>EQ.reduce((a,k)=>a+cpsOf(k),0)*cashMul();
+const fmt=n=>Math.floor(n).toLocaleString('en-US'),TM={},cpsOf=k=>(CPS[bn(k)]||0)*[...new Set(trk(k))].reduce((a,t)=>a*(TM[t]||1),1),cashMul=()=>(vip?1.05:1)*(typeof permMult==='function'?permMult():1),totalCps=()=>EQ.reduce((a,k)=>a+cpsOf(k),0)*cashMul();
 function save(){if(!AUTHED||window.__noSave)return;if(typeof acQueue==='function')acQueue();try{UPW.rs[cw]=rsLv;UPW.lk[cw]=lkLv;localStorage.setItem('crSave',JSON.stringify({as:AS,fnd:[...found],cash,dia,own,eq:EQ,eggs:eggsI,w:wUnl,cw,mute:muted,rs:UPW.rs[0],up:UPW,ws:wSeen,pend:Math.floor(pend*100)/100,pods,play:Math.floor(playS),rolls:rollsT,vip,vu:vipUntil,lp:lpods,joined,skOwn,skEq,fe:FE,cl:claimed.slice(-200),fuse}))}catch(e){}}
 function addPet(n,c=1){own[n]=(own[n]||0)+c;found.add(bn(n));save();renderIdx();if($('inv').classList.contains('open'))renderInv()}
 function updHud(){const c=totalCps();$('hc').textContent=fmt(cash);$('hdia').textContent=fmt(dia);$('hcs').textContent=fmt(c)+'/s';const iv=$('icv');if(iv)iv.textContent='💰 '+fmt(c)+' /s'}
@@ -3563,13 +3585,8 @@ const PITY_E=100,PITY_L=1000;let PTY=J('crPity',{e:0,l:0});
 (function(){const c=document.createElement('div');c.id='pityc';c.innerHTML='<i></i><span></span><div class="pb"><u></u></div>';$('game').appendChild(c)})();
 function pityUpd(){const c=$('pityc');if(!c)return;const left=Math.max(0,PITY_E-PTY.e);c.querySelector('span').innerHTML=left<=1?'<b>Nächster Roll: Epic+ garantiert!</b>':'Epic+ garantiert in <b>'+left+'</b> Rolls';c.querySelector('u').style.width=Math.min(100,PTY.e/PITY_E*100)+'%';c.classList.toggle('hot',left<=10)}
 pityUpd();
-/* ---------- Reveal-Show bei seltenen Pets ---------- */
-(function(){const w=document.createElement('div');w.id='rfx';$('stage').appendChild(w)})();
-function rareFx(ri,k,tr){const col=R[ri][1],big=ri>=6||tr.includes('diamond')||tr.includes('rainbow'),w=$('rfx'),mu=tr.find(t=>t=='rainbow'||t=='diamond'),name=((mu&&ri<4)?(MUTN[mu]||mu):R[ri][0]).toUpperCase()+'!';
- w.className='';void w.offsetWidth;w.style.setProperty('--c',col);w.innerHTML=`<i class="rf1"></i><i class="rf2"></i><div class="rft">${name}</div><div class="rfs">${esc(sn(P[k][0]))}</div>`+[...Array(big?30:16)].map(()=>`<b class="rfp" style="--a:${Math.random()*360}deg;--d:${(120+Math.random()*220).toFixed(0)}px;animation-delay:${(Math.random()*.3).toFixed(2)}s"></b>`).join('');
- w.className='on'+(big?' big':'');stg.classList.remove('rshk');void stg.offsetWidth;stg.classList.add('rshk');setTimeout(()=>stg.classList.remove('rshk'),900);
- clearTimeout(rareFx.t);rareFx.t=setTimeout(()=>{w.className=''},big?2600:1900)}
-(function(){const a0=addPet;addPet=function(n,c,silent){a0(n,c,silent);try{if(silent||stg.classList.contains('tut'))return;const k=pi(bn(n));if(k<0)return;const ri=P[k][1],tr=trk(n);if(ri>=4||tr.includes('diamond')||tr.includes('rainbow'))rareFx(ri,k,tr)}catch(e){}}})();
+/* Reveal-Show (Sondertext, Stage-Shake, Zoom) wurde entfernt: Die Roll-Ansicht bleibt bei jedem Ergebnis identisch. */
+function rareFx(){}
 /* ---------- Index-Belohnungen ---------- */
 function idxKeys(t){return t==5?[]:t<4?idxList(t):SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0))}
 function irwFx(){const b=$('irw');if(!b)return;b.classList.remove('clm');void b.offsetWidth;b.classList.add('clm');for(let i=0;i<14;i++){const e=document.createElement('i');e.className='irsp';e.style.setProperty('--a',(i*25.7)+'deg');e.style.setProperty('--d',(40+Math.random()*60|0)+'px');b.appendChild(e);setTimeout(()=>e.remove(),1000)}}
@@ -3847,4 +3864,103 @@ function pfRender(d){d=d||pfD||pfSelf();pfD=d;const c=$('pfc'),sk=d.skin||'basic
  const r=c.querySelector('.pfr');if(r)r.scrollTop=0}
 (function(){const pf=$('pf');pf.insertAdjacentHTML('afterbegin','<svg class="shbk pfic" viewBox="0 0 64 64"><polygon points="8,34 22,20 36,34 36,56 8,56" fill="#2fb4ff" stroke="#111" stroke-width="4" stroke-linejoin="round"/><polygon points="22,20 36,34 22,56 8,34" fill="#7fd8ff"/><polygon points="34,26 46,14 58,26 58,52 34,52" fill="#1a8cff" stroke="#111" stroke-width="4" stroke-linejoin="round"/><path d="M40,10 L44,2 L48,8 L52,2 L54,12Z" fill="#ffc21a" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg><h1 class="pft out">Spieler-Profil</h1>')})();
 (function(){const s=$('sk');if(s){const h=s.querySelector('h1');if(h)h.textContent='Skins'}})();
+/* ===== Roll-Ansicht: einheitliches Layout – Traits, Name, Seltenheit OBERHALB des Pets, Mutation darunter ===== */
+function rollTag(s,t,k,tr){const key=mkKey('x',tr),trs=traitsOf(key),mu=mutOf(key),ri=P[k][1];
+ t.innerHTML=trs.length?'<div class="tri">'+triHTML(trs)+'</div>':'';
+ let t2=s.querySelector('.tag2');if(!t2){t.insertAdjacentHTML('afterend','<div class="tag2"></div>');t2=s.querySelector('.tag2')}
+ let t3=s.querySelector('.tag3');if(!t3){t2.insertAdjacentHTML('afterend','<div class="tag3"></div>');t3=s.querySelector('.tag3')}
+ t2.innerHTML=`<b>${esc(P[k][0])}</b><small style="color:${R[ri][1]}">${ri>=8?'EXCLUSIVE':R[ri][0].toUpperCase()}</small>`;
+ t3.innerHTML=mu?`<i class="mlb m-${mu}">${(MUTN[mu]||mu).toUpperCase()}</i>`:''}
+document.querySelectorAll('#plats .plat').forEach(s=>{const t=s.querySelector('.tag');if(!t)return;if(!s.querySelector('.tag2'))t.insertAdjacentHTML('afterend','<div class="tag2"></div>');if(!s.querySelector('.tag3'))s.querySelector('.tag2').insertAdjacentHTML('afterend','<div class="tag3"></div>')});
+/* ================= HALLOWEEN-EVENT ================= */
+/* Halloween ist ein TRAIT (kein Mutation): TM.halloween = 3, gespeichert im Pet-Key wie Samurai (z. B. "Dog#golden+halloween").
+   Der Multiplikator greift ausschliesslich in cpsOf() (Produkt über die EINZIGARTIGEN Traits des Keys) → kann nie doppelt zählen. */
+TI.halloween='<svg viewBox="0 0 24 24"><path d="M12,5.2 C12.2,3.6 13,2.6 14.4,2.2" fill="none" stroke="#3a7a1a" stroke-width="2" stroke-linecap="round"/><ellipse cx="7.6" cy="13.6" rx="5.4" ry="7.6" fill="#e86a0a" stroke="#6a2a00" stroke-width="1.3"/><ellipse cx="16.4" cy="13.6" rx="5.4" ry="7.6" fill="#e86a0a" stroke="#6a2a00" stroke-width="1.3"/><ellipse cx="12" cy="13.6" rx="4.6" ry="8" fill="#ff9a1a" stroke="#6a2a00" stroke-width="1.3"/><path d="M8.4,12 l2,-2.6 l1.6,2.6z M13.6,12 l-1.6,-2.6 l3.2,0z" fill="#3a1200"/><path d="M8.6,16.4 l1.4,1.4 l1,-1.2 l1,1.2 l1.4,-1.4 l1.1,1.8 q-3.5,2.2 -7,0z" fill="#3a1200"/></svg>';
+TM.halloween=3;MUTN.halloween='Halloween';
+if(typeof MUTS!=='undefined'&&!MUTS.includes('halloween'))MUTS.push('halloween');   /* Admin „Next Roll“ darf den Trait erzwingen */
+
+/* ---------- Geometrie (Augen + Kopf) ---------- */
+/* Illustrationspets: Augen/Kopf kommen aus ILB(slug).f/.top, Feintuning in HWO: {cx,by,W,t(ilt),e:[[x,y]...],r}
+   Sonderpets (ohne ILB): HWG[index] = Liste von Köpfen [[x1,x2,ey,er, cx,by,W]] */
+const HWG={
+ 50:[[35.5,59.5,38,3.4,48,27,50]],51:[[35.5,58,38,3.4,47,26,48]],52:[[35.5,58.8,38,3.4,47,27,46]],53:[[35.5,58,37,3.6,47,25,54]],
+ 54:[[33.6,61.8,37,3.6,47,29,48]],55:[[34.4,62,35,3.6,48,25,54]],
+ 56:[[33.6,60.7,32.7,3.2,48,19,50]],57:[[34.7,59.2,44.6,3.2,48,22,54]],58:[[29,65,43.5,3.4,47,26,52]],59:[[31.7,61,27,3.4,47,17,50]],
+ 60:[[40,56,10,2.8,48,2,24],[8.4,19.8,24.6,2.4,14,16,22],[76,88,24.6,2.4,82,16,22]],
+ 61:[[35.5,58.4,34,3.4,47,22,44]],62:[[37,58.4,51.5,5.4,47.7,35,40]],63:[[36,55,49,5,47.7,30,50]],64:[[38,56,47.7,4.5,47.7,25,46]]};
+const HWO={33:{cx:50,by:17,W:34},46:{cx:50,by:15,W:46,t:-4}};
+function hwHeads(k){const o=P[k][2];
+ if(HWG[k])return HWG[k];
+ if(!o.ill)return null;const d=ILB(o.ill);if(!d)return null;const [x1,x2,ey,er]=d.f,top=d.top,ov=HWO[k]||{};
+ const prof=(x2-x1)<12,cx=ov.cx!=null?ov.cx:(prof?x1+3.5:(x1+x2)/2),W=ov.W||(prof?Math.max(26,er*8.5):Math.max(32,(x2-x1)+er*7)),by=ov.by!=null?ov.by:ey-er*(prof?3.3:2.6);
+ return [[x1,prof?null:x2,ey,ov.r||er,cx,by,W,ov.t]]}
+/* ---------- Zeichnen ---------- */
+let hwGid=0;
+function hwEye(x,y,r,id){return `<g class="hwe"><circle cx="${x}" cy="${y}" r="${(r*2.6).toFixed(1)}" fill="url(#${id})" class="pu"/><circle cx="${x}" cy="${y}" r="${(r*1.22).toFixed(2)}" fill="#ff1c10" stroke="#3a0000" stroke-width="${(r*.28).toFixed(2)}"/><circle cx="${x}" cy="${y}" r="${(r*.82).toFixed(2)}" fill="#ff5a34"/><ellipse cx="${x}" cy="${y}" rx="${(r*.2).toFixed(2)}" ry="${(r*.62).toFixed(2)}" fill="#1c0000"/><circle cx="${(x-r*.38).toFixed(2)}" cy="${(y-r*.42).toFixed(2)}" r="${(r*.26).toFixed(2)}" fill="#fff" opacity=".95"/></g>`}
+function hwHat(cx,by,W,t){const s=W,rx=s*.5,ry=s*.115,L=cx-s*.27,R=cx+s*.27,top=by-s*.74,id='hwh'+(hwGid++);
+ const cone=`M${L.toFixed(1)},${(by-ry*.2).toFixed(1)} C${(cx-s*.2).toFixed(1)},${(by-s*.34).toFixed(1)} ${(cx-s*.1).toFixed(1)},${(by-s*.52).toFixed(1)} ${(cx-s*.01).toFixed(1)},${(by-s*.64).toFixed(1)} C${(cx+s*.03).toFixed(1)},${(by-s*.72).toFixed(1)} ${(cx+s*.16).toFixed(1)},${(by-s*.8).toFixed(1)} ${(cx+s*.3).toFixed(1)},${(by-s*.7).toFixed(1)} C${(cx+s*.22).toFixed(1)},${(by-s*.64).toFixed(1)} ${(cx+s*.17).toFixed(1)},${(by-s*.52).toFixed(1)} ${(cx+s*.2).toFixed(1)},${(by-s*.4).toFixed(1)} C${(cx+s*.23).toFixed(1)},${(by-s*.28).toFixed(1)} ${R.toFixed(1)},${(by-s*.12).toFixed(1)} ${R.toFixed(1)},${(by-ry*.2).toFixed(1)}Z`;
+ const bT=by-s*.2,bB=by-s*.07,sw=Math.max(1,s*.045);
+ return `<g class="hwh" transform="rotate(${t==null?-5:t} ${cx.toFixed(1)} ${by.toFixed(1)})"><defs><linearGradient id="${id}" x1="0" x2="1"><stop offset="0" stop-color="#6a3aa8"/><stop offset=".55" stop-color="#3a1a62"/><stop offset="1" stop-color="#22103e"/></linearGradient></defs>
+ <ellipse cx="${cx.toFixed(1)}" cy="${(by+ry*.5).toFixed(1)}" rx="${(rx*.92).toFixed(1)}" ry="${(ry*.8).toFixed(1)}" fill="#000" opacity=".22"/>
+ <ellipse cx="${cx.toFixed(1)}" cy="${by.toFixed(1)}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" fill="#2c1450" stroke="#140826" stroke-width="${sw.toFixed(2)}"/>
+ <ellipse cx="${cx.toFixed(1)}" cy="${(by-ry*.18).toFixed(1)}" rx="${(rx*.9).toFixed(1)}" ry="${(ry*.72).toFixed(1)}" fill="none" stroke="#7a4ac0" stroke-width="${(sw*.5).toFixed(2)}" opacity=".7"/>
+ <path d="${cone}" fill="url(#${id})" stroke="#140826" stroke-width="${sw.toFixed(2)}" stroke-linejoin="round"/>
+ <path d="M${(cx-s*.2).toFixed(1)},${(by-s*.3).toFixed(1)} C${(cx-s*.14).toFixed(1)},${(by-s*.46).toFixed(1)} ${(cx-s*.08).toFixed(1)},${(by-s*.54).toFixed(1)} ${(cx-s*.03).toFixed(1)},${(by-s*.6).toFixed(1)}" fill="none" stroke="#a07ae0" stroke-width="${(sw*.7).toFixed(2)}" stroke-linecap="round" opacity=".55"/>
+ <path d="M${(cx-s*.255).toFixed(1)},${bB.toFixed(1)} Q${cx.toFixed(1)},${(bB+ry*.9).toFixed(1)} ${(cx+s*.255).toFixed(1)},${bB.toFixed(1)} L${(cx+s*.235).toFixed(1)},${bT.toFixed(1)} Q${cx.toFixed(1)},${(bT+ry*.8).toFixed(1)} ${(cx-s*.235).toFixed(1)},${bT.toFixed(1)}Z" fill="#ff8a1a" stroke="#6a2a00" stroke-width="${(sw*.8).toFixed(2)}" stroke-linejoin="round"/>
+ <rect x="${(cx-s*.055).toFixed(1)}" y="${(bT+ry*.12).toFixed(1)}" width="${(s*.11).toFixed(1)}" height="${(bB-bT+ry*.55).toFixed(1)}" rx="${(s*.012).toFixed(1)}" fill="#ffd23a" stroke="#6a4a00" stroke-width="${(sw*.7).toFixed(2)}"/><rect x="${(cx-s*.025).toFixed(1)}" y="${(bT+ry*.5).toFixed(1)}" width="${(s*.05).toFixed(1)}" height="${(bB-bT-ry*.1).toFixed(1)}" fill="#3a1a62"/></g>`}
+function hwFront(k){const hs=hwHeads(k);if(!hs)return '';const id='hwg'+(hwGid++);
+ let f=`<defs><radialGradient id="${id}"><stop offset="0" stop-color="#ff2a10" stop-opacity=".85"/><stop offset=".45" stop-color="#ff2a10" stop-opacity=".3"/><stop offset="1" stop-color="#ff2a10" stop-opacity="0"/></radialGradient></defs>`;
+ for(const h of hs){const [x1,x2,ey,er,cx,by,W,t]=h;f+=hwEye(x1,ey,er,id);if(x2!=null)f+=hwEye(x2,ey,er,id);f+=hwHat(cx,by,W,t)}
+ return `<g class="hwf">${f}</g>`}
+/* Samurai-Strohhut entfällt, wenn der Hexenhut getragen wird (nie zwei Hüte) */
+const HWC={};
+(function(){const prev=SVT;SVT=function(k,tr){if(!tr.includes('halloween'))return prev(k,tr);
+ const key=k+'~hw~'+tr.join('+');if(HWC[key])return HWC[key];
+ let s=prev(k,tr.filter(t=>t!='halloween'));const fr=hwFront(k);
+ s=s.replace(/<g class="smh">[\s\S]*?<\/g>/,'');
+ if(!P[k][2].ill)s=s.replace(/viewBox="-8 -12 116 114"/,'viewBox="-8 -24 116 126"');
+ s=s.replace(/<\/svg>\s*$/,fr+'</svg>');
+ s=s.replace('<svg ','<svg data-hw="1" ');
+ return HWC[key]=s}})();
+
+/* ---------- Event-Zustand (Admin → Firestore events/halloween {on,p,ts,by}) ---------- */
+const HW_DEF_P=10;                       /* Standard-Chance in %, solange der Admin nichts gespeichert hat */
+const HW_ASSETS={bg:'',music:''};        /* SPÄTER: bg = Bild-URL/Data-URI des Halloween-Hintergrunds, music = Audio-URL (oder EVAUD.halloween = Base64-MP3) */
+window.setHalloweenAssets=o=>{Object.assign(HW_ASSETS,o||{});hwBgApply();if(hwOn())hwTick(true)};
+function hwCfg(){const d=(typeof EV!=='undefined'&&EV&&EV.halloween)||{},p=+d.p;return{on:d.on===true,p:isFinite(p)&&d.p!==''&&d.p!=null?Math.min(100,Math.max(0,p)):HW_DEF_P}}
+const hwOn=()=>hwCfg().on;
+/* Roll: Trait nur bei aktivem Event, Chance aus dem Admin-Panel. Basis-Roll (Mutationen/Samurai) bleibt unverändert. */
+(function(){const prev=rollTraits;rollTraits=function(){const t=prev();try{const c=hwCfg();if(c.on&&c.p>0&&Math.random()<c.p/100&&!t.includes('halloween'))t.push('halloween')}catch(e){}return t}})();
+
+/* ---------- Atmosphäre ---------- */
+const HW_BAT='<svg viewBox="0 0 40 20"><path d="M20,6 C17,2 11,1 2,4 C6,6 6,10 8,13 C11,10 14,10 16,13 C17,15 18.4,16 20,19 C21.6,16 23,15 24,13 C26,10 29,10 32,13 C34,10 34,6 38,4 C29,1 23,2 20,6Z" fill="#12061f"/></svg>';
+const HW_PUMP='<svg viewBox="0 0 40 36"><path d="M20,9 C20,5 22,3 25,2" fill="none" stroke="#2f6a14" stroke-width="3" stroke-linecap="round"/><ellipse cx="11" cy="21" rx="9" ry="12" fill="#d85a08" stroke="#3a1400" stroke-width="1.6"/><ellipse cx="29" cy="21" rx="9" ry="12" fill="#d85a08" stroke="#3a1400" stroke-width="1.6"/><ellipse cx="20" cy="21" rx="8" ry="13" fill="#ff8a14" stroke="#3a1400" stroke-width="1.6"/><path d="M12,19 l4,-5 l3,5z M28,19 l-3,-5 l-4,5z" fill="#ffe14a" class="hwgl"/><path d="M12,26 l3,3 l2.5,-2.5 l2.5,2.5 l2.5,-2.5 l3,3 l2,-3.5 q-8,5 -16,0z" fill="#ffe14a" class="hwgl"/></svg>';
+(function(){const g=$('game');if(!g||$('hwbg'))return;const d=document.createElement('div');d.id='hwbg';
+ d.innerHTML='<i class="hwimg"></i><i class="hwt"></i><i class="hwmoon"></i><i class="hwfog a"></i><i class="hwfog b"></i>'+[[8,16,1,26],[52,10,.8,34],[30,30,.7,41],[72,22,.9,29],[90,12,.6,37]].map(([x,y,s,dl],k)=>`<span class="hwbat" style="left:${x}%;top:${y}%;--s:${s};animation-delay:-${(k*3.7).toFixed(1)}s;animation-duration:${22+dl%9}s">${HW_BAT}</span>`).join('')+`<span class="hwp" style="left:31%">${HW_PUMP}</span><span class="hwp r" style="left:67%">${HW_PUMP}</span><i class="hwvig"></i>`;
+ const w=$('worlds');(w&&w.parentNode===g)?w.after(d):g.prepend(d)})();
+function hwBgApply(){const e=$('hwbg');if(!e)return;e.style.setProperty('--hw-bg',HW_ASSETS.bg?`url("${HW_ASSETS.bg}")`:'none');e.classList.toggle('img',!!HW_ASSETS.bg)}
+hwBgApply();
+/* HUD-Symbol */
+function hwChip(on){const box=$('evb');if(!box)return;let el=$('evi_halloween');if(on&&!el){el=document.createElement('div');el.id='evi_halloween';el.className='evi';el.innerHTML=`<div class="evic" style="background:linear-gradient(#ff9a1a,#4a1a7a)" title="Halloween Event">${TI.halloween}</div><b class="evt">HALLOWEEN</b>`;box.appendChild(el);requestAnimationFrame(()=>el.classList.add('on'))}
+ else if(!on&&el&&!el.classList.contains('off')){el.classList.add('off');el.classList.remove('on');setTimeout(()=>el.remove(),600)}}
+/* Musik: nutzt den vorhandenen Event-Musik-Manager (EM); die normale Musik wird nur gedimmt und danach automatisch wiederhergestellt. */
+const hwMusicOk=()=>!!(HW_ASSETS.music||(typeof EVAUD!=='undefined'&&EVAUD.halloween));
+(function(){const l0=emLoad;emLoad=function(id){if(id!=='halloween')return l0(id);if(EM.buf[id])return EM.buf[id];return EM.buf[id]=(async()=>{let ab;if(typeof EVAUD!=='undefined'&&EVAUD.halloween){const bin=atob(EVAUD.halloween),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);ab=u.buffer}else ab=await (await fetch(HW_ASSETS.music)).arrayBuffer();return await AC.decodeAudioData(ab)})()};
+ const s0=emSet;emSet=function(id){if(!id&&hwOn()&&hwMusicOk())id='halloween';return s0(id)}})();
+let hwLast=null;
+function hwTick(force){const on=hwOn();if(on===hwLast&&!force)return;const first=hwLast===null;hwLast=on;
+ stg.classList.toggle('evH',on);const bg=$('hwbg');if(bg)bg.classList.toggle('on',on);hwChip(on);
+ if(!first&&!force){try{msg(on?'🎃 Halloween-Event gestartet! Neue Pets können jetzt den Halloween-Trait erhalten (×3 Cash).':'🎃 Halloween-Event beendet. Bestehende Halloween-Pets behalten ihren Trait.')}catch(e){}}
+ try{if(hwMusicOk()&&typeof AC!=='undefined'&&AC&&typeof BUS!=='undefined'&&BUS&&AC.state==='running'){const hmm=EM.cur;if(on&&!hmm)emSet(null);else if(!on&&hmm==='halloween')emSet(null)}}catch(e){}}
+setInterval(hwTick,500);hwTick();
+
+/* ---------- Admin-Panel: Halloween-Steuerung (Tab EVENTS) ---------- */
+(function(){const a0=admRender;admRender=function(){a0();if(admTab!='ev')return;const c=$('amc');if(!c||$('hwa'))return;
+ c.insertAdjacentHTML('beforeend',`<div class="aev hwa" id="hwa"><div class="evic" style="background:linear-gradient(#ff9a1a,#4a1a7a)">${TI.halloween}</div><div class="aen"><b>HALLOWEEN EVENT</b><small id="hws">Inaktiv</small></div><label>Trait-Chance (%)</label><input class="aed" id="hwp" type="number" min="0" max="100" step="0.1" placeholder="%"><button class="btn aeb" id="hwsv">SPEICHERN</button><button class="btn aeb" id="hwtg">AKTIVIEREN</button></div>`);
+ const inp=$('hwp');inp.value=String(+hwCfg().p.toFixed(2));
+ const pv=()=>{const v=inp.value.trim();const n=+v;if(v===''||!isFinite(n)||n<0||n>100){snd('err');msg('Chance muss zwischen 0 und 100 % liegen');return null}return n};
+ const save=async on=>{if(!isAdmin()){snd('err');msg('Keine Berechtigung');return}const p=pv();if(p===null)return;
+  try{const d={on,p,ts:Date.now(),by:LB.uid||''};await LB.db.doc('events/halloween').set(d);EV=Object.assign({},EV,{halloween:d});hwTick();admTick();snd('buy');msg('✓ Halloween gespeichert · '+(on?'aktiv':'inaktiv')+' · '+p+' %')}catch(e){snd('err');msg('Keine Berechtigung')}};
+ $('hwsv').onclick=()=>save(hwCfg().on);$('hwtg').onclick=()=>save(!hwCfg().on);admTick()}})();
+(function(){const t0=admTick;admTick=function(){t0();if(admTab!='ev')return;const s=$('hws'),b=$('hwtg');if(!s)return;const c=hwCfg();s.textContent=c.on?'Aktiv · Trait-Chance '+(+c.p.toFixed(2))+' %':'Inaktiv · keine neuen Halloween-Traits';s.className=c.on?'on':'';if(b){b.textContent=c.on?'DEAKTIVIEREN':'AKTIVIEREN';b.classList.toggle('gr',c.on)}}})();
 </script></body></html>
