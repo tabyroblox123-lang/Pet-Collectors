@@ -1396,7 +1396,7 @@ svg[data-m~="rainbow"]{filter:url(#rbf) drop-shadow(0 0 5px rgba(255,255,255,.8)
 .pzgrid{top:200px}
 
 /* ===== v12: Pity, Reveal, Index-Belohnung, Events, Rebirth, Diamant ===== */
-#pityc{position:absolute;left:50%;top:352px;transform:translateX(-50%);z-index:4;min-width:190px;padding:3px 12px 5px;border-radius:12px;background:rgba(10,14,40,.72);border:2px solid rgba(255,255,255,.25);text-align:center;font-size:12px;color:#dfe6ff;pointer-events:none;transition:.3s}
+#pityc{position:absolute;left:50%;top:76px;transform:translateX(-50%);z-index:4;min-width:190px;padding:3px 12px 5px;border-radius:12px;background:rgba(10,14,40,.72);border:2px solid rgba(255,255,255,.25);text-align:center;font-size:12px;color:#dfe6ff;pointer-events:none;transition:.3s}
 #pityc i{display:none}#pityc b{color:#ffd34d}
 #pityc .pb{height:5px;margin-top:3px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
 #pityc .pb u{display:block;height:100%;width:0;background:linear-gradient(90deg,#6fe4ff,#b06bff);transition:width .4s;text-decoration:none}
@@ -1439,17 +1439,129 @@ svg[data-m~="rainbow"]{filter:url(#rbf) drop-shadow(0 0 5px rgba(255,255,255,.8)
 #rbx .rbl{font-size:12px;line-height:1.5}
 .tipb{position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:60;max-width:430px;padding:8px 14px;border-radius:12px;background:#1b2250;border:2px solid #6fe4ff;color:#fff;font-size:13px;text-align:center;box-shadow:0 0 18px rgba(80,200,255,.5);pointer-events:none}
 svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(3) brightness(1.3) drop-shadow(0 0 6px #7ff)}
+
+/* ===== v13: Neues Inventar / Index / Daily Rewards ===== */
+:root{--paw:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cg fill='%23e6e9f1'%3E%3Ccircle cx='20' cy='22' r='4'/%3E%3Ccircle cx='30' cy='18' r='4'/%3E%3Ccircle cx='39' cy='24' r='3.6'/%3E%3Cpath d='M22,34 q8,-8 16,0 q3,8 -8,8 q-11,0 -8,-8z'/%3E%3C/g%3E%3C/svg%3E")}
+#inv,#idx{position:absolute!important;left:50px!important;top:44px!important;right:auto!important;bottom:auto!important;width:622px!important;height:340px!important;z-index:30;background:#fff!important;border:4px solid #141a2c!important;border-radius:14px!important;box-shadow:0 10px 40px rgba(0,0,0,.55)!important;overflow:visible!important;transform:translateY(500px)!important;pointer-events:auto!important;transition:transform .38s cubic-bezier(.2,1.1,.3,1)!important}
+#inv.open,#idx.open{transform:none!important}
+#inv::before,#idx::before,#drw::before{content:""!important;position:absolute;left:-9px;bottom:-9px;width:26px;height:26px;border:6px solid #fff;border-top:0;border-right:0;border-radius:0 0 0 12px;background:none!important;inset:auto!important;filter:drop-shadow(2px 0 0 #141a2c) drop-shadow(-2px 0 0 #141a2c) drop-shadow(0 2px 0 #141a2c);pointer-events:none;z-index:6;left:-9px!important;bottom:-9px!important;top:auto!important;right:auto!important;width:26px!important;height:26px!important}
+#inv::after,#idx::after,#drw::after{content:"";position:absolute;right:-9px;bottom:-9px;width:26px;height:26px;border:6px solid #fff;border-top:0;border-left:0;border-radius:0 0 12px 0;filter:drop-shadow(2px 0 0 #141a2c) drop-shadow(-2px 0 0 #141a2c) drop-shadow(0 2px 0 #141a2c);pointer-events:none;z-index:6}
+.nvt{position:absolute;left:-24px;top:-30px;z-index:6;display:flex;align-items:center;pointer-events:none}
+.nvt>i{display:block;width:62px;height:62px;margin-right:-4px;position:relative;filter:drop-shadow(0 3px 0 rgba(0,0,0,.3))}.nvt>i svg{width:100%;height:100%;overflow:visible}
+.nvt h1{margin:8px 0 0;font-weight:400;font-size:40px;line-height:1;color:#fff;-webkit-text-stroke:8px #141a2c;paint-order:stroke fill;letter-spacing:.5px;text-shadow:0 4px 0 #141a2c;white-space:nowrap}
+.nvx{position:absolute;right:-14px;top:-16px;width:44px;height:36px;z-index:7;display:flex;align-items:center;justify-content:center;background:linear-gradient(#ff5a5a,#d41a1a);border:4px solid #141a2c;border-radius:7px;cursor:pointer;box-shadow:inset 0 -5px 0 rgba(0,0,0,.25);transition:transform .15s}
+.nvx:hover{transform:scale(1.08);filter:brightness(1.1)}.nvx:active{transform:scale(.92)}.nvx svg{width:20px;height:20px;display:block}
+.nvb{position:absolute;inset:0;display:flex;border-radius:9px;overflow:hidden;background:#fff var(--paw)}
+#inv .nvb{bottom:56px;border-radius:9px 9px 0 0}
+.nvrail{width:64px;flex:none;margin:22px 0 6px 10px;padding:3px 0;border-radius:16px;background:#e6e8ef;display:flex;flex-direction:column;align-items:center;gap:2px;overflow-y:auto;scrollbar-width:none}
+.nvr{position:relative;width:54px;padding:2px 0 1px;border-radius:12px;text-align:center;cursor:pointer;border:3px solid transparent;flex:none;transition:.15s}
+.nvr:hover{background:rgba(255,255,255,.7)}
+.nvr i{display:block;width:27px;height:27px;margin:0 auto}.nvr i svg{width:100%;height:100%;overflow:visible}
+.nvr b{display:block;font-weight:400;font-size:10px;line-height:11px;color:#2a3150}
+.nvr u{position:absolute;right:-3px;top:-3px;min-width:16px;height:16px;padding:0 3px;border-radius:8px;background:#ff3b3b;color:#fff;font-size:10px;line-height:16px;text-decoration:none;border:2px solid #fff}
+.nvr.on{background:#fff;border-color:#3ad24a;box-shadow:0 0 10px rgba(58,210,74,.6)}
+.nvrail .nvr:last-child:not(:only-child){margin-top:auto}
+#nxRail .nvr:last-child{margin-top:0}
+.nvmain{flex:1;min-width:0;display:flex;flex-direction:column;padding:10px 12px 6px 10px}
+.nvhead{display:flex;align-items:center;gap:10px;height:28px;flex:none}
+.nvhead b{font-weight:400;font-size:21px;line-height:1;color:#fff;-webkit-text-stroke:5px #141a2c;paint-order:stroke fill;white-space:nowrap}
+.nvhead b span{-webkit-text-stroke:5px #141a2c;paint-order:stroke fill}
+.nvhead .ln{flex:1;height:3px;border-radius:2px;background:linear-gradient(90deg,transparent,#b4b9c8 40%,#b4b9c8 60%,transparent)}
+.nvpl{width:28px;height:28px;border-radius:8px;border:3px solid #141a2c;background:linear-gradient(#6df05a,#27b82a);color:#fff;font:inherit;font-size:20px;line-height:18px;cursor:pointer;padding:0;box-shadow:inset 0 -3px 0 rgba(0,0,0,.2)}
+#nvSlots{display:flex;justify-content:center;gap:14px;flex:none;margin:2px 0 4px;height:66px}
+#inv.spv #nvEqh{display:none}
+.nvc{position:relative;aspect-ratio:1;border-radius:12px;cursor:pointer;transition:transform .15s}
+.nvc:hover{transform:translateY(-2px) scale(1.04)}
+.nvc::before{content:"";position:absolute;inset:9% 5% 5% 12%;border-radius:13px;background:#d8dbe4;transform:skewX(-7deg);z-index:0}
+.nvc.qd::before{background:#a2e75e}
+.nvc::after{content:"";position:absolute;left:20%;right:20%;bottom:4px;height:4px;border-radius:3px;background:var(--c,#aaa);z-index:1;opacity:.95}
+.nvp{position:absolute;inset:5% 8% 14% 8%;z-index:1;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 3px 0 rgba(0,0,0,.16))}
+.nvp svg{width:100%;height:100%;overflow:visible}
+.nvq,.nvw{position:absolute;z-index:3;font-weight:400;font-size:16px;line-height:1;color:#fff;-webkit-text-stroke:4px #141a2c;paint-order:stroke fill}
+.nvq{right:3px;top:1px}.nvw{right:3px;bottom:5px}
+.nvst{position:absolute;left:-4px;top:-5px;width:24px;height:24px;z-index:4;filter:drop-shadow(0 1px 0 rgba(0,0,0,.3))}
+.nvtr{position:absolute;left:3px;bottom:7px;z-index:3;display:flex;gap:1px;font-size:11px}
+.nvtr .ti{width:15px;height:15px;font-size:11px}.nvtr .ti svg{width:100%;height:100%}
+.nvc.sl{width:64px;height:64px;aspect-ratio:auto}
+.nvc.sl.em{border:3px dashed #b4b9c8;border-radius:12px;display:flex;align-items:center;justify-content:center}.nvc.sl.em::before,.nvc.sl.em::after{display:none}
+.nvc.sl.em .pl{font-style:normal;font-size:28px;color:#b4b9c8}
+.nvc.sel{outline:3px solid #ffd23a;outline-offset:2px}
+.nvu{position:absolute;right:-5px;top:-5px;z-index:5;width:18px;height:18px;border-radius:50%;background:#ff4a4a;border:2px solid #141a2c;color:#fff;font-size:10px;line-height:14px;text-align:center;text-decoration:none;cursor:pointer}
+.nvgrid{flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:repeat(7,1fr);gap:6px;align-content:start;padding:6px 4px 8px;scrollbar-width:thin}
+.nvgrid.hint{animation:nvh .9s}@keyframes nvh{30%{box-shadow:inset 0 0 0 4px #6df05a;border-radius:12px}}
+.nvno{grid-column:1/-1;text-align:center;padding:28px 10px;color:#6a7088;font-size:15px;line-height:1.35}
+.nvc.spn .nvp{inset:4% 8% 26% 8%}.nvn{position:absolute;left:-4px;right:-4px;bottom:6px;z-index:3;text-align:center;font-size:11px;line-height:1;color:#fff;-webkit-text-stroke:3px #141a2c;paint-order:stroke fill;white-space:nowrap}
+.nvfoot{position:absolute;left:0;right:0;bottom:0;height:56px;display:flex;align-items:center;gap:7px;padding:0 10px;border-radius:0 0 9px 9px;background:#fff var(--paw)}
+.nvbt{width:42px;height:42px;flex:none;border-radius:11px;border:3px solid #141a2c;cursor:pointer;padding:6px;box-shadow:inset 0 -5px 0 rgba(0,0,0,.22);transition:transform .12s}
+.nvbt:hover{transform:translateY(-2px);filter:brightness(1.1)}.nvbt:active{transform:scale(.93)}.nvbt svg{width:100%;height:100%;display:block}
+.nvbt.blue{background:linear-gradient(#4ad2ff,#1a8ae8)}.nvbt.green{background:linear-gradient(#6df05a,#27b82a)}.nvbt.orange{background:linear-gradient(#ffd23a,#ff9a1a)}.nvbt.red{background:linear-gradient(#ff6a6a,#e02a4a)}
+.nvsr{flex:1;min-width:60px;display:flex;align-items:center;gap:8px;height:40px;padding:0 10px;border-radius:12px;background:#e6e8ef}
+.nvsr svg{width:22px;height:22px;flex:none}.nvsr input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:19px;color:#1a2236}.nvsr input::placeholder{color:#9096a8}
+.nvcol{display:flex;align-items:center;gap:6px;height:42px;padding:0 12px 0 8px;border-radius:11px;border:3px solid #141a2c;background:linear-gradient(#ffe066,#f5a623);cursor:pointer;box-shadow:inset 0 -5px 0 rgba(0,0,0,.2);font:inherit;flex:none;transition:transform .12s}
+.nvcol .nvci{width:26px;height:26px;display:block}.nvcol .nvci svg{width:100%;height:100%}
+.nvct{text-align:left;line-height:1}.nvct small{display:block;font-size:9px;color:#6a4200;letter-spacing:.5px}.nvct b{font-weight:400;font-size:17px;color:#fff;-webkit-text-stroke:4px #141a2c;paint-order:stroke fill}
+.nvcol.rdy{background:linear-gradient(#7df05a,#27b82a);animation:nvrd 1.1s ease-in-out infinite}@keyframes nvrd{50%{transform:scale(1.06);box-shadow:inset 0 -5px 0 rgba(0,0,0,.2),0 0 14px #6dff7a}}
+.nvcol.pop{animation:nvpp .5s}@keyframes nvpp{40%{transform:scale(1.15)}}.nvcol.shk{animation:nvsk .3s}@keyframes nvsk{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.nvips{font-size:12px;color:#5a6280;white-space:nowrap;flex:none;min-width:44px;text-align:center}
+.nvtip{position:absolute;z-index:9;transform:translateX(-50%);min-width:130px;max-width:250px;padding:6px 12px 7px;border-radius:12px;background:#fff;border:3px solid #141a2c;text-align:center;pointer-events:none;opacity:0;transition:opacity .12s;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+.nvtip.on{opacity:1}.nvtip h4{margin:0;font-weight:400;font-size:20px;line-height:1.1;color:#1a2236}
+.nvtip em{display:inline-block;font-style:normal;font-size:15px;line-height:1.1;color:var(--c,#999);-webkit-text-stroke:3px #141a2c;paint-order:stroke fill;margin:1px 0 3px}
+.nvtip p{margin:2px 0 0;font-size:14px;color:#3a4260}.nvtip p.tm{color:#9a3ad8}.nvtip p b{font-weight:400;color:#1a2236}
+.nxv{display:flex;gap:4px;justify-content:center;margin:4px 0 2px}.nxv div{width:38px;text-align:center}.nxv div svg{width:34px;height:34px;display:block;margin:0 auto}.nxv div.lk svg{filter:brightness(0)!important}.nxv s{display:block;text-decoration:none;font-size:8px;color:#6a7088;line-height:1}
+.nvc.nx.lk .nvp svg{filter:brightness(0)!important}.nvc.nx.lk::after{background:#9aa0b4}
+.nxq{position:absolute;left:0;right:0;top:20%;z-index:2;text-align:center;font-style:normal;font-size:30px;line-height:1;color:#fff;-webkit-text-stroke:5px #141a2c;paint-order:stroke fill}
+.nxh{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding:2px 4px;border-bottom:3px solid var(--c);color:#1a2236;font-size:16px}.nxh span{width:28px;height:28px;display:block}.nxh span svg{width:100%;height:100%}.nxh i{margin-left:auto;font-style:normal;color:#6a7088}
+#nxW{flex:1;min-height:0;display:flex;flex-direction:column}
+#irw{position:static!important;flex:none;height:38px!important;margin:3px 4px 0;background:#eef0f7!important;border:3px solid #cdd2e4!important;color:#3a4260!important;box-shadow:none;animation:none}
+#irw .irt b{color:#1a2236!important}#irw .irt small{color:#6a7088!important}#irw .irr{color:#b8700a!important}
+#irw.rdy{border-color:#ffb02e!important;background:#fff6dc!important;animation:pityp2 1.2s ease-in-out infinite!important}#irw.dn{opacity:.8;border-color:#7ed08a!important}
+#invBtn{position:absolute;left:50%;bottom:3px;width:52px;height:52px;margin-left:-26px;z-index:6;cursor:pointer;filter:drop-shadow(0 3px 2px rgba(0,0,0,.35));-webkit-box-reflect:below -3px linear-gradient(transparent 60%,rgba(255,255,255,.35));transition:transform .15s}
+#invBtn svg{width:100%;height:100%;display:block;overflow:visible}
+#invBtn:hover{transform:translateY(-3px) scale(1.08)}#invBtn:active{transform:scale(.94)}
+#stage.tut:not(.s1):not(.s2):not(.s3) #invBtn{visibility:hidden}
+#ibadge{right:-14px!important;top:-8px!important}
+/* Daily Rewards */
+#drw{position:absolute;left:56px;top:50px;width:610px;height:312px;z-index:30;background:#fff;border:4px solid #141a2c;border-radius:12px;opacity:0;pointer-events:none;transform:scale(.8);transition:transform .32s cubic-bezier(.2,1.3,.3,1),opacity .2s;overflow:visible}
+#drw.open{opacity:1;pointer-events:auto;transform:none}
+#drw.boom{animation:drbm .45s}@keyframes drbm{40%{transform:scale(1.03)}}
+#drw .nvt{left:-26px;top:-34px}.drcal{position:relative}.drcal b{position:absolute;left:0;right:0;top:20px;text-align:center;font-weight:400;font-size:26px;line-height:1;color:#fff;-webkit-text-stroke:5px #141a2c;paint-order:stroke fill;transform:rotate(-10deg)}
+.drm{position:absolute;inset:0;display:flex;border-radius:8px;overflow:hidden;background:#fff var(--paw)}
+.drl{flex:1.65;padding:12px 10px 10px 14px;display:flex;flex-direction:column}
+#drH{margin:20px 0 10px;text-align:center;font-weight:400;font-size:23px;white-space:nowrap;line-height:1;color:#a4f24a;-webkit-text-stroke:7px #2a7a14;paint-order:stroke fill;letter-spacing:.5px}
+#drH.wait{color:#fff1b0;-webkit-text-stroke:7px #8a5a14;font-size:21px}
+#drG{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;flex:1;padding:0 2px}
+.drc{position:relative;border-radius:14px;border:4px solid #141a2c;background:repeating-conic-gradient(from 0deg at 50% 58%,var(--c) 0 9deg,var(--c2) 9deg 18deg);box-shadow:inset 0 -6px 0 rgba(0,0,0,.22);overflow:hidden;text-align:center}
+.dro{font-weight:400;color:#fff;-webkit-text-stroke:5px #141a2c;paint-order:stroke fill;position:absolute;left:0;right:0;line-height:1}
+.drc>b.dro:first-child{top:5px;font-size:15px}.drq{font-style:normal;right:8px;left:auto;top:36px;font-size:22px}.drd{bottom:6px;font-size:21px}
+.dri2{position:absolute;left:50%;top:20px;width:56px;height:56px;margin-left:-28px;transform:rotate(-8deg);filter:drop-shadow(0 3px 0 rgba(0,0,0,.25))}.dri2 svg{width:100%;height:100%;overflow:visible}
+.drc.cur{animation:drcr 1.2s ease-in-out infinite}@keyframes drcr{50%{transform:scale(1.04);box-shadow:inset 0 -6px 0 rgba(0,0,0,.22),0 0 14px rgba(255,255,255,.9)}}
+.drc.cur .drd,.drr.cur .drd7{display:none}
+.drb{position:absolute;left:12%;right:12%;bottom:5px;height:28px;border-radius:9px;border:3px solid #141a2c;background:linear-gradient(#6df05a,#27b82a);color:#fff;font:inherit;font-size:17px;cursor:pointer;-webkit-text-stroke:3px #0f5a22;paint-order:stroke fill;box-shadow:inset 0 -4px 0 rgba(0,0,0,.2)}
+.drb:hover{filter:brightness(1.1)}.drb:active{transform:scale(.94)}
+.drc.dn,.drr.dn{filter:saturate(.55) brightness(.78)}
+.drck{position:absolute;right:6px;bottom:6px;width:34px;height:34px;border-radius:50%;background:#2fd24a;border:3px solid #141a2c;color:#fff;font-style:normal;font-size:20px;line-height:28px;text-align:center}
+.drr{flex:1;position:relative;overflow:hidden;background:repeating-conic-gradient(from 0deg at 50% 60%,#b86bff 0 8deg,#a050f0 8deg 16deg);border-left:4px solid #141a2c;text-align:center;padding-top:10px}
+.drop{margin:0;font-weight:400;font-size:25px;line-height:1;background:linear-gradient(90deg,#3a9aff,#3affb8,#ffe03a,#ff7a5a);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c)}
+.drr>p{position:static;margin:8px 0 0;font-size:15px;line-height:1.15;-webkit-text-stroke:4px #141a2c}
+.drbig{position:relative;height:104px;margin-top:2px}.drbig .e{position:absolute;left:50%;top:0;width:90px;height:90px;margin-left:-45px}.drbig .e svg,.drbig .g svg,.drbig .g2 svg{width:100%;height:100%;overflow:visible}
+.drbig .g{position:absolute;left:8px;top:18px;width:46px;height:46px;transform:rotate(-18deg)}.drbig .g2{position:absolute;right:6px;top:42px;width:40px;height:40px;transform:rotate(16deg)}
+.drd7{bottom:8px;font-size:40px;color:#ffe03a}
+#topl #drBtn{position:relative!important;width:36px;height:36px;font-size:18px;flex:none;right:auto!important;left:auto!important;top:auto!important;bottom:auto!important;margin:0}
+#drBtn.rdy::after{content:"";position:absolute;right:-3px;top:-3px;width:12px;height:12px;border-radius:50%;background:#ff3b3b;border:2px solid #fff;animation:pityp2 1s infinite}
+
+#invBtn #ibadge{left:100%!important;right:auto!important;top:auto!important;bottom:4px!important;margin:0 0 0 4px}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
   <div id="worlds"></div><div id="evfx"></div><div id="wsel"></div>
   <div id="plats"><div class="plat"><div class="tag"></div><div class="ptop"></div><div class="pg"></div><div class="pz"></div><div class="pfront"></div></div><div class="plat"><div class="tag"></div><div class="ptop"></div><div class="pg"></div><div class="pz"></div><div class="pfront"></div></div><div class="plat"><div class="tag"></div><div class="ptop"></div><div class="pg"></div><div class="pz"></div><div class="pfront"></div></div></div>
   <div id="rwrap"><button class="btn rbtn" id="rb">ROLL</button></div>
+  <div class="nvbtn" id="invBtn" title="Inventar"><svg viewBox="0 0 64 64"><defs><linearGradient id="bpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2784a"/><stop offset="1" stop-color="#b33a1c"/></linearGradient><linearGradient id="bpf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f08a5a"/><stop offset="1" stop-color="#c8481f"/></linearGradient></defs><path d="M17,16 C17,8 47,8 47,16 L52,50 C52,57 12,57 12,50Z" fill="url(#bpg)" stroke="#1a2236" stroke-width="3.6" stroke-linejoin="round"/><path d="M9,34 C4,34 4,50 9,50 L14,50 L14,34Z" fill="#a8341a" stroke="#1a2236" stroke-width="3" stroke-linejoin="round"/><path d="M16,15 C22,6 42,6 48,15 C50,26 48,32 46,34 L18,34 C16,32 14,26 16,15Z" fill="url(#bpf)" stroke="#1a2236" stroke-width="3.4" stroke-linejoin="round"/><path d="M22,13 C27,9 37,9 42,13" fill="none" stroke="#ffb48a" stroke-width="2.4" stroke-linecap="round" opacity=".8"/><rect x="28" y="30" width="9" height="9" rx="2" fill="#ff9a3c" stroke="#1a2236" stroke-width="2.4"/><rect x="25" y="39" width="15" height="4.5" rx="2" fill="#e8ebf3" stroke="#1a2236" stroke-width="2"/><path d="M20,42 C20,50 22,52 24,52" fill="none" stroke="#7a2410" stroke-width="2.6" stroke-linecap="round" opacity=".7"/></svg></div>
   <div class="sb fub" id="fuBtn" title="Fuse Machine"></div>
   <div class="sb eb" id="eggBtn" title="Spins"><i class="sph"></i><i class="spg"></i><span class="spi" id="ebi"></span><b class="spt">SPINS</b><span class="spc"><em id="ebadge">0</em><small id="ebl">verfügbar</small></span></div>
   <div id="mny"><div class="mny gem" id="gemd"><i class="mi"><svg viewBox="0 0 32 32"><polygon points="16,3 28,12 16,29 4,12" fill="#6fe4ff" stroke="#0a5a8a" stroke-width="2.2" stroke-linejoin="round"/><polygon points="16,3 22,12 16,29 10,12" fill="#b8f4ff" opacity=".85"/><path d="M4,12 H28 M10,12 L16,3 L22,12" stroke="#0a5a8a" stroke-width="1.6" fill="none" stroke-linejoin="round"/></svg></i><span class="mt"><small>GEMS</small><b id="hdia">0</b></span></div><div class="mny coin" id="cashd"><i class="mi"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#ffd45a" stroke="#8a5a0a" stroke-width="2.4"/><circle cx="16" cy="16" r="9" fill="none" stroke="#c8901a" stroke-width="2"/><path d="M16,9.5 v13 M12.5,12.5 q3.5,-2.6 7,0 M12.5,19.5 q3.5,2.6 7,0" stroke="#a8700a" stroke-width="2.2" fill="none" stroke-linecap="round"/><ellipse cx="11" cy="10" rx="3" ry="1.6" fill="#fff" opacity=".6" transform="rotate(-35 11 10)"/></svg></i><span class="mt"><small>COINS</small><b id="hc">0</b></span></div></div><div id="hud"></div><div id="bl"><div id="evb"></div><div id="bon"></div><button class="btn" id="admBtn">🛡 ADMIN PANEL</button></div>
   <div class="sb" id="setBtn" title="Einstellungen">⚙</div><div class="sb" id="mute" title="Sound">🔊</div>
-  <div id="pname"></div><div id="nav"><div class="nt nv1" id="shopBtn" title="Shop"><svg viewBox="0 0 40 40"><path d="M11,16 L17,5 M29,16 L23,5" stroke="#b8b8c0" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M4,16 H36 L32,36 H8Z" fill="#e82a2a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M14,20 L15,33 M20,20 V33 M26,20 L25,33" stroke="#8a1010" stroke-width="2.4"/></svg><b class="out">Shop</b></div><div class="nt nv2" id="invBtn" title="Inventar"><svg viewBox="0 0 40 40"><path d="M14,11 V8 a6,5 0 0,1 12,0 V11" fill="none" stroke="#111" stroke-width="3"/><rect x="7" y="10" width="26" height="28" rx="8" fill="#c8693a" stroke="#111" stroke-width="2.4"/><rect x="12" y="24" width="16" height="10" rx="3" fill="#a8492a" stroke="#111" stroke-width="2"/><rect x="12" y="15" width="3" height="7" rx="1.5" fill="#7a2f14"/><rect x="25" y="15" width="3" height="7" rx="1.5" fill="#7a2f14"/></svg><b class="out">Inventar</b></div><div class="nt nv3" id="idxBtn" title="Index"><svg viewBox="0 0 40 40"><g transform="rotate(12 20 20)"><rect x="9" y="4" width="22" height="32" rx="3" fill="#2a8aff" stroke="#111" stroke-width="2.4"/><rect x="13" y="9" width="14" height="10" rx="1.5" fill="#8ad0ff"/><rect x="13" y="22" width="14" height="3" fill="#8ad0ff"/><rect x="9" y="4" width="5" height="32" fill="#1a62c8" stroke="#111" stroke-width="2"/></g></svg><b class="out">Index</b></div><div class="nt nv4" id="upBtn" title="Upgrade"><svg viewBox="0 0 40 40"><path d="M20,3 L36,21 H26 V37 H14 V21 H4Z" fill="#35d04a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M20,9 L29,19 H15Z" fill="#8aff8a" opacity=".6"/></svg><b class="out">Upgrade</b></div><div class="nt nv5" id="lbBtn" title="Leaderboards"><svg viewBox="0 0 40 40"><path d="M12,5 H28 V16 a8,8 0 0,1 -16,0Z" fill="#ffd23a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M12,8 H6 v3 a6,6 0 0,0 6,6 M28,8 h6 v3 a6,6 0 0,1 -6,6" fill="none" stroke="#111" stroke-width="2.4"/><rect x="17" y="24" width="6" height="7" fill="#e8a010" stroke="#111" stroke-width="2"/><rect x="11" y="31" width="18" height="5" rx="1.5" fill="#ffd23a" stroke="#111" stroke-width="2.2"/></svg><b class="out">Leaderboards</b></div><div class="nt nv6" id="sellBtn" title="Verkaufen"><svg viewBox="0 0 64 56"><g transform="rotate(-22 32 28)"><rect x="7" y="16" width="50" height="30" rx="4" fill="#12501a" stroke="#06200a" stroke-width="3"/><rect x="7" y="11" width="50" height="30" rx="4" fill="#2f9a38" stroke="#06200a" stroke-width="3"/><rect x="12" y="15" width="40" height="22" rx="2" fill="#4ad254"/><circle cx="32" cy="26" r="7.5" fill="#2f9a38" stroke="#1c6a24" stroke-width="2"/><text x="32" y="31" text-anchor="middle" font-size="12" font-family="Arial Black,Impact" fill="#d8ffd0">$</text><rect x="25" y="6" width="14" height="40" fill="#ffc83a" stroke="#8a5a0a" stroke-width="2.6"/><rect x="25" y="6" width="5" height="40" fill="#ffe680" opacity=".7"/></g></svg><b class="out">Verkaufen</b></div></div>
+  <div id="pname"></div><div id="nav"><div class="nt nv1" id="shopBtn" title="Shop"><svg viewBox="0 0 40 40"><path d="M11,16 L17,5 M29,16 L23,5" stroke="#b8b8c0" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M4,16 H36 L32,36 H8Z" fill="#e82a2a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M14,20 L15,33 M20,20 V33 M26,20 L25,33" stroke="#8a1010" stroke-width="2.4"/></svg><b class="out">Shop</b></div><div class="nt nv3" id="idxBtn" title="Index"><svg viewBox="0 0 40 40"><g transform="rotate(12 20 20)"><rect x="9" y="4" width="22" height="32" rx="3" fill="#2a8aff" stroke="#111" stroke-width="2.4"/><rect x="13" y="9" width="14" height="10" rx="1.5" fill="#8ad0ff"/><rect x="13" y="22" width="14" height="3" fill="#8ad0ff"/><rect x="9" y="4" width="5" height="32" fill="#1a62c8" stroke="#111" stroke-width="2"/></g></svg><b class="out">Index</b></div><div class="nt nv4" id="upBtn" title="Upgrade"><svg viewBox="0 0 40 40"><path d="M20,3 L36,21 H26 V37 H14 V21 H4Z" fill="#35d04a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M20,9 L29,19 H15Z" fill="#8aff8a" opacity=".6"/></svg><b class="out">Upgrade</b></div><div class="nt nv5" id="lbBtn" title="Leaderboards"><svg viewBox="0 0 40 40"><path d="M12,5 H28 V16 a8,8 0 0,1 -16,0Z" fill="#ffd23a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M12,8 H6 v3 a6,6 0 0,0 6,6 M28,8 h6 v3 a6,6 0 0,1 -6,6" fill="none" stroke="#111" stroke-width="2.4"/><rect x="17" y="24" width="6" height="7" fill="#e8a010" stroke="#111" stroke-width="2"/><rect x="11" y="31" width="18" height="5" rx="1.5" fill="#ffd23a" stroke="#111" stroke-width="2.2"/></svg><b class="out">Leaderboards</b></div><div class="nt nv6" id="sellBtn" title="Verkaufen"><svg viewBox="0 0 64 56"><g transform="rotate(-22 32 28)"><rect x="7" y="16" width="50" height="30" rx="4" fill="#12501a" stroke="#06200a" stroke-width="3"/><rect x="7" y="11" width="50" height="30" rx="4" fill="#2f9a38" stroke="#06200a" stroke-width="3"/><rect x="12" y="15" width="40" height="22" rx="2" fill="#4ad254"/><circle cx="32" cy="26" r="7.5" fill="#2f9a38" stroke="#1c6a24" stroke-width="2"/><text x="32" y="31" text-anchor="middle" font-size="12" font-family="Arial Black,Impact" fill="#d8ffd0">$</text><rect x="25" y="6" width="14" height="40" fill="#ffc83a" stroke="#8a5a0a" stroke-width="2.6"/><rect x="25" y="6" width="5" height="40" fill="#ffe680" opacity=".7"/></g></svg><b class="out">Verkaufen</b></div></div>
  </div>
  <div id="ov"></div>
  <div id="win">
@@ -1466,8 +1578,21 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
  </div>
  <div id="ewin"><div class="hd"><h1 class="out">SPINS</h1><div id="ex" class="xb out">✕</div></div><div id="esc"><div class="hh out">-- DEINE SPINS --</div><div class="esub" id="ecnt"></div><div id="einv"></div></div></div>
 <div id="wm"><div id="wbk"></div><div id="wp"><div class="hd blue"><h1 class="out">Welten</h1><div id="wx" class="xb out">✕</div></div><div id="wl"></div></div></div>
-<div id="inv"><div class="ihd"><i class="ihi"><svg viewBox="0 0 40 40"><path d="M10,14 a10,10 0 0,1 20,0 V32 a4,4 0 0,1 -4,4 H14 a4,4 0 0,1 -4,-4Z" fill="#8a6cff" stroke="#2a1a6a" stroke-width="2.4"/><rect x="14" y="21" width="12" height="9" rx="2.5" fill="#cfc2ff" stroke="#2a1a6a" stroke-width="2"/><path d="M15,8 a5,5 0 0,1 10,0" fill="none" stroke="#2a1a6a" stroke-width="2.4"/></svg></i><b>Inventar</b><span id="icnt"></span><div id="ix2" class="ixx">✕</div></div><div class="ibody"><section class="icd" id="iqs"><div class="ish"><b>AUSGERÜSTET</b><span id="ieqc">0 / 3</span></div><div id="isl3"></div></section><section class="icd" id="iinc"><div class="ish"><b>EINKOMMEN</b></div><div class="irow3"><div><small>PRO SEKUNDE</small><b id="iips">0/s</b></div><div class="rt"><small>OFFEN</small><b id="ipend">0</b></div></div><button id="ecl" class="ecl"><span class="eci"></span><span class="ect">EINSAMMELN</span></button><div class="ibt3"><button id="ebest">Beste ausrüsten</button><button id="euall">Alle ablegen</button></div></section><section class="icd" id="igrid"><div id="iwt"></div><div id="isort"><button class="sbt on" data-s="r">Seltenheit</button><button class="sbt" data-s="c">Coins/s</button><button class="sbt" data-s="n">Menge</button></div><div id="ipg"></div></section></div></div>
+<div id="inv"><div class="nvt"><i><svg viewBox="0 0 64 64"><defs><linearGradient id="bpg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2784a"/><stop offset="1" stop-color="#b33a1c"/></linearGradient><linearGradient id="bpf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f08a5a"/><stop offset="1" stop-color="#c8481f"/></linearGradient></defs><path d="M17,16 C17,8 47,8 47,16 L52,50 C52,57 12,57 12,50Z" fill="url(#bpg)" stroke="#1a2236" stroke-width="3.6" stroke-linejoin="round"/><path d="M9,34 C4,34 4,50 9,50 L14,50 L14,34Z" fill="#a8341a" stroke="#1a2236" stroke-width="3" stroke-linejoin="round"/><path d="M16,15 C22,6 42,6 48,15 C50,26 48,32 46,34 L18,34 C16,32 14,26 16,15Z" fill="url(#bpf)" stroke="#1a2236" stroke-width="3.4" stroke-linejoin="round"/><path d="M22,13 C27,9 37,9 42,13" fill="none" stroke="#ffb48a" stroke-width="2.4" stroke-linecap="round" opacity=".8"/><rect x="28" y="30" width="9" height="9" rx="2" fill="#ff9a3c" stroke="#1a2236" stroke-width="2.4"/><rect x="25" y="39" width="15" height="4.5" rx="2" fill="#e8ebf3" stroke="#1a2236" stroke-width="2"/><path d="M20,42 C20,50 22,52 24,52" fill="none" stroke="#7a2410" stroke-width="2.6" stroke-linecap="round" opacity=".7"/></svg></i><h1>Inventar</h1></div><div id="ix2" class="nvx"><svg viewBox="0 0 20 20"><path d="M4,4 L16,16 M16,4 L4,16" stroke="#fff" stroke-width="4.4" stroke-linecap="round"/></svg></div>
+<div class="nvb"><div class="nvrail" id="nvRail"></div><div class="nvmain">
+<div id="nvEqh"><div class="nvhead"><span class="ln"></span><b>Ausgerüstet: <span id="nvEqc">0 / 3</span></b><button class="nvpl" id="nvPlus">+</button><span class="ln"></span></div><div id="nvSlots"></div></div>
+<div class="nvhead"><span class="ln"></span><b id="nvTitle">Pets</b><span class="ln"></span></div>
+<div id="nvGrid" class="nvgrid"></div></div></div>
+<div class="nvfoot"><button class="nvbt blue" id="nvFuse" title="Fuse Machine"><svg viewBox="0 0 32 32"><path d="M5,6 L13,14 M5,6 V12 M5,6 H11 M27,6 L19,14 M27,6 V12 M27,6 H21 M5,26 L13,18 M5,26 V20 M5,26 H11 M27,26 L19,18 M27,26 V20 M27,26 H21" stroke="#fff" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<label class="nvsr"><svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6.5" fill="none" stroke="#1a2236" stroke-width="3.2"/><path d="M15,15 L21,21" stroke="#1a2236" stroke-width="3.6" stroke-linecap="round"/></svg><input id="nvQ" placeholder="Suchen..." autocomplete="off" maxlength="20"></label>
+<button class="nvcol" id="nvCol"><span class="nvci"></span><span class="nvct"><small>EINSAMMELN</small><b id="nvPend">0</b></span></button>
+<span class="nvips" id="nvIps">0/s</span>
+<button class="nvbt green" id="nvBest" title="Beste ausrüsten"><svg viewBox="0 0 32 32"><path d="M16,3 L20,12 L29,12.6 L22,19 L24.4,28 L16,23 L7.6,28 L10,19 L3,12.6 L12,12Z" fill="#fff" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg></button>
+<button class="nvbt orange" id="nvSort" title="Sortieren"><svg viewBox="0 0 32 32"><path d="M6,8 L16,17 L26,8 M6,17 L16,26 L26,17" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<button class="nvbt red" id="nvNone" title="Alle ablegen"><svg viewBox="0 0 32 32"><path d="M7,8 H25 M13,8 V5 H19 V8 M9,8 L10.5,27 H21.5 L23,8 M14,13 V22 M18,13 V22" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+<div class="nvtip" id="nvTip"></div></div>
 <div id="lbw"><div class="hd gold"><svg class="hdi" viewBox="0 0 40 40"><path d="M12,5 H28 V16 a8,8 0 0,1 -16,0Z" fill="#ffd23a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><path d="M12,8 H6 v3 a6,6 0 0,0 6,6 M28,8 h6 v3 a6,6 0 0,1 -6,6" fill="none" stroke="#111" stroke-width="2.4"/><rect x="17" y="24" width="6" height="7" fill="#e8a010" stroke="#111" stroke-width="2"/><rect x="11" y="31" width="18" height="5" rx="1.5" fill="#ffd23a" stroke="#111" stroke-width="2.2"/></svg><h1 class="out" style="left:52px">LEADERBOARDS</h1><div id="lbx" class="xb out">✕</div></div><div id="lbt"></div><div id="lbl"></div><div id="lby"></div><div id="lbf"></div></div>
+<div id="drw"><div class="nvt"><i class="drcal"><svg viewBox="0 0 64 64"><g transform="rotate(-10 32 32)"><rect x="8" y="12" width="48" height="46" rx="8" fill="#fff" stroke="#1a2236" stroke-width="4"/><path d="M8,26 V20 a8,8 0 0,1 8,-8 H48 a8,8 0 0,1 8,8 V26Z" fill="#ff4a4a" stroke="#1a2236" stroke-width="4" stroke-linejoin="round"/><rect x="18" y="4" width="7" height="14" rx="3" fill="#e8ebf3" stroke="#1a2236" stroke-width="3"/><rect x="39" y="4" width="7" height="14" rx="3" fill="#e8ebf3" stroke="#1a2236" stroke-width="3"/></g></svg><b id="drN">0</b></i><h1>Daily Rewards</h1></div><div id="drx" class="nvx"><svg viewBox="0 0 20 20"><path d="M4,4 L16,16 M16,4 L4,16" stroke="#fff" stroke-width="4.4" stroke-linecap="round"/></svg></div><div class="drm"><div class="drl"><h2 id="drH"></h2><div id="drG"></div></div><div class="drr" id="drR"></div></div></div>
 <div id="msgs"></div>
 <div id="set"><div class="hd sellh"><h1 class="out" style="left:14px">Einstellungen</h1><div id="setx" class="xb out">✕</div></div><div id="setb"></div></div>
 <div id="sell"><div class="hd sellh"><svg class="hdi" viewBox="0 0 64 56"><g transform="rotate(-22 32 28)"><rect x="7" y="16" width="50" height="30" rx="4" fill="#12501a" stroke="#06200a" stroke-width="3"/><rect x="7" y="11" width="50" height="30" rx="4" fill="#2f9a38" stroke="#06200a" stroke-width="3"/><rect x="12" y="15" width="40" height="22" rx="2" fill="#4ad254"/><circle cx="32" cy="26" r="7.5" fill="#2f9a38" stroke="#1c6a24" stroke-width="2"/><text x="32" y="31" text-anchor="middle" font-size="12" font-family="Arial Black,Impact" fill="#d8ffd0">$</text><rect x="25" y="6" width="14" height="40" fill="#ffc83a" stroke="#8a5a0a" stroke-width="2.6"/><rect x="25" y="6" width="5" height="40" fill="#ffe680" opacity=".7"/></g></svg><h1 class="out" style="left:56px">Verkaufen</h1><div id="sgear" class="gear" title="Verkaufs-Einstellungen"><svg viewBox="0 0 32 32"><path d="M13,2 h6 l1,4 a10,10 0 0,1 3,1.7 l4,-1.4 3,5.2 -3,2.8 a10,10 0 0,1 0,3.4 l3,2.8 -3,5.2 -4,-1.4 a10,10 0 0,1 -3,1.7 l-1,4 h-6 l-1,-4 a10,10 0 0,1 -3,-1.7 l-4,1.4 -3,-5.2 3,-2.8 a10,10 0 0,1 0,-3.4 l-3,-2.8 3,-5.2 4,1.4 a10,10 0 0,1 3,-1.7z" fill="#fff" stroke="#14301a" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="16" r="4.4" fill="#27c014" stroke="#14301a" stroke-width="2"/></svg></div><div id="sx" class="xb out">✕</div></div><div id="stp"><b id="stot" class="stot">+$0</b><span id="scn">Klicke auf Pets zum Auswählen</span><div class="sbs"><button class="btn sb1" id="sall">ALLES AUSWÄHLEN</button><button class="btn sb2 dis" id="sdo">VERKAUFEN</button></div></div><div id="sgrid"></div></div>
@@ -1478,7 +1603,8 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
 <div id="sk"><div class="hd skh"><h1 class="out" style="left:14px">CARD SKINS</h1><div id="skx" class="xb out">✕</div></div><div id="skl"></div></div>
 <div id="fz"><div class="hd fuh"><h1 class="out" style="left:14px">Fuse Machine</h1><div id="fzxx" class="xb out">✕</div></div><div id="fzb"></div><div id="fzs"><div class="fzsh"><button class="btn fzbk" id="fzback">↓ SCHLIESSEN</button><span class="out">Pet auswählen</span></div><div id="fzg"></div></div></div>
 <div id="upw"><div class="hd"><svg class="hdi" viewBox="0 0 40 40"><path d="M20,3 L36,21 H26 V37 H14 V21 H4Z" fill="#35d04a" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/></svg><h1 class="out" style="left:50px">Upgrade</h1><div id="ux2" class="xb out">✕</div></div><div id="usc"></div></div>
-<div id="idx"><div id="itabs"></div><div id="ixw"><div class="ihd"><svg class="hdi" viewBox="0 0 40 40"><g transform="rotate(12 20 20)"><rect x="9" y="4" width="22" height="32" rx="3" fill="#2a8aff" stroke="#111" stroke-width="2.4"/><rect x="13" y="9" width="14" height="10" rx="1.5" fill="#8ad0ff"/><rect x="13" y="22" width="14" height="3" fill="#8ad0ff"/><rect x="9" y="4" width="5" height="32" fill="#1a62c8" stroke="#111" stroke-width="2"/></g></svg><h1 class="out">Index</h1><span id="icnt" class="out"></span><div id="ix" class="xb out">✕</div></div><div id="iv"></div></div><div id="ibar2"><i id="ibf"></i><span id="ibt" class="out"></span></div></div>
+<div id="idx"><div class="nvt"><i><svg viewBox="0 0 64 64"><g transform="rotate(8 32 32)"><rect x="12" y="6" width="38" height="52" rx="5" fill="#7a3ad8" stroke="#1a2236" stroke-width="3.4"/><rect x="12" y="6" width="9" height="52" rx="3" fill="#ff5a3a" stroke="#1a2236" stroke-width="3"/><rect x="21" y="6" width="29" height="7" fill="#ffc83a" stroke="#1a2236" stroke-width="2.4"/><circle cx="36" cy="32" r="11" fill="#ffd34d" stroke="#1a2236" stroke-width="3"/><circle cx="36" cy="32" r="3.2" fill="#fff" stroke="#1a2236" stroke-width="2"/><circle cx="31" cy="27" r="2.4" fill="#fff" stroke="#1a2236" stroke-width="1.6"/><circle cx="41" cy="27" r="2.4" fill="#fff" stroke="#1a2236" stroke-width="1.6"/></g></svg></i><h1>Index</h1></div><div id="ix" class="nvx"><svg viewBox="0 0 20 20"><path d="M4,4 L16,16 M16,4 L4,16" stroke="#fff" stroke-width="4.4" stroke-linecap="round"/></svg></div>
+<div class="nvb"><div class="nvrail" id="nxRail"></div><div class="nvmain"><div class="nvhead"><span class="ln"></span><b id="nxH">Pets 0/0</b><span class="ln"></span></div><div id="nxW"><div id="nxG" class="nvgrid"></div></div></div></div><div class="nvtip" id="nxTip"></div></div>
 <div id="sw"><div id="swbg"></div><div id="swt"><div class="swp1"><b id="swn">SPIN</b></div><div class="sws" id="sws"></div></div>
 <div id="whw"><div id="whr"></div></div><div id="swp"><svg viewBox="0 0 48 66"><path d="M24,64 C8,42 4,30 4,22 a20,20 0 0,1 40,0 c0,8 -4,20 -20,42Z" fill="#ff5a3a" stroke="#14102a" stroke-width="3.4" stroke-linejoin="round"/><circle cx="24" cy="22" r="8" fill="#ffd23a" stroke="#14102a" stroke-width="3"/></svg></div>
 <div id="swres"><div class="rsb"></div><div id="rspet"></div><div class="rsdiv"></div><div class="rsinfo"><small>Du hast erhalten:</small><div class="rsn" id="rsn"></div><div class="rsrr"><span class="rsr" id="rsr"></span><span class="rsnw" id="rsnw">NEW!</span></div><div class="rsc" id="rsc"></div><div class="rsi" id="rsi"></div></div><button class="btn rsok" id="rsok">OK</button></div></div>
@@ -1490,8 +1616,7 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
  <div id="ld"><div id="ldb"></div><div id="ldv"></div><div id="ldi"></div><div id="ldt" class="out">Wird geladen<span class="dts"><i>.</i><i>.</i><i>.</i><i>.</i></span></div></div>
  <div id="toast" class="out">Noch nicht zur Verfügung</div>
 </div></div>
-<script>
-const st=document.getElementById('stage');
+<script>const st=document.getElementById('stage');
 function fit(){const vv=window.visualViewport,W=vv?vv.width:innerWidth,H=vv?vv.height:innerHeight,s=Math.min(W/722,H/405);st.style.transform='scale('+s+')'}
 addEventListener('resize',fit);fit();
 const $=id=>document.getElementById(id);
@@ -1995,17 +2120,17 @@ function eggCards(){const l=['c','x'].filter(t=>eggsI[t]>0);if(sortM=='n')l.sort
 function bindEggs(el){el.querySelectorAll('.ecd').forEach(e=>e.onclick=()=>openEgg(e.dataset.t,+e.dataset.l||0))}
 function renderEgg(){$('ecnt').textContent=totE()?totE()+' Spin'+(totE()>1?'s':'')+' · Klicke auf einen Spin, um ihn zu starten':'';$('einv').innerHTML=eggCards();bindEggs($('einv'))}
 const openEggW=()=>{renderEgg();$('ov').classList.add('on');$('game').classList.add('blur');$('ewin').classList.add('open')};
-const closeEggW=()=>{$('ov').classList.remove('on');$('game').classList.remove('blur');['ewin','inv','idx','upw','lbw','adm','pf','sk','fz','sell','sset','set'].forEach(i=>$(i).classList.remove('open'));$('pf').classList.remove('shift');$('sell').classList.remove('shift')};
+const closeEggW=()=>{$('ov').classList.remove('on');$('game').classList.remove('blur');['ewin','inv','idx','drw','upw','lbw','adm','pf','sk','fz','sell','sset','set'].forEach(i=>$(i).classList.remove('open'));$('pf').classList.remove('shift');$('sell').classList.remove('shift')};
 $('eggBtn').onclick=openEggW;$('ex').onclick=closeEggW;
 /* inventory */
 const rarOf=k=>P[pi(bn(k))][1];
 let invW=0,invV='p';
-const IW=['Basic Animals','Water','','','Exclusive'];
-const invKeys=t=>Object.keys(own).filter(k=>own[k]>0&&pi(bn(k))>=0&&(t<4?P[pi(bn(k))][4]===t:P[pi(bn(k))][1]>=8));
+const IW=['Basic','Water','','','Exclusive','Limited'];
+const invKeys=t=>Object.keys(own).filter(k=>own[k]>0&&pi(bn(k))>=0&&(t==5?trk(k).length>0:t<4?P[pi(bn(k))][4]===t:P[pi(bn(k))][1]>=8));
 function ownedList(t){const l=invKeys(t);l.sort(sortM=='c'?(a,b)=>cpsOf(b)-cpsOf(a):sortM=='n'?(a,b)=>own[b]-own[a]||rarOf(b)-rarOf(a):(a,b)=>rarOf(b)-rarOf(a)||cpsOf(b)-cpsOf(a));return l}
 function equipPet(n){const cap=own[n]||0;let rest=EQ.slice();if(selSlot>=0&&EQ[selSlot]){rest.splice(selSlot,1);if(rest.filter(x=>x==n).length>=cap){snd('err');return}EQ[selSlot]=n;selSlot=-1}else{if(EQ.filter(x=>x==n).length>=cap){snd('err');msg('Alle Exemplare sind bereits ausgerüstet');return}if(EQ.length>=3){snd('err');msg('Alle 3 Slots belegt – wähle einen Slot zum Austauschen');return}EQ.push(n)}save();updHud();renderInv()}
-$('ebest').onclick=()=>{const l=[];Object.keys(own).forEach(n=>{for(let i=0;i<own[n];i++)l.push(n)});EQ=l.sort((a,b)=>cpsOf(b)-cpsOf(a)).slice(0,3);selSlot=-1;save();updHud();renderInv();snd('buy')};
-$('euall').onclick=()=>{EQ=[];selSlot=-1;save();updHud();renderInv()};
+$('nvBest').onclick=()=>{const l=[];Object.keys(own).forEach(n=>{for(let i=0;i<own[n];i++)l.push(n)});EQ=l.sort((a,b)=>cpsOf(b)-cpsOf(a)).slice(0,3);selSlot=-1;save();updHud();renderInv();snd('buy')};
+$('nvNone').onclick=()=>{EQ=[];selSlot=-1;save();updHud();renderInv()};
 document.querySelectorAll('.sbt').forEach(b=>b.onclick=()=>{sortM=b.dataset.s;renderInv()});
 const openInv=()=>{invW=cw;invV='p';renderInv();$('ov').classList.add('on');$('game').classList.add('blur');$('inv').classList.add('open')};
 $('invBtn').onclick=openInv;$('ix2').onclick=closeEggW;
@@ -2046,15 +2171,9 @@ async function startSpin(t,fl,fresh){if(eOpen)return;
 function openEgg(t,fl){startSpin(t,fl,false)}
 /* ===== Index (Welten) ===== */
 let idxW=0;
-const IT=[['Basic Animals','#27d12a'],['Water','#27c8ff'],['',''],['',''],['Exclusive','#b44cff']];
+const IT=[['Basic','#27d12a'],['Water','#27c8ff'],['',''],['',''],['Exclusive','#b44cff'],['Limited','#ffb02e']];
 const wPets=w=>P.map((p,k)=>k).filter(k=>P[k][4]===w);
 function idxList(t){return P.map((p,k)=>k).filter(k=>t<4?P[k][4]===t:P[k][1]>=8).sort((a,b)=>P[a][1]-P[b][1]||CPS[P[a][0]]-CPS[P[b][0]])}
-function renderIdx(){if(!$('iv'))return;const l=idxList(idxW),got=l.filter(k=>found.has(P[k][0])).length,tot=P.filter(p=>p[4]!==undefined&&found.has(p[0])).length;
- $('itabs').innerHTML=IT.map(([n,c],t)=>!n?'':`<div class="itb${t==idxW?' on':''}" style="--c:${c}" data-t="${t}">${n}</div>`).join('');
- $('icnt').textContent=got+'/'+l.length;$('ibf').style.width=(got/l.length*100)+'%';$('ibt').textContent=idxW<4?got+' / '+l.length+' entdeckt  ·  Alle Welten: '+tot+' / '+P.filter(p=>p[4]!==undefined).length:got+' / '+l.length+' Exclusive entdeckt';
- $('iv').innerHTML=l.map(k=>{const p=P[k],d=found.has(p[0]);return `<div class="icd${d?'':' lock'}" style="--c:${R[p[1]][1]}"><small>${d?p[0]:'???'}</small><div class="ipi">${SV[k]}</div><b>${p[1]>=8?'Exclusive':R[p[1]][0]}</b><em>💰 ${fmt(CPS[p[0]])}/s</em></div>`}).join('');
- document.querySelectorAll('.itb').forEach(b=>b.onclick=()=>{idxW=+b.dataset.t;renderIdx();$('iv').scrollTop=0})}
-function openIdx(){idxW=cw;renderIdx();$('iv').scrollTop=0;$('ov').classList.add('on');$('game').classList.add('blur');$('idx').classList.add('open')}
 $('idxBtn').onclick=openIdx;$('ix').onclick=closeEggW;
 /* ===== Upgrades ===== */
 const RS_COST=[...Array(10)].map((_,i)=>100*Math.pow(10,i)),LK_COST=[...Array(12)].map((_,i)=>100*Math.pow(10,i)),POD_COST=[0,250,5000],rsT=l=>(2.5-.2*l).toFixed(1).replace('.',',')+'s';
@@ -2106,8 +2225,8 @@ function tutText(t,low){const e=$('ttxt');e.classList.toggle('low',!!low);if(tut
 function tutTick(){if(tutStep<0)return;
  if(tutStep==0){tutText('Rolle dein erstes Pet.');pointAt(busy?null:$('rb'),'right');return}
  if(EQ.length>=1&&tutStep<3){tutSet(3)}
- if(tutStep==3){const rdy=performance.now()-tutT0>3500&&pend>=Math.max(10,totalCps());if(!rdy){tutText('Dein Pet verdient jetzt Coins!');pointAt($('cashd'),'down')}else if($('inv').classList.contains('open')){tutText('Tippe auf EINSAMMELN!',1);pointAt($('ecl'),'up')}else{tutText('Sammle deine Coins im Inventar ein!');pointAt($('invBtn'),'left')}return}
- if($('inv').classList.contains('open')){if(tutStep<2)tutSet(2);tutText('Rüste dein erstes Pet aus!',1);pointAt($('ipg').querySelector('.pc3')||$('ebest'),'up')}
+ if(tutStep==3){const rdy=performance.now()-tutT0>3500&&pend>=Math.max(10,totalCps());if(!rdy){tutText('Dein Pet verdient jetzt Coins!');pointAt($('cashd'),'down')}else if($('inv').classList.contains('open')){tutText('Tippe auf EINSAMMELN!',1);pointAt($('nvCol'),'up')}else{tutText('Sammle deine Coins im Inventar ein!');pointAt($('invBtn'),'left')}return}
+ if($('inv').classList.contains('open')){if(tutStep<2)tutSet(2);tutText('Rüste dein erstes Pet aus!',1);pointAt($('nvGrid').querySelector('.nvc')||$('nvBest'),'up')}
  else{if(tutStep>1)tutSet(1);tutText('Öffne dein Inventar!',0);pointAt($('invBtn'),'left')}}
 function tutHook(t){if(t=='roll'&&tutStep==0)tutSet(1)}
 function tutDone(){tutStep=-2;clearInterval(tutTimer);SS('crTutDone','1');$('ttxt').classList.remove('on');$('tarr').classList.remove('on');stg.classList.remove('tut','s0','s1','s2','s3');document.querySelectorAll('.nt').forEach((n,i)=>{n.style.animationDelay=i*.12+'s';n.classList.add('rv')});setTimeout(()=>document.querySelectorAll('.nt').forEach(n=>n.classList.remove('rv')),1500);snd('reveal');msg('🎉 Tutorial abgeschlossen!')}
@@ -2279,12 +2398,6 @@ function SPIN_OFFERS(){return [{id:'c',price:100,sub:'Kosmische Exclusive-Pets'}
 function SPIN_CATS(){const c=[{id:'c',n:'COSMO SPIN',pets:EG.c.pets,col:'#b06bff'},{id:'x',n:'EXTINCT SPIN',pets:EG.x.pets,col:'#ff8a2a'},{id:'f',n:'FUSE SPIN',pets:['Cashy','Comic Cat','Clocky'],col:'#4fe0b0'}];const used=new Set(c.flatMap(x=>x.pets)),rest=P.filter(p=>p[1]>=8&&!used.has(p[0])).map(p=>p[0]);if(rest.length)c.push({id:'o',n:'WEITERE EXCLUSIVES',pets:rest,col:'#d65cff'});return c}
 function VIPCFG(){return{price:2500,days:7}}
 /* ---------- Exclusive-Index ---------- */
-function renderIdx(){if(!$('iv'))return;const ex=idxW==4,cats=ex?SPIN_CATS():null,l=ex?cats.flatMap(c=>c.pets.map(pi).filter(k=>k>=0)):idxList(idxW),got=l.filter(k=>found.has(P[k][0])).length,tot=P.filter(p=>p[4]!==undefined&&found.has(p[0])).length;
- $('itabs').innerHTML=IT.map(([n,c],t)=>!n?'':`<div class="itb${t==idxW?' on':''}" style="--c:${c}" data-t="${t}">${n}</div>`).join('');
- $('icnt').textContent=got+'/'+l.length;$('ibf').style.width=(got/Math.max(1,l.length)*100)+'%';$('ibt').textContent=idxW<4?got+' / '+l.length+' entdeckt  ·  Alle Welten: '+tot+' / '+P.filter(p=>p[4]!==undefined).length:got+' / '+l.length+' Exclusive entdeckt';
- const card=k=>{const p=P[k],d=found.has(p[0]);return `<div class="icd${d?'':' lock'}" style="--c:${R[p[1]][1]}"><small>${d?p[0]:'???'}</small><div class="ipi">${SV[k]}</div><b>${p[1]>=8?'Exclusive':R[p[1]][0]}</b><em>💰 ${fmt(CPS[p[0]])}/s</em></div>`};
- $('iv').innerHTML=ex?cats.map(c=>{const ks=c.pets.map(pi).filter(k=>k>=0),g=ks.filter(k=>found.has(P[k][0])).length;return `<div class="ixh" style="--c:${c.col}"><span class="ixw">${egg(c.id=='o'?'c':c.id)}</span><b>${c.n}</b><i>${g} / ${ks.length}</i></div>`+ks.map(card).join('')}).join(''):l.map(card).join('');
- document.querySelectorAll('.itb').forEach(b=>b.onclick=()=>{idxW=+b.dataset.t;renderIdx();$('iv').scrollTop=0})}
 /* ---------- Spin-Angebote im Shop (Gems) ---------- */
 function offers(){const sl=(k,c)=>`<div class="osl ${c||''}" style="--c:${R[P[k][1]][1]}"><div class="osv">${SV[k]}</div><em>${sn(P[k][0])}</em><i>${P[k][3]}</i></div>`;
  $('offers').innerHTML=SPIN_OFFERS().map(o=>{const t=o.id,E=EG[t],ks=E.pets.map(pi);return `<div class="of sp ${E.cls}" data-t="${t}"><div class="owc"><div class="owh">${egg(t)}</div></div><i class="co a"></i><i class="co b"></i><i class="co c"></i><i class="co d"></i><div class="oh"><span class="ot">${E.title}</span></div><div class="osub">${o.sub||'Exklusive Pets'} · ${ks.length} mögliche Pets</div><div class="oslots">${ks.slice(0,4).map(k=>sl(k)).join('')}${sl(ks[4],'mid')}${sl(ks[5],'big')}</div><div class="opacks">${[1,3,10].map(n=>`<button class="btn buy${n==10?' b10':''}" data-t="${t}" data-n="${n}"><span class="be">${egg(t)}</span><span class="bt"><b>${n} Spin${n>1?'s':''}</b><small>💎 ${fmt(o.price*n)}</small></span></button>`).join('')}</div>${[...Array(10)].map(()=>`<div class="p" style="left:${10+Math.random()*85}%;top:${30+Math.random()*60}%;animation-delay:${Math.random()*3}s"></div>`).join('')}</div>`}).join('');
@@ -2682,50 +2795,35 @@ function ab3(n){return n<1e6?fmt(n):abbr(n)}
 function updHud(){const h=$('hc');if(h)h.textContent=abbr(Math.max(0,cash-hcLag));const d=$('hdia');if(d)d.textContent=ab3(dia);const iv=$('icv');if(iv)iv.textContent='💰 '+fmt(totalCps())+' /s'}
 function updE(){const n=totE(),b=$('eggBtn');$('ebadge').textContent=n>99?'99+':n;b.classList.toggle('has',n>0);$('ebl').textContent=n>0?'verfügbar':'keine';if($('ewin').classList.contains('open'))renderEgg();if($('inv').classList.contains('open'))renderInv()}
 const IC_COIN2='<svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="13" fill="#ffd45a" stroke="#8a5a0a" stroke-width="2.4"/><circle cx="16" cy="16" r="9" fill="none" stroke="#c8901a" stroke-width="2"/><path d="M16,9.5 v13 M12.5,12.5 q3.5,-2.6 7,0 M12.5,19.5 q3.5,2.6 7,0" stroke="#a8700a" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg>';
-document.querySelector('#ecl .eci').innerHTML=IC_COIN2;
+document.querySelector('#nvCol .nvci').innerHTML=IC_COIN2;
 (function(){const b=$('invBtn');if(b&&!$('ibadge')){const i=document.createElement('i');i.id='ibadge';b.appendChild(i)}})();
 function slotHTML(i){const n=EQ[i];
  if(!n)return `<div class="sl3 em" data-e="${i}"><i class="pl">+</i><b>Pet ausrüsten</b><small>Slot ${i+1}</small></div>`;
  const k=pi(bn(n)),c=R[P[k][1]][1],rn=P[k][1]>=8?'EXCLUSIVE':R[P[k][1]][0].toUpperCase(),tr=trk(n);
  return `<div class="sl3 f${selSlot==i?' sel':''}" data-i="${i}" style="--c:${c}"><i class="rbn">${rn}</i><u class="ux" data-u="${i}">✕</u><div class="slv3">${SVT(k,tr)}</div><b>${bn(n)}</b><span class="cps">💰 ${fmt(cpsOf(n))}/s</span>${tr.length?`<span class="tr3">${triHTML(tr)}</span>`:''}</div>`}
-function renderInv(){
- const l=ownedList(invW);
- $('isl3').innerHTML=[0,1,2].map(slotHTML).join('');
- $('ieqc').textContent=Math.min(3,EQ.length)+' / 3';
- $('icnt').textContent=Object.values(own).reduce((a,b)=>a+b,0)+' Pets gesammelt';
- $('iwt').innerHTML=IW.map((n,t)=>!n?'':`<div class="iwb${t==invW?' on':''}" data-t="${t}">${n}<i>${invKeys(t).length}</i></div>`).join('');
- $('ipg').innerHTML=l.map(key=>{const k=pi(bn(key)),n=P[k][0],q=eqc(key),c=R[P[k][1]][1],tr=trk(key);
-  return `<div class="pc3${q?' eq':''}" data-k="${esc(key)}" style="--c:${c}"><span class="qt">x${own[key]}</span>${q?`<i class="ck">✓${q>1?'×'+q:''}</i>`:''}${tr.length?`<span class="tr3 t2">${triHTML(tr)}</span>`:''}<div class="pcv3">${SVT(k,tr)}</div><b class="nm${n.length>12?' ln':''}">${n}</b><small>💰 ${fmt(cpsOf(key))}/s</small><i class="rb3">${P[k][1]>=8?'EXCLUSIVE':R[P[k][1]][0].toUpperCase()}</i></div>`}).join('')||'<div class="eno3">Noch keine Pets in dieser Welt.<br>Rolle oder drehe Spins!</div>';
- document.querySelectorAll('.sbt').forEach(b=>b.classList.toggle('on',b.dataset.s==sortM));
- document.querySelectorAll('.iwb').forEach(b=>b.onclick=()=>{invW=+b.dataset.t;renderInv();$('ipg').scrollTop=0;snd('click')});
- document.querySelectorAll('.sl3.f').forEach(x=>x.onclick=()=>{selSlot=selSlot==+x.dataset.i?-1:+x.dataset.i;renderInv()});
- document.querySelectorAll('.sl3.em').forEach(x=>x.onclick=()=>{const g=$('ipg');g.classList.remove('hint');void g.offsetWidth;g.classList.add('hint');snd('click');setTimeout(()=>g.classList.remove('hint'),900)});
- document.querySelectorAll('#inv .ux').forEach(x=>x.onclick=ev=>{ev.stopPropagation();EQ.splice(+x.dataset.u,1);snd('unequip');selSlot=-1;save();updHud();renderInv()});
- document.querySelectorAll('.pc3').forEach(x=>x.onclick=()=>equipPet(x.dataset.k));
- pendUpd()}
 function pendUpd(){const p=Math.floor(pend),on=p>=1,open=$('inv').classList.contains('open'),bd=$('ibadge');
  if(bd){bd.textContent='+'+abbr(p);bd.classList.toggle('on',on&&!open)}
- if(!open)return;$('iips').textContent=abbr(totalCps())+'/s';if(!collecting)$('ipend').textContent=abbr(p);$('ecl').classList.toggle('rdy',on&&!collecting)}
+ if(!open)return;$('nvIps').textContent=abbr(totalCps())+'/s';if(!collecting)$('nvPend').textContent=abbr(p);$('nvCol').classList.toggle('rdy',on&&!collecting)}
 setInterval(pendUpd,250);
 function coinFly(from,to,n){const sr=st.getBoundingClientRect(),s=sr.width/722,fr=from.getBoundingClientRect(),tr=to.getBoundingClientRect(),fx=(fr.left+fr.width/2-sr.left)/s,fy=(fr.top+fr.height/2-sr.top)/s,tx=(tr.left+28-sr.left)/s,ty=(tr.top+tr.height/2-sr.top)/s;
  for(let i=0;i<n;i++){const c=document.createElement('i');c.className='cfly';c.innerHTML=IC_COIN2;c.style.left=fx+'px';c.style.top=fy+'px';st.appendChild(c);
   const dx=tx-fx,dy=ty-fy,jx=(Math.random()-.5)*150,jy=-40-Math.random()*80,T=(x,y,sc)=>`translate(calc(-50% + ${x}px),calc(-50% + ${y}px)) scale(${sc})`;
   const a=c.animate([{transform:T(0,0,.3),opacity:0},{transform:T(jx,jy,1.15),opacity:1,offset:.3},{transform:T(dx,dy,.8),opacity:1,offset:.92},{transform:T(dx,dy,.3),opacity:0}],{duration:850+Math.random()*300,delay:i*32,easing:'cubic-bezier(.5,0,.4,1)',fill:'both'});a.onfinish=()=>c.remove()}}
-function collect(){if(collecting)return;const amt=Math.floor(pend),btn=$('ecl');
+function collect(){if(collecting)return;const amt=Math.floor(pend),btn=$('nvCol');
  if(amt<1){snd('err');btn.classList.remove('shk');void btn.offsetWidth;btn.classList.add('shk');return}
  collecting=true;pend-=amt;cash+=amt;hcLag=amt;save();updHud();
  btn.classList.remove('pop','rdy');void btn.offsetWidth;btn.classList.add('pop');
- tweenNum($('ipend'),amt,0,v=>abbr(v),650);
+ tweenNum($('nvPend'),amt,0,v=>abbr(v),650);
  coinFly(btn,$('cashd'),Math.min(22,8+Math.floor(Math.log10(amt+1)*3)));
  [0,90,180,270,360,450].forEach(t=>setTimeout(()=>snd('coin'),t));setTimeout(()=>snd('buy'),520);
  setTimeout(()=>{const c=$('cashd');c.classList.remove('bump');void c.offsetWidth;c.classList.add('bump');const t0=performance.now(),a=hcLag,st2=t=>{const p=Math.min(1,(t-t0)/700);hcLag=a*(1-(1-Math.pow(1-p,3)));updHud();if(p<1)requestAnimationFrame(st2);else{hcLag=0;updHud()}};requestAnimationFrame(st2)},600);
  setTimeout(()=>{collecting=false;pendUpd()},1100);
  if(tutStep==3)setTimeout(tutDone,1400)}
-$('ecl').onclick=collect;
+$('nvCol').onclick=collect;
 $('ix2').onclick=closeEggW;
-$('ebest').onclick=()=>{const l=[];Object.keys(own).forEach(n=>{for(let i=0;i<own[n];i++)l.push(n)});EQ=l.sort((a,b)=>cpsOf(b)-cpsOf(a)).slice(0,3);selSlot=-1;save();updHud();renderInv();snd('buy')};
-$('euall').onclick=()=>{EQ=[];selSlot=-1;save();updHud();renderInv();snd('unequip')};
-document.querySelectorAll('.sbt').forEach(b=>b.onclick=()=>{sortM=b.dataset.s;renderInv()});
+$('nvBest').onclick=()=>{const l=[];Object.keys(own).forEach(n=>{for(let i=0;i<own[n];i++)l.push(n)});EQ=l.sort((a,b)=>cpsOf(b)-cpsOf(a)).slice(0,3);selSlot=-1;save();updHud();renderInv();snd('buy')};
+$('nvNone').onclick=()=>{EQ=[];selSlot=-1;save();updHud();renderInv();snd('unequip')};
+
 $('ebi').innerHTML=egg('c');updE();updHud();pendUpd();
 /* ================= Samurai-Update (v10) ================= */
 /* ---------- Event-Definitionen ---------- */
@@ -3058,8 +3156,9 @@ function rareFx(ri,k,tr){const col=R[ri][1],big=ri>=6||tr.includes('diamond')||t
  clearTimeout(rareFx.t);rareFx.t=setTimeout(()=>{w.className=''},big?2600:1900)}
 (function(){const a0=addPet;addPet=function(n,c,silent){a0(n,c,silent);try{if(silent||stg.classList.contains('tut'))return;const k=pi(bn(n));if(k<0)return;const ri=P[k][1],tr=trk(n);if(ri>=4||tr.includes('diamond')||tr.includes('rainbow'))rareFx(ri,k,tr)}catch(e){}}})();
 /* ---------- Index-Belohnungen ---------- */
-function idxKeys(t){return t<4?idxList(t):SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0))}
-function idxRwRender(){const iv=$('iv');if(!iv)return;let b=$('irw');if(!b){b=document.createElement('div');b.id='irw';iv.parentNode.insertBefore(b,iv)}
+function idxKeys(t){return t==5?[]:t<4?idxList(t):SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0))}
+function idxRwRender(){const iv=$('nxG');if(!iv)return;let b=$('irw');if(!b){b=document.createElement('div');b.id='irw';iv.parentNode.insertBefore(b,iv)}
+ if(idxW==5){b.style.display='none';return}b.style.display='';
  const t=idxW,ks=idxKeys(t),got=ks.filter(k=>found.has(P[k][0])).length,done=ks.length&&got>=ks.length,id='w'+t,cl=idxClaimed().includes(id),gem=IDX_GEMS[Math.min(t,4)];
  b.className=done&&!cl?'rdy':cl?'dn':'';
  b.innerHTML=`<span class="irg">🎁</span><span class="irt"><b>Seiten-Belohnung</b><small>${cl?'Eingelöst – danke fürs Sammeln!':done?'Alle Pets entdeckt!':got+' / '+ks.length+' entdeckt'}</small></span><span class="irr">+${fmt(gem)} 💎 · +${Math.round(IDX_BONUS*100)}% Cash/s dauerhaft</span><button class="btn irb" ${done&&!cl?'':'disabled'}>${cl?'✓ Erhalten':done?'EINLÖSEN':'🔒'}</button>`;
@@ -3103,9 +3202,132 @@ setInterval(()=>{if(!document.hidden&&AUTHED)SS('crLs',String(Date.now()))},5000
 document.addEventListener('visibilitychange',()=>{if(document.hidden){if(AUTHED)SS('crLs',String(Date.now()))}else offlineCheck()});
 /* ---------- Politur: Klick-Sounds, Erst-Tipps ---------- */
 document.addEventListener('pointerdown',e=>{if(e.target.closest&&e.target.closest('.nt,.xb,.sb,.pzc,.czx,.itb,.lbc,.amb,.ixx'))snd('click')},true);
-function tipOnce(id,html){const t=J('crTip',[]);if(t.includes(id))return;t.push(id);SS('crTip',JSON.stringify(t));pushMsg('💡 <b class="evn">Tipp:</b> <span class="gmt">'+html+'</span>','em',8000)}
+var TIPQ=[];setInterval(()=>{if(!TIPQ.length)return;const o=$('ov');if((o&&o.classList.contains('on'))||(typeof stg!=='undefined'&&stg.classList.contains('tut'))||(typeof eOpen!=='undefined'&&eOpen))return;TIPQ.shift()()},1800);
+function tipOnce(id,html){const t=J('crTip',[]);if(t.includes(id)||TIPQ.some(f=>f.id==id))return;const f=()=>{const t2=J('crTip',[]);if(t2.includes(id))return;t2.push(id);SS('crTip',JSON.stringify(t2));pushMsg('💡 <b class="evn">Tipp:</b> <span class="gmt">'+html+'</span>','em',8000)};f.id=id;TIPQ.push(f)}
 $('chatBtn').addEventListener('click',()=>setTimeout(()=>tipOnce('chat','Seltene Pets von allen Spielern erscheinen hier automatisch. Sei nett – der Chat wird moderiert.'),600));
 $('idxBtn').addEventListener('click',()=>setTimeout(()=>tipOnce('idx','Entdecke alle Pets einer Seite und löse die Belohnung ein: Gems + dauerhaft mehr Cash.'),600));
 setTimeout(()=>{if(!stg.classList.contains('tut'))tipOnce('pity','Über dem Roll-Button siehst du, wann dein nächstes Epic+ garantiert ist.')},6000);
 setInterval(()=>{if(wUnl.includes(1)&&cash+pend>=rbReq()&&!stg.classList.contains('tut'))tipOnce('rb','Rebirth verfügbar! Oben links (🔁) – starte neu und werde dauerhaft stärker.')},4000);
+/* ================= v13: Neues Inventar, neuer Index, Daily Rewards ================= */
+CRK.push('crDr','crIdxM');
+var nvSortN={r:'Seltenheit',c:'Coins/s',n:'Menge'},nvTipT=0;
+const nvStar='<svg class="nvst" viewBox="0 0 32 32"><path d="M16,2.5 L20.2,11.6 L30,12.6 L22.6,19.2 L24.8,29 L16,23.9 L7.2,29 L9.4,19.2 L2,12.6 L11.8,11.6Z" fill="#ffd23a" stroke="#1a2236" stroke-width="3" stroke-linejoin="round"/><path d="M16,8 L18,13 L23,13.5 L19.3,16.8" fill="none" stroke="#fff6b0" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>';
+function nvIcon(t){
+ try{if(t=='s')return egg('c');
+  if(t==0)return SV[pi('Dog')>=0?pi('Dog'):0];
+  if(t==1){const k=P.findIndex(p=>p[4]===1);return SV[k>=0?k:0]}
+  if(t==4){const k=P.findIndex(p=>p[1]>=8);return SV[k>=0?k:0]}
+  if(t==5){const k=pi('Dog')>=0?pi('Dog'):0;return SVT(k,['golden'])}
+ }catch(e){}return ''}
+function nvRail(el,list,cur,fn,withSpin){
+ el.innerHTML=list.map(([t,n,c])=>`<div class="nvr${t==cur?' on':''}" data-t="${t}" title="${n}"><i>${nvIcon(t)}</i><b>${n}</b>${c?`<u>${c}</u>`:''}</div>`).join('');
+ el.querySelectorAll('.nvr').forEach(b=>b.onclick=()=>{fn(b.dataset.t=='s'?'s':+b.dataset.t);snd('click')})}
+function nvTip(tip,root,el,html){
+ clearTimeout(nvTipT);tip.innerHTML=html;tip.classList.add('on');
+ const rr=root.getBoundingClientRect(),s=rr.width/root.offsetWidth||1,r=el.getBoundingClientRect();
+ let x=(r.left-rr.left+r.width/2)/s,y=(r.bottom-rr.top)/s+4;const w=tip.offsetWidth,h=tip.offsetHeight;
+ x=Math.max(w/2+8,Math.min(root.offsetWidth-w/2-8,x));if(y+h>root.offsetHeight-6)y=(r.top-rr.top)/s-h-4;
+ tip.style.left=x+'px';tip.style.top=Math.max(4,y)+'px';nvTipT=setTimeout(()=>tip.classList.remove('on'),2600)}
+function nvTipHide(tip){clearTimeout(nvTipT);tip.classList.remove('on')}
+function nvBind(grid,tip,root,fn){grid.querySelectorAll('[data-tip]').forEach(c=>{c.addEventListener('mouseenter',()=>nvTip(tip,root,c,fn(c)));c.addEventListener('mouseleave',()=>nvTipHide(tip));c.addEventListener('pointerdown',()=>nvTip(tip,root,c,fn(c)))})}
+const nvTrN=tr=>tr.map(t=>(typeof MUTN!=='undefined'&&MUTN[t])||t).join(' · ');
+function nvPetTip(key){const k=pi(bn(key)),tr=trk(key),ri=P[k][1],col=R[ri][1];
+ return `<h4>${esc(sn(P[k][0]))}</h4><em style="--c:${col}">${rarName(k)}</em>${tr.length?`<p class="tm">${nvTrN(tr)}</p>`:''}<p>💰 ${fmt(cpsOf(key))}/s</p><p>Besitzt: <b>x${own[key]||0}</b></p>`}
+function renderInv(){
+ const spv=invW=='s',root=$('inv');root.classList.toggle('spv',spv);
+ $('nvEqc').textContent=Math.min(3,EQ.length)+' / 3';
+ const cnt=Object.values(own).reduce((a,b)=>a+b,0);
+ nvRail($('nvRail'),[[0,'Basic'],[1,'Water'],[4,'Exclusive'],[5,'Limited'],['s','Spins',totE()||'']],invW,t=>{invW=t;renderInv();$('nvGrid').scrollTop=0});
+ $('nvSlots').innerHTML=[0,1,2].map(i=>{const n=EQ[i];
+  if(!n)return `<div class="nvc sl em" data-e="${i}"><i class="pl">+</i></div>`;
+  const k=pi(bn(n)),c=R[P[k][1]][1],tr=trk(n);
+  return `<div class="nvc sl f qd${selSlot==i?' sel':''}" data-i="${i}" data-tip="${esc(n)}" style="--c:${c}">${nvStar}<u class="nvu" data-u="${i}">✕</u><div class="nvp">${SVT(k,tr)}</div>${tr.length?`<span class="nvtr">${triHTML(tr)}</span>`:''}<span class="nvw">${abbr(cpsOf(n))}</span></div>`}).join('');
+ const g=$('nvGrid');
+ if(spv){
+  $('nvTitle').textContent='Spins · '+(totE()||'keine');
+  const sp=['c','x'].filter(t=>eggsI[t]>0).map(t=>`<div class="nvc spn" data-t="${t}" style="--c:${t=='c'?'#b06bff':'#ff8a3a'}"><b class="nvq">x${eggsI[t]}</b><div class="nvp">${egg(t)}</div><span class="nvn">${EG[t].n}</span></div>`);
+  const fg={};FE.forEach(e=>fg[e.l]=(fg[e.l]||0)+1);
+  Object.keys(fg).sort((a,b)=>b-a).forEach(l=>sp.push(`<div class="nvc spn" data-t="f" data-l="${l}" style="--c:#6fe4ff"><b class="nvq">x${fg[l]}</b><div class="nvp">${egg('f')}</div><span class="nvn">Fuse +${l}%</span></div>`));
+  g.innerHTML=sp.join('')||'<div class="nvno">Du besitzt noch keine Spins.<br>Hol dir welche im Shop!</div>';
+  g.querySelectorAll('.spn').forEach(x=>x.onclick=()=>openEgg(x.dataset.t,+x.dataset.l||0));
+ }else{
+  const q=($('nvQ').value||'').trim().toLowerCase();
+  let l=ownedList(invW);if(q)l=l.filter(k=>bn(k).toLowerCase().includes(q)||nvTrN(trk(k)).toLowerCase().includes(q));
+  $('nvTitle').textContent='Pets · '+cnt;
+  g.innerHTML=l.map(key=>{const k=pi(bn(key)),c=R[P[k][1]][1],tr=trk(key),q2=eqc(key);
+   return `<div class="nvc${q2?' qd':''}" data-k="${esc(key)}" data-tip="${esc(key)}" style="--c:${c}">${q2?nvStar:''}<b class="nvq">x${own[key]}</b><div class="nvp">${SVT(k,tr)}</div>${tr.length?`<span class="nvtr">${triHTML(tr)}</span>`:''}<span class="nvw">${abbr(cpsOf(key))}</span></div>`}).join('')||`<div class="nvno">${q?'Nichts gefunden.':invW==5?'Noch keine Limited Pets.<br>Pets mit Mutationen erscheinen hier!':'Noch keine Pets in dieser Kategorie.<br>Rolle oder drehe Spins!'}</div>`;
+  g.querySelectorAll('.nvc[data-k]').forEach(x=>x.onclick=()=>equipPet(x.dataset.k));
+ }
+ $('nvSlots').querySelectorAll('.sl.f').forEach(x=>x.onclick=()=>{selSlot=selSlot==+x.dataset.i?-1:+x.dataset.i;renderInv()});
+ $('nvSlots').querySelectorAll('.sl.em').forEach(x=>x.onclick=nvHint);
+ $('nvSlots').querySelectorAll('.nvu').forEach(x=>x.onclick=ev=>{ev.stopPropagation();EQ.splice(+x.dataset.u,1);snd('unequip');selSlot=-1;save();updHud();renderInv()});
+ nvBind($('nvSlots'),$('nvTip'),root,c=>nvPetTip(c.dataset.tip));nvBind(g,$('nvTip'),root,c=>nvPetTip(c.dataset.tip));
+ pendUpd()}
+function nvHint(){const g=$('nvGrid');g.classList.remove('hint');void g.offsetWidth;g.classList.add('hint');snd('click');setTimeout(()=>g.classList.remove('hint'),900)}
+$('nvPlus').onclick=nvHint;
+$('nvQ').addEventListener('input',()=>renderInv());
+$('nvSort').onclick=()=>{sortM=sortM=='r'?'c':sortM=='c'?'n':'r';snd('click');renderInv();msg('Sortierung: '+nvSortN[sortM])};
+$('nvFuse').onclick=()=>{closeEggW();setTimeout(()=>$('fuBtn').click(),60)};
+/* ---------- Index ---------- */
+var IXM={};try{IXM=J('crIdxM',{})||{}}catch(e){}
+const nxVar=()=>['golden','rainbow','samurai','diamond'].filter(t=>typeof MUTN!=='undefined'&&MUTN[t]);
+function ixmAdd(n,tr){let ch=false;const b=bn(n);tr.forEach(t=>{if(!MUTN[t])return;(IXM[b]=IXM[b]||[]);if(!IXM[b].includes(t)){IXM[b].push(t);ch=true}});if(ch)try{SS('crIdxM',JSON.stringify(IXM))}catch(e){}}
+function ixmScan(){Object.keys(own).forEach(k=>{if(own[k]>0)ixmAdd(k,trk(k))})}
+(function(){const a0=addPet;addPet=function(n,c,s){a0(n,c,s);try{ixmAdd(n,trk(n))}catch(e){}}})();
+function nxKeys(t){return t==4?SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0)):t==5?[]:idxList(t)}
+function nxCnt(k){const p=P[k];return (found.has(p[0])?1:0)+((IXM[p[0]]||[]).length)}
+function nxTipHTML(k){const p=P[k],d=found.has(p[0]),vs=['',...nxVar()],got=IXM[p[0]]||[];
+ return `<h4>${d?esc(sn(p[0])):'???'}</h4><em style="--c:${R[p[1]][1]}">${rarName(k)}</em><div class="nxv">${vs.map(v=>{const ok=v?got.includes(v):d;return `<div class="${ok?'':'lk'}" title="${v?MUTN[v]:'Normal'}">${ok?(v?SVT(k,[v]):SV[k]):SV[k]}<s>${v?MUTN[v]:'Normal'}</s></div>`}).join('')}</div><p>💰 ${fmt(CPS[p[0]])}/s</p>`}
+function renderIdx(){if(!$('nxG'))return;if(!IXM)return;try{MUTN;SPIN_CATS();idxRwRender}catch(e){return}ixmScan();
+ const t=idxW,l=nxKeys(t),ex=t==4,cats=ex?SPIN_CATS():null,nv=1+nxVar().length;
+ const all=new Set([...idxList(0),...idxList(1),...nxKeys(4)]),gotAll=[...all].filter(k=>found.has(P[k][0])).length;
+ $('nxH').textContent='Pets '+gotAll+'/'+all.size;
+ nvRail($('nxRail'),[[0,'Basic'],[1,'Water'],[4,'Exclusive'],[5,'Limited']],t,x=>{idxW=x;renderIdx();$('nxG').scrollTop=0});
+ const card=k=>{const p=P[k],d=found.has(p[0]),n=nxCnt(k);return `<div class="nvc nx${d?'':' lk'}" data-tip="${k}" style="--c:${R[p[1]][1]}"><div class="nvp">${d?SV[k]:SV[k]}</div>${d?'':'<i class="nxq">?</i>'}<span class="nvw">${n}/${nv}</span></div>`};
+ $('nxG').innerHTML=t==5?'<div class="nvno">Noch keine Limited Pets verfügbar.<br>Sie erscheinen bei besonderen Events!</div>':ex?cats.map(c=>{const ks=c.pets.map(pi).filter(k=>k>=0),g=ks.filter(k=>found.has(P[k][0])).length;return `<div class="nxh" style="--c:${c.col}"><span>${egg(c.id=='o'?'c':c.id)}</span><b>${c.n}</b><i>${g} / ${ks.length}</i></div>`+ks.map(card).join('')}).join(''):l.map(card).join('');
+ nvBind($('nxG'),$('nxTip'),$('idx'),c=>nxTipHTML(+c.dataset.tip))}
+function openIdx(){idxW=cw>1?0:cw;renderIdx();$('nxG').scrollTop=0;$('ov').classList.add('on');$('game').classList.add('blur');$('idx').classList.add('open')}
+/* ---------- Daily Rewards ---------- */
+var drShown=false,drFree=0;
+function drDay(){const p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
+ return{d:Math.floor(Date.UTC(+p.year,+p.month-1,+p.day)/864e5),left:86400-((+p.hour%24)*3600+ +p.minute*60+ +p.second)}}
+const DR=[
+ {t:'Coins',c:'#ffb02e',c2:'#ff7a1a',ic:()=>IC_COIN2,amt:()=>Math.max(2500,Math.round(totalCps()*900)),lbl:v=>abbr(v),fx:v=>{cash+=v}},
+ {t:'Cosmo Spin',c:'#b06bff',c2:'#3a8aff',rb:1,ic:()=>egg('c'),amt:()=>1,lbl:v=>'x'+v,fx:v=>{eggsI.c=(eggsI.c||0)+v}},
+ {t:'Gems',c:'#ff5a6a',c2:'#c81a3a',ic:()=>drGem(),amt:()=>250,lbl:v=>v,fx:v=>{dia+=v}},
+ {t:'Coins',c:'#3ab8ff',c2:'#1a62e8',ic:()=>IC_COIN2,amt:()=>Math.max(15000,Math.round(totalCps()*3600)),lbl:v=>abbr(v),fx:v=>{cash+=v}},
+ {t:'Cosmo Spin',c:'#6fe05a',c2:'#1fae3a',ic:()=>egg('c'),amt:()=>3,lbl:v=>'x'+v,fx:v=>{eggsI.c=(eggsI.c||0)+v}},
+ {t:'Gems',c:'#c06bff',c2:'#7a2ad8',ic:()=>drGem(),amt:()=>750,lbl:v=>v,fx:v=>{dia+=v}}];
+const drGem=()=>'<svg viewBox="0 0 32 32"><polygon points="16,2 29,12 16,30 3,12" fill="#6fe4ff" stroke="#0a4a7a" stroke-width="2.4" stroke-linejoin="round"/><polygon points="16,2 22,12 16,30 10,12" fill="#b8f4ff"/><path d="M3,12 H29" stroke="#0a4a7a" stroke-width="2"/></svg>';
+function drState(){const zz=drDay(),z=zz.d,st=J('crDr',{d:0,s:0}),last=+st.d||0;let s=+st.s||0;const today=last>=z,alive=last==z-1||today;if(!alive)s=0;
+ const pos=today?((s-1)%7)+1:(s%7);return{z:{d:z},left:zz.left,ready:!today,s,pos,alive,today,next:today?0:pos+1,last}}
+function drRender(){const S=drState(),g=$('drG');$('drN').textContent=S.alive||S.today?S.s:0;
+ const done=n=>S.pos>=n,cur=n=>S.ready&&S.next==n;
+ g.innerHTML=DR.map((r,i)=>{const n=i+1,v=r.amt();return `<div class="drc${done(n)?' dn':''}${cur(n)?' cur':''}" style="--c:${r.c};--c2:${r.c2}"><b class="dro">${r.t}</b><div class="dri2">${r.ic()}</div><em class="dro drq">${r.lbl(v)}</em><b class="dro drd">Tag ${n}</b>${cur(n)?'<button class="drb" data-d="'+n+'">Abholen!</button>':''}${done(n)?'<i class="drck">✓</i>':''}</div>`}).join('');
+ const c7=S.pos>=7,cu7=S.ready&&S.next==7;
+ $('drR').className='drr'+(c7?' dn':'')+(cu7?' cur':'');
+ $('drR').innerHTML=`<h3 class="drop">SUPER BELOHNUNG!</h3><p class="dro">Extinct Spin x1<br>+ 1'500 Gems</p><div class="drbig"><span class="e">${egg('x')}</span><span class="g">${drGem()}</span><span class="g2">${drGem()}</span></div><b class="dro drd7">Tag 7</b>${cu7?'<button class="drb" data-d="7">Abholen!</button>':''}${c7?'<i class="drck">✓</i>':''}`;
+ $('drH').textContent=S.ready?'Belohnung bereit zum Abholen!':'Nächste Belohnung in '+[Math.floor(S.left/3600),Math.floor(S.left%3600/60),S.left%60].map(x=>String(x).padStart(2,'0')).join(':');
+ $('drH').classList.toggle('wait',!S.ready);
+ document.querySelectorAll('#drw .drb').forEach(b=>b.onclick=()=>drClaim(+b.dataset.d));
+ const bt=$('drBtn');if(bt)bt.classList.toggle('rdy',S.ready&&LS('crTutDone')=='1')}
+function drClaim(day){const S=drState();if(!S.ready||S.next!=day)return;
+ SS('crDr',JSON.stringify({d:S.z.d,s:S.s+1}));
+ let txt;if(day<7){const r=DR[day-1],v=r.amt();r.fx(v);txt=(r.t=='Gems'?'💎 +'+fmt(v)+' Gems':r.t=='Coins'?'🪙 +'+abbr(v)+' Coins':'🎡 +'+v+' Cosmo Spin'+(v>1?'s':''))}
+ else{eggsI.x=(eggsI.x||0)+1;dia+=1500;txt='🎁 Super Belohnung: Extinct Spin + 1\'500 Gems!'}
+ save();updE();updHud();try{acSave(true)}catch(e){}
+ snd('buy');snd('gem');msg('📅 Daily Reward Tag '+day+': '+txt);
+ drRender();const c=document.querySelector('#drw .drc.dn:last-of-type,#drw .drr.dn');
+ const w=$('drw');w.classList.remove('boom');void w.offsetWidth;w.classList.add('boom')}
+function drOpen(){drShown=true;drRender();$('ov').classList.add('on');$('game').classList.add('blur');$('drw').classList.add('open');snd('open')}
+$('drx').onclick=closeEggW;
+(function(){const b=document.createElement('div');b.className='sb';b.id='drBtn';b.title='Daily Rewards';b.textContent='📅';$('topl').appendChild(b);b.onclick=drOpen})();
+setInterval(()=>{if($('drw').classList.contains('open'))drRender()},1000);
+setInterval(()=>{try{
+ const tutOn=stg.classList.contains('tut');$('drBtn').style.display=tutOn||LS('crTutDone')!='1'?'none':'';
+ if(tutOn||LS('crTutDone')!='1'||!AUTHED){drFree=0;return}
+ if(!drFree){drFree=Date.now();return}
+ const busy=$('ov').classList.contains('on')||eOpen||document.querySelector('#sw.open,#wun,#rfx.on,.pzmd.on');
+ if(!drShown&&!busy&&Date.now()-drFree>3500&&drState().ready)drOpen();
+ const bt=$('drBtn');if(bt)bt.classList.toggle('rdy',drState().ready)}catch(e){}},1500);
 </script></body></html>
