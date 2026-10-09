@@ -1550,6 +1550,63 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
 #drBtn.rdy::after{content:"";position:absolute;right:-3px;top:-3px;width:12px;height:12px;border-radius:50%;background:#ff3b3b;border:2px solid #fff;animation:pityp2 1s infinite}
 
 #invBtn #ibadge{left:100%!important;right:auto!important;top:auto!important;bottom:4px!important;margin:0 0 0 4px}
+
+/* ===== v14: Welt-Icons, Seitenbelohnung, Daily 1:1 ===== */
+.nvrail{width:70px;gap:4px;padding:5px 0;background:linear-gradient(#eef0f8,#dfe3ee);box-shadow:inset 0 0 0 2px rgba(255,255,255,.7),0 2px 0 rgba(20,26,44,.08)}
+.nvr{width:60px;padding:4px 0 3px;border-radius:15px;border:3px solid transparent;transition:transform .22s cubic-bezier(.3,1.5,.5,1),background .2s,box-shadow .2s,border-color .2s}
+.nvr:hover{transform:scale(1.07);background:rgba(255,255,255,.85)}.nvr:active{transform:scale(.95)}
+.nvr i{width:34px;height:34px;transition:transform .3s cubic-bezier(.3,1.6,.5,1);filter:drop-shadow(0 2px 0 rgba(20,26,44,.12))}
+.nvr b{font-size:10.5px;color:#46506f;transition:color .2s}
+.nvr.on{background:linear-gradient(#fff,#e4ffe8);border-color:#3ad24a;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 0 12px rgba(58,210,74,.55);transform:scale(1.04)}
+.nvr.on i{transform:scale(1.14) translateY(-1px)}.nvr.on b{color:#16803a}
+.wi *{transform-box:fill-box;transform-origin:center}
+.nvr.on .wcan{transform-origin:50% 100%;animation:wiSway 3s ease-in-out infinite}
+.nvr.on .wdrop{animation:wiDrop 2s ease-in infinite}.nvr.on .wwav{animation:wiWav 2.2s ease-in-out infinite}
+.nvr.on .wspk{animation:wiTw 1.8s ease-in-out infinite}.nvr.on .whg{animation:wiFlip 5s ease-in-out infinite}
+.nvr.on i>svg:not(.wi){animation:wiSpin 6s linear infinite}
+@keyframes wiSway{50%{transform:rotate(2.6deg)}0%,100%{transform:rotate(-2.6deg)}}
+@keyframes wiDrop{0%{transform:translateY(-3px);opacity:0}25%{opacity:1}70%{transform:translateY(3px);opacity:1}100%{transform:translateY(6px);opacity:0}}
+@keyframes wiWav{50%{transform:translateX(2px)}0%,100%{transform:translateX(-2px)}}
+@keyframes wiTw{0%,100%{transform:scale(.55) rotate(0);opacity:.6}50%{transform:scale(1.15) rotate(40deg);opacity:1}}
+@keyframes wiFlip{0%,70%{transform:rotate(0)}90%,100%{transform:rotate(180deg)}}
+@keyframes wiSpin{to{transform:rotate(360deg)}}
+.swc{animation:swc .38s cubic-bezier(.2,.9,.3,1)}@keyframes swc{0%{opacity:0;transform:translateY(10px) scale(.985)}100%{opacity:1;transform:none}}
+.nvc{transition:transform .18s cubic-bezier(.3,1.5,.5,1)}.nvc:hover{transform:translateY(-2px) scale(1.04)}
+/* Seitenbelohnung */
+#idx #irw{position:relative!important;top:auto!important;left:auto!important;right:auto!important;flex:none;height:54px!important;margin:3px 4px 4px;padding:0 10px 0 8px!important;gap:10px;border-radius:16px!important;border:3px solid #cdd3ea!important;background:linear-gradient(#f7f8fd,#e9ecf7)!important;overflow:hidden;box-shadow:0 2px 0 rgba(20,26,44,.1)!important;transition:border-color .25s,box-shadow .25s}
+#idx #irw .irw-w{flex:none;width:38px;height:38px;display:block}#idx #irw .irw-w svg{width:100%;height:100%;overflow:visible}
+#idx #irw .irt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;line-height:1}
+#idx #irw .irt b{font-size:15px;font-weight:400;color:#1a2236!important}
+#idx #irw .ibar{display:block;height:9px;border-radius:5px;background:#cfd4e6;overflow:hidden;box-shadow:inset 0 1px 2px rgba(0,0,0,.2)}
+#idx #irw .ibar u{display:block;height:100%;border-radius:5px;background:linear-gradient(#7af070,#2fc23c);transition:width .6s cubic-bezier(.2,.9,.3,1);text-decoration:none}
+#idx #irw small{font-size:10.5px;color:#6a7088!important}
+#idx #irw .irr{margin:0;display:flex;flex-direction:column;gap:3px;align-items:flex-start}
+#idx #irw .ich{display:flex;align-items:center;gap:4px;font-style:normal;font-size:12px;color:#1a2236;background:#fff;border:2px solid #d4d9ec;border-radius:9px;padding:0 7px 0 3px;height:20px}
+#idx #irw .ich i{display:block;width:15px;height:15px}#idx #irw .ich svg{width:100%;height:100%}
+#idx #irw .irb{height:34px;min-width:92px;flex:none;font-size:14px}
+#idx #irw.rdy{border-color:#ffb02e!important;background:linear-gradient(#fffaf0,#ffefc4)!important;animation:irP 1.6s ease-in-out infinite!important}
+#idx #irw.rdy::after{content:"";position:absolute;top:0;bottom:0;width:40px;left:-60px;background:linear-gradient(100deg,transparent,rgba(255,255,255,.85),transparent);animation:irS 2.4s ease-in-out infinite}
+#idx #irw.rdy .irb{animation:irB 1.2s ease-in-out infinite}
+#idx #irw.dn{border-color:#7ed08a!important;opacity:1}
+@keyframes irP{50%{box-shadow:0 0 16px rgba(255,176,46,.8)}}@keyframes irS{0%{left:-60px}60%,100%{left:110%}}@keyframes irB{50%{transform:scale(1.07)}}
+#idx #irw.clm{animation:irC .6s cubic-bezier(.2,1.4,.4,1)}@keyframes irC{40%{transform:scale(1.04)}}
+.irsp{position:absolute;left:84%;top:50%;width:8px;height:8px;margin:-4px;border-radius:50%;background:#ffd34d;box-shadow:0 0 8px #ffb02e;pointer-events:none;animation:irsp .9s ease-out forwards}
+@keyframes irsp{0%{transform:rotate(var(--a)) translateX(0);opacity:1}100%{transform:rotate(var(--a)) translateX(var(--d)) scale(.3);opacity:0}}
+/* Daily Gift 1:1 */
+#drw{left:76px;top:58px;width:570px;height:336px}
+#drw .nvt h1{font-size:46px}
+#drH{margin:26px 0 12px;font-size:26px}
+#drG{gap:11px}
+.drl{flex:2.1}.drr{flex:1}
+.drc>b.dro:first-child{font-size:14px;top:6px;right:16px;left:0}.drq{font-size:25px;top:38px;right:7px}.drd{font-size:23px;bottom:5px}
+.dri2{top:26px;width:60px;height:60px}
+.drb{left:6%;right:6%;height:32px;bottom:5px;font-size:19px}
+.drop2{position:absolute;right:1px;top:1px;z-index:3;font-style:normal;font-size:11px;line-height:1;padding:2px 5px;border-radius:8px;transform:rotate(12deg);color:#fff;background:linear-gradient(90deg,#ff3a8a,#ffb02e,#3aa8ff);border:3px solid #141a2c;-webkit-text-stroke:3px #141a2c;paint-order:stroke fill}
+.drop{font-size:27px;filter:drop-shadow(0 2px 0 #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c)}
+.drop{background:linear-gradient(90deg,#3a9aff 0,#2fd8ff 30%,#3affa0 55%,#ffe03a 78%,#ff5a7a 100%);-webkit-background-clip:text;background-clip:text}
+.drd7{font-size:46px;background:linear-gradient(90deg,#ff3a9a 0,#ffa02e 40%,#3aa8ff 70%,#2fe05a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;filter:drop-shadow(0 3px 0 #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c)}
+.drr>p{font-size:15px}
+.drc{transition:transform .2s}.drc:not(.dn):not(.cur):hover{transform:translateY(-2px)}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -3157,12 +3214,14 @@ function rareFx(ri,k,tr){const col=R[ri][1],big=ri>=6||tr.includes('diamond')||t
 (function(){const a0=addPet;addPet=function(n,c,silent){a0(n,c,silent);try{if(silent||stg.classList.contains('tut'))return;const k=pi(bn(n));if(k<0)return;const ri=P[k][1],tr=trk(n);if(ri>=4||tr.includes('diamond')||tr.includes('rainbow'))rareFx(ri,k,tr)}catch(e){}}})();
 /* ---------- Index-Belohnungen ---------- */
 function idxKeys(t){return t==5?[]:t<4?idxList(t):SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0))}
+function irwFx(){const b=$('irw');if(!b)return;b.classList.remove('clm');void b.offsetWidth;b.classList.add('clm');for(let i=0;i<14;i++){const e=document.createElement('i');e.className='irsp';e.style.setProperty('--a',(i*25.7)+'deg');e.style.setProperty('--d',(40+Math.random()*60|0)+'px');b.appendChild(e);setTimeout(()=>e.remove(),1000)}}
 function idxRwRender(){const iv=$('nxG');if(!iv)return;let b=$('irw');if(!b){b=document.createElement('div');b.id='irw';iv.parentNode.insertBefore(b,iv)}
  if(idxW==5){b.style.display='none';return}b.style.display='';
  const t=idxW,ks=idxKeys(t),got=ks.filter(k=>found.has(P[k][0])).length,done=ks.length&&got>=ks.length,id='w'+t,cl=idxClaimed().includes(id),gem=IDX_GEMS[Math.min(t,4)];
  b.className=done&&!cl?'rdy':cl?'dn':'';
- b.innerHTML=`<span class="irg">🎁</span><span class="irt"><b>Seiten-Belohnung</b><small>${cl?'Eingelöst – danke fürs Sammeln!':done?'Alle Pets entdeckt!':got+' / '+ks.length+' entdeckt'}</small></span><span class="irr">+${fmt(gem)} 💎 · +${Math.round(IDX_BONUS*100)}% Cash/s dauerhaft</span><button class="btn irb" ${done&&!cl?'':'disabled'}>${cl?'✓ Erhalten':done?'EINLÖSEN':'🔒'}</button>`;
- b.querySelector('.irb').onclick=()=>{if(!(done&&!cl))return;const c=idxClaimed();if(c.includes(id))return;c.push(id);SS('crIdxR',JSON.stringify(c));dia+=gem;save();updHud();snd('buy');snd('gem');msg(`🎁 Index-Belohnung: +${fmt(gem)} 💎 · +${Math.round(IDX_BONUS*100)}% Cash/s dauerhaft`);if(typeof acSave=='function')acSave(true);idxRwRender()}}
+ const wn=(typeof WN!=='undefined'&&WN[t])||'Seite',pc=ks.length?Math.round(got/ks.length*100):0,gsv=typeof drGem=='function'?drGem():'',csv=typeof IC_COIN2!=='undefined'?IC_COIN2:'';
+ b.innerHTML=`<span class="irw-w">${typeof nvIcon=='function'?nvIcon(t):''}</span><span class="irt"><b>${wn}-Belohnung</b><span class="ibar"><u style="width:${pc}%"></u></span><small>${cl?'Eingelöst – danke fürs Sammeln!':done?'Alle Pets entdeckt!':got+' / '+ks.length+' entdeckt'}</small></span><span class="irr"><em class="ich"><i>${gsv}</i>+${fmt(gem)}</em><em class="ich"><i>${csv}</i>+${Math.round(IDX_BONUS*100)}% Cash/s</em></span><button class="btn irb" ${done&&!cl?'':'disabled'}>${cl?'✓ Erhalten':done?'EINLÖSEN':'🔒'}</button>`;
+ b.querySelector('.irb').onclick=()=>{if(!(done&&!cl))return;const c=idxClaimed();if(c.includes(id))return;c.push(id);SS('crIdxR',JSON.stringify(c));dia+=gem;save();updHud();snd('buy');snd('gem');msg(`🎁 Index-Belohnung: +${fmt(gem)} 💎 · +${Math.round(IDX_BONUS*100)}% Cash/s dauerhaft`);if(typeof acSave=='function')acSave(true);idxRwRender();irwFx()}}
 (function(){const r0=renderIdx;renderIdx=function(){r0.apply(this,arguments);try{idxRwRender()}catch(e){}}})();
 /* ---------- Automatische Events (täglich 19:00 CH + Wochenend-Luck) ---------- */
 Object.assign(EVMUL,{luckw:2});
@@ -3212,16 +3271,17 @@ setInterval(()=>{if(wUnl.includes(1)&&cash+pend>=rbReq()&&!stg.classList.contain
 CRK.push('crDr','crIdxM');
 var nvSortN={r:'Seltenheit',c:'Coins/s',n:'Menge'},nvTipT=0;
 const nvStar='<svg class="nvst" viewBox="0 0 32 32"><path d="M16,2.5 L20.2,11.6 L30,12.6 L22.6,19.2 L24.8,29 L16,23.9 L7.2,29 L9.4,19.2 L2,12.6 L11.8,11.6Z" fill="#ffd23a" stroke="#1a2236" stroke-width="3" stroke-linejoin="round"/><path d="M16,8 L18,13 L23,13.5 L19.3,16.8" fill="none" stroke="#fff6b0" stroke-width="2" stroke-linecap="round" opacity=".8"/></svg>';
+const WI={
+0:'<svg viewBox="0 0 48 48" class="wi"><ellipse cx="24" cy="44" rx="13" ry="2.6" fill="#000" opacity=".16"/><path d="M21,28 H27 L28.5,43 H19.5Z" fill="#b2713f" stroke="#1a2236" stroke-width="2.6" stroke-linejoin="round"/><path d="M21.8,31 L24,29.5 V43 H19.5Z" fill="#8a542c" opacity=".55"/><g class="wcan"><circle cx="14.5" cy="26" r="9" fill="#35b244" stroke="#1a2236" stroke-width="2.6"/><circle cx="33.5" cy="26" r="9" fill="#35b244" stroke="#1a2236" stroke-width="2.6"/><circle cx="24" cy="16.5" r="12.5" fill="#4fd45a" stroke="#1a2236" stroke-width="2.6"/><path d="M12,24 Q14,19 19,19 M33,21 Q37,22 38,26 M16,13 Q19,8 25,8" fill="none" stroke="#c9ff9a" stroke-width="2.6" stroke-linecap="round" opacity=".85"/><circle cx="30" cy="14" r="2" fill="#ff6a5a"/><circle cx="19" cy="22" r="2" fill="#ff6a5a"/></g></svg>',
+1:'<svg viewBox="0 0 48 48" class="wi"><ellipse cx="24" cy="44.5" rx="14" ry="2.6" fill="#000" opacity=".16"/><path class="wdrop" d="M24,2.5 Q31,11 24,15 Q17,11 24,2.5Z" fill="#8ee4ff" stroke="#1a2236" stroke-width="2.4" stroke-linejoin="round"/><path d="M10,22 Q10,17 24,17 Q38,17 38,22 V34 Q38,43.5 24,43.5 Q10,43.5 10,34Z" fill="#3f9cff" stroke="#1a2236" stroke-width="2.6" stroke-linejoin="round"/><path d="M13,25 Q13,22 24,22 Q35,22 35,25" fill="none" stroke="#bfe8ff" stroke-width="2.4" stroke-linecap="round"/><path class="wwav" d="M12,31 q3.2,-3.4 6.4,0 t6.4,0 t6.4,0 t4,-1" fill="none" stroke="#c4f0ff" stroke-width="2.6" stroke-linecap="round"/><ellipse cx="24" cy="18.2" rx="14" ry="3.4" fill="#7cc8ff" stroke="#1a2236" stroke-width="2.4"/><path d="M14,35 Q14,40 19,41" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2.4" stroke-linecap="round"/></svg>',
+4:'<svg viewBox="0 0 48 48" class="wi"><ellipse cx="24" cy="44" rx="14" ry="2.6" fill="#000" opacity=".16"/><path d="M6,35 L8,15 L17.5,24.5 L24,11 L30.5,24.5 L40,15 L42,35Z" fill="#ffcf3a" stroke="#1a2236" stroke-width="2.6" stroke-linejoin="round"/><path d="M6,35 H42 V41 Q42,43 40,43 H8 Q6,43 6,41Z" fill="#f0a010" stroke="#1a2236" stroke-width="2.6" stroke-linejoin="round"/><path d="M11,20 L17.5,27 M24,16 V27" stroke="#fff3a8" stroke-width="2.4" stroke-linecap="round" opacity=".8"/><circle cx="8" cy="14" r="3.2" fill="#ff5a8a" stroke="#1a2236" stroke-width="2"/><circle cx="24" cy="10" r="3.6" fill="#5adfff" stroke="#1a2236" stroke-width="2"/><circle cx="42" cy="14" r="3.2" fill="#ff5a8a" stroke="#1a2236" stroke-width="2"/><circle cx="24" cy="38.5" r="2.6" fill="#b06bff" stroke="#1a2236" stroke-width="1.8"/><path class="wspk" d="M39,3 L40.4,6.6 L44,8 L40.4,9.4 L39,13 L37.6,9.4 L34,8 L37.6,6.6Z" fill="#fff" stroke="#ffd34d" stroke-width="1.2" stroke-linejoin="round"/></svg>',
+5:'<svg viewBox="0 0 48 48" class="wi"><ellipse cx="24" cy="44.5" rx="12" ry="2.4" fill="#000" opacity=".16"/><g class="whg"><rect x="9" y="4.5" width="30" height="5.5" rx="2.6" fill="#a05cff" stroke="#1a2236" stroke-width="2.4"/><rect x="9" y="38" width="30" height="5.5" rx="2.6" fill="#a05cff" stroke="#1a2236" stroke-width="2.4"/><path d="M13,10 H35 Q35,21.5 25.6,24 Q35,26.5 35,38 H13 Q13,26.5 22.4,24 Q13,21.5 13,10Z" fill="#d6ecff" fill-opacity=".85" stroke="#1a2236" stroke-width="2.6" stroke-linejoin="round"/><path d="M16.5,12.5 H31.5 Q30.5,18.5 24,21 Q17.5,18.5 16.5,12.5Z" fill="#ffb02e"/><path d="M16,37 Q24,28 32,37Z" fill="#ffb02e"/><path d="M24,22 V30" stroke="#ffb02e" stroke-width="1.8" stroke-linecap="round"/><path d="M15.5,12 Q15.5,18 20,21" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".8"/></g><path class="wspk" d="M40,12 L41.2,15 L44.2,16.2 L41.2,17.4 L40,20.4 L38.8,17.4 L35.8,16.2 L38.8,15Z" fill="#fff" stroke="#ffd34d" stroke-width="1.1" stroke-linejoin="round"/></svg>'};
+const WN={0:'Basic',1:'Water',4:'Exclusive',5:'Limited',s:'Spins'};
 function nvIcon(t){
- try{if(t=='s')return egg('c');
-  if(t==0)return SV[pi('Dog')>=0?pi('Dog'):0];
-  if(t==1){const k=P.findIndex(p=>p[4]===1);return SV[k>=0?k:0]}
-  if(t==4){const k=P.findIndex(p=>p[1]>=8);return SV[k>=0?k:0]}
-  if(t==5){const k=pi('Dog')>=0?pi('Dog'):0;return SVT(k,['golden'])}
- }catch(e){}return ''}
+ try{if(t=='s')return egg('c');if(WI[t])return WI[t]}catch(e){}return ''}
 function nvRail(el,list,cur,fn,withSpin){
  el.innerHTML=list.map(([t,n,c])=>`<div class="nvr${t==cur?' on':''}" data-t="${t}" title="${n}"><i>${nvIcon(t)}</i><b>${n}</b>${c?`<u>${c}</u>`:''}</div>`).join('');
- el.querySelectorAll('.nvr').forEach(b=>b.onclick=()=>{fn(b.dataset.t=='s'?'s':+b.dataset.t);snd('click')})}
+ el.querySelectorAll('.nvr').forEach(b=>b.onclick=()=>{if(b.classList.contains('on'))return;fn(b.dataset.t=='s'?'s':+b.dataset.t);snd('click');const g=$('nvGrid')&&$('inv').classList.contains('open')?$('nvGrid'):$('nxG');if(g){g.classList.remove('swc');void g.offsetWidth;g.classList.add('swc')}})}
 function nvTip(tip,root,el,html){
  clearTimeout(nvTipT);tip.innerHTML=html;tip.classList.add('on');
  const rr=root.getBoundingClientRect(),s=rr.width/root.offsetWidth||1,r=el.getBoundingClientRect();
@@ -3303,11 +3363,11 @@ function drState(){const zz=drDay(),z=zz.d,st=J('crDr',{d:0,s:0}),last=+st.d||0;
  const pos=today?((s-1)%7)+1:(s%7);return{z:{d:z},left:zz.left,ready:!today,s,pos,alive,today,next:today?0:pos+1,last}}
 function drRender(){const S=drState(),g=$('drG');$('drN').textContent=S.alive||S.today?S.s:0;
  const done=n=>S.pos>=n,cur=n=>S.ready&&S.next==n;
- g.innerHTML=DR.map((r,i)=>{const n=i+1,v=r.amt();return `<div class="drc${done(n)?' dn':''}${cur(n)?' cur':''}" style="--c:${r.c};--c2:${r.c2}"><b class="dro">${r.t}</b><div class="dri2">${r.ic()}</div><em class="dro drq">${r.lbl(v)}</em><b class="dro drd">Tag ${n}</b>${cur(n)?'<button class="drb" data-d="'+n+'">Abholen!</button>':''}${done(n)?'<i class="drck">✓</i>':''}</div>`}).join('');
+ g.innerHTML=DR.map((r,i)=>{const n=i+1,v=r.amt();return `<div class="drc${done(n)?' dn':''}${cur(n)?' cur':''}" style="--c:${r.c};--c2:${r.c2}">${r.rb?'<i class="drop2">OP!</i>':''}<b class="dro">${r.t}</b><div class="dri2">${r.ic()}</div><em class="dro drq">${r.lbl(v)}</em><b class="dro drd">Day ${n}</b>${cur(n)?'<button class="drb" data-d="'+n+'">Claim!</button>':''}${done(n)?'<i class="drck">✓</i>':''}</div>`}).join('');
  const c7=S.pos>=7,cu7=S.ready&&S.next==7;
  $('drR').className='drr'+(c7?' dn':'')+(cu7?' cur':'');
- $('drR').innerHTML=`<h3 class="drop">SUPER BELOHNUNG!</h3><p class="dro">Extinct Spin x1<br>+ 1'500 Gems</p><div class="drbig"><span class="e">${egg('x')}</span><span class="g">${drGem()}</span><span class="g2">${drGem()}</span></div><b class="dro drd7">Tag 7</b>${cu7?'<button class="drb" data-d="7">Abholen!</button>':''}${c7?'<i class="drck">✓</i>':''}`;
- $('drH').textContent=S.ready?'Belohnung bereit zum Abholen!':'Nächste Belohnung in '+[Math.floor(S.left/3600),Math.floor(S.left%3600/60),S.left%60].map(x=>String(x).padStart(2,'0')).join(':');
+ $('drR').innerHTML=`<h3 class="drop">OP REWARDS!</h3><p class="dro">x1 Extinct Spin<br>1'500 Gems</p><div class="drbig"><span class="e">${egg('x')}</span><span class="g">${drGem()}</span><span class="g2">${drGem()}</span></div><b class="dro drd7">Day 7</b>${cu7?'<button class="drb" data-d="7">Claim!</button>':''}${c7?'<i class="drck">✓</i>':''}`;
+ $('drH').textContent=S.ready?'Reward ready to Claim!':'Next reward in '+[Math.floor(S.left/3600),Math.floor(S.left%3600/60),S.left%60].map(x=>String(x).padStart(2,'0')).join(':');
  $('drH').classList.toggle('wait',!S.ready);
  document.querySelectorAll('#drw .drb').forEach(b=>b.onclick=()=>drClaim(+b.dataset.d));
  const bt=$('drBtn');if(bt)bt.classList.toggle('rdy',S.ready&&LS('crTutDone')=='1')}
