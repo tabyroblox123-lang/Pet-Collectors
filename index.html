@@ -1607,6 +1607,42 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
 .drd7{font-size:46px;background:linear-gradient(90deg,#ff3a9a 0,#ffa02e 40%,#3aa8ff 70%,#2fe05a 100%);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-stroke:0;filter:drop-shadow(0 3px 0 #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c) drop-shadow(0 0 1px #141a2c)}
 .drr>p{font-size:15px}
 .drc{transition:transform .2s}.drc:not(.dn):not(.cur):hover{transform:translateY(-2px)}
+
+/* ===== v15: Mutationen / Traits / Roll-Layout / Index-Tooltip ===== */
+.ti{background:none!important;padding:0!important;border-radius:0!important;height:auto!important;border:0!important;box-shadow:none!important;display:inline-flex;align-items:center}
+.ti svg{width:17px!important;height:17px!important;filter:drop-shadow(0 1px 0 rgba(10,14,30,.9)) drop-shadow(0 0 1px rgba(10,14,30,.9));overflow:visible}
+.ti u{display:none}
+.tag .tri{display:flex;gap:5px;justify-content:center;margin:0}.tag .tri .ti{height:auto!important}
+#plats .tag{top:-4px;height:22px;justify-content:flex-end}
+.tag2{position:absolute;left:-8px;right:-8px;top:111px;display:flex;flex-direction:column;align-items:center;line-height:1.02;text-align:center;opacity:0;transform:translateY(-6px) scale(.95);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.9,.3,1.2);z-index:4;pointer-events:none;will-change:transform,opacity}
+.tag.on+.tag2{opacity:1;transform:none}
+.tag2 b{font-weight:400;font-size:15px;color:#fff;text-shadow:-1px -1px 0 #111,1px 1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111,0 2px 0 #111;white-space:nowrap}
+.tag2 small{font-size:11px;margin-top:1px;text-shadow:-1px -1px 0 #111,1px 1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111,0 2px 0 #111}
+.mlb,.nvmu{font-style:normal;font-size:10px;letter-spacing:1.6px;line-height:1.1;margin-top:1px}
+.mlb.m-golden,.nvmu.m-golden,.mu.m-golden b{color:#ffd34d}.mlb.m-diamond,.nvmu.m-diamond,.mu.m-diamond b{color:#7fe8ff}
+.mlb.m-rainbow,.nvmu.m-rainbow,.mu.m-rainbow b{background:linear-gradient(90deg,#ff5a6a,#ffb02e,#ffe03a,#3aff8a,#3ab8ff,#c06bff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mlb{text-shadow:-1px -1px 0 #111,1px 1px 0 #111,1px -1px 0 #111,-1px 1px 0 #111}
+.mlb.m-rainbow{text-shadow:none;filter:drop-shadow(0 1px 0 #111) drop-shadow(0 0 1px #111)}
+.nvmu{position:absolute;left:11px;top:6px;z-index:3;font-size:8.5px;letter-spacing:1px;-webkit-text-stroke:2.6px #141a2c;paint-order:stroke fill}
+.nvmu.m-rainbow{-webkit-text-stroke:0;filter:drop-shadow(0 1px 0 #141a2c) drop-shadow(0 0 1px #141a2c)}
+/* Tooltip: weich aufklappen */
+.nvtip{opacity:0;transform:translateX(-50%) translateY(7px) scale(.92);clip-path:inset(-18px -18px 82% -18px);transition:opacity .16s ease,transform .3s cubic-bezier(.2,.9,.3,1.12),clip-path .3s cubic-bezier(.2,.9,.3,1);will-change:transform,opacity,clip-path}
+.nvtip.on{opacity:1;transform:translateX(-50%) translateY(0) scale(1);clip-path:inset(-18px);transition:opacity .16s ease,transform .3s cubic-bezier(.2,.9,.3,1.12),clip-path .3s cubic-bezier(.2,.9,.3,1),left .22s cubic-bezier(.3,.8,.3,1),top .22s cubic-bezier(.3,.8,.3,1)}
+.nvtip p.mu{color:#3a4260}.nvtip p.mu b{font-weight:400}
+.nvtip p.nxl{margin:3px 0 0;font-size:12px;letter-spacing:.6px;color:#6a7088}.nvtip p.nxl b{font-weight:400;color:#1a2236}
+.nxv{display:flex;gap:5px;justify-content:center;margin:4px 0 3px}
+.nxv div{position:relative;width:46px;padding:3px 0 2px;border-radius:10px;border:2px solid transparent;background:#f1f3f9;transition:background .2s,border-color .2s}
+.nxv div svg{width:32px!important;height:32px!important}
+.nxv s{font-size:9px!important;margin-top:1px}
+.nvtip.on .nxv div{animation:nxIn .34s cubic-bezier(.2,.9,.3,1.2) both;animation-delay:calc(var(--i)*45ms + 60ms)}
+@keyframes nxIn{from{opacity:0;transform:translateY(6px) scale(.88)}to{opacity:1;transform:none}}
+.nxv .v-golden{--vc:#ffc83a}.nxv .v-diamond{--vc:#5adfff}.nxv .v-rainbow{--vc:#c06bff}.nxv .v-base{--vc:#3ad24a}
+.nxv div.ok{border-color:var(--vc);background:color-mix(in srgb,var(--vc) 16%,#fff);box-shadow:0 0 8px color-mix(in srgb,var(--vc) 55%,transparent)}
+.nxv div.ok s{color:#1a2236}
+.nxv div.lk{border:2px dashed #cdd2e4;background:#eceef5}.nxv div.lk svg{filter:brightness(0) opacity(.55)!important}
+/* sanfte Fenster-Uebergaenge */
+#inv,#idx,#drw{transition:transform .42s cubic-bezier(.2,.9,.3,1),opacity .28s ease}
+.nvc{will-change:transform}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -2037,6 +2073,8 @@ function theme(i){for(const k in W[i].v)$('plats').style.setProperty('--'+k,W[i]
 theme(0);
 const wait=ms=>new Promise(r=>setTimeout(r,ms)),slots=[...document.querySelectorAll('.plat')];
 const found=new Set();
+function rollTag(s,t,k,tr){const trs=traitsOf(mkKey('x',tr)),mu=mutOf(mkKey('x',tr)),ri=P[k][1];t.innerHTML=trs.length?'<div class="tri">'+triHTML(trs)+'</div>':'';let t2=s.querySelector('.tag2');if(!t2){t.insertAdjacentHTML('afterend','<div class="tag2"></div>');t2=s.querySelector('.tag2')}
+ t2.innerHTML=`<b>${P[k][0]}</b>${mu?`<i class="mlb m-${mu}">${(MUTN[mu]||mu).toUpperCase()}</i>`:''}<small style="color:${R[ri][1]}">${(ri>=8?'EXCLUSIVE':R[ri][0].toUpperCase())}</small>`}
 function clear(s){s.querySelector('.tag').classList.remove('on');s.querySelectorAll('.pet').forEach(o=>{o.classList.add('o');setTimeout(()=>o.remove(),280)})}
 function put(s,k,sil){s.querySelectorAll('.pet').forEach(o=>{o.classList.add('o');setTimeout(()=>o.remove(),280)});const d=document.createElement('div');d.className='pet'+(sil?' sil':'');d.style.setProperty('--c',R[P[k][1]][1]);d.style.setProperty('--dl',0);d.querySelector;d.innerHTML=SV[k];d.firstChild.style.animationDelay='-'+(Math.random()*3).toFixed(1)+'s';s.querySelector('.pz').appendChild(d);return d}
 let busy=false;
@@ -2130,7 +2168,7 @@ const SNDLAST={},SNDMIN={click:70,tick:25,menuOpen:120,menuClose:120,err:150,gem
 const snd=(k,a)=>{try{const t=performance.now(),m=SNDMIN[k]||60;if(SNDLAST[k]&&t-SNDLAST[k]<m)return;SNDLAST[k]=t;SND[k](a)}catch(e){}};
 document.addEventListener('click',e=>{if(e.target.closest('.btn,.sb,.xb,.ecd,.ipc,.isl,.sbt,.nt,.itb,.iwb,.sgb,.lbc,.amb,.tg,.aum2'))snd('click')},true);
 /* save */
-const bn=k=>k.split('#')[0],trk=k=>k.includes('#')?k.split('#')[1].split('+'):[],mkKey=(n,tr)=>tr.length?n+'#'+tr.slice().sort().join('+'):n;
+const bn=k=>k.split('#')[0],trk=k=>k.includes('#')?k.split('#')[1].split('+'):[],MUTL=['golden','diamond','rainbow'],isMut=t=>MUTL.includes(t),normTr=tr=>{const u=[...new Set(tr)],ms=u.filter(isMut).sort((a,b)=>MUTL.indexOf(b)-MUTL.indexOf(a));return[...(ms.length?[ms[0]]:[]),...u.filter(t=>!isMut(t)).sort()]},mkKey=(n,tr)=>{tr=normTr(tr);return tr.length?n+'#'+tr.join('+'):n},mutOf=k=>trk(k).find(isMut)||'',traitsOf=k=>trk(k).filter(t=>!isMut(t));
 const AUTHED=(()=>{try{return !!localStorage.getItem('crAcc')}catch(e){return false}})();
 let SAVE={};try{SAVE=JSON.parse(localStorage.getItem('crSave')||'{}')}catch(e){}
 let cash=+SAVE.cash||0,dia=+SAVE.dia||0,own=SAVE.own||{},EQ=SAVE.eq||[],eggsI=Object.assign({c:0,x:0},SAVE.eggs||{}),wUnl=(SAVE.w||[0]).filter(x=>x<2),cw0=Math.min(1,SAVE.cw||0);muted=!!SAVE.mute;let AS=Object.assign({c:0,r:0,e:0,l:0,x:0,ex:0,keep:1},SAVE.as||{}),vipUntil=+SAVE.vu||(SAVE.vip?Date.now()+7*864e5:0),vip=vipUntil>Date.now(),lpods=+SAVE.lp||(SAVE.vip?1:Math.min(3,+SAVE.pods||1)),rsLv=0,pend=Math.max(0,+SAVE.pend||0),UPW=(()=>{const u=SAVE.up||{},f=(a,m,d)=>[0,1,2,3].map(i=>Math.max(0,Math.min(m,Math.floor(+((a||[])[i]!=null?a[i]:(i==0?d:0))||0))));return{rs:f(u.rs,10,+SAVE.rs||0),lk:f(u.lk,12,0)}})(),wSeen=Array.isArray(SAVE.ws)?SAVE.ws:[0],pods=Math.max(vip?2:1,lpods),playS=+SAVE.play||0,rollsT=+SAVE.rolls||0,joined=+SAVE.joined||Date.now(),skOwn=SAVE.skOwn||['basic'],skEq=SAVE.skEq||'basic',FE=SAVE.fe||[],claimed=SAVE.cl||[],fuse=SAVE.fuse||{s:[null,null,null],st:0,l:0};
@@ -2255,7 +2293,7 @@ async function roll(){if(busy)return;busy=true;rollsT++;snd('roll');const pl=$('
  for(const g of [240,270,330,420,540]){const cur=[];act.forEach((s,i)=>{let k,n=0;do{k=pool[rnd(pool.length)]}while((cur.includes(k)||k==prev[i])&&n++<20);cur.push(k);put(s,k,true)});prev=cur;acc+=g/1800*D*.66;await at(acc)}
  act.forEach((s,i)=>put(s,res[i],true));await at(D);window.__rollReveal=performance.now()-window.__rollStart;
  pl.classList.remove('chg','shake');void pl.offsetWidth;pl.classList.add('shake');
- act.forEach((s,i)=>{const d=s.querySelector('.pz').lastElementChild,k=res[i],tr=(i==0&&ovOk)?ovMuts(ov):rollTraits();if(tr.length)d.innerHTML=SVT(k,tr);d.classList.remove('sil');d.classList.add('rev');s.classList.add('bst');const t=s.querySelector('.tag');t.innerHTML=`${tr.length?'<div class="tri">'+triHTML(tr)+'</div>':''}<small style="color:${R[P[k][1]][1]}">${R[P[k][1]][0].toUpperCase()}</small><b>${P[k][0]}</b>`;t.classList.add('on');addPet(mkKey(P[k][0],tr));if(i==0&&ovOk)ovUse(ov)});
+ act.forEach((s,i)=>{const d=s.querySelector('.pz').lastElementChild,k=res[i],tr=(i==0&&ovOk)?ovMuts(ov):rollTraits();if(tr.length)d.innerHTML=SVT(k,tr);d.classList.remove('sil');d.classList.add('rev');s.classList.add('bst');const t=s.querySelector('.tag');rollTag(s,t,k,tr);t.classList.add('on');addPet(mkKey(P[k][0],tr));if(i==0&&ovOk)ovUse(ov)});
  await wait(Math.round(400+D*.2));act.forEach(s=>s.classList.remove('bst'));pl.classList.remove('shake');busy=false;$('rb').classList.remove('dis');tutHook('roll')}
 $('rb').onclick=roll;
 
@@ -2320,17 +2358,17 @@ function openLB(){lbTabs(lbEntries());lbRender('open');LB.next=Date.now()+30000;
 $('lbBtn').onclick=openLB;$('lbx').onclick=closeEggW;
 /* ===== Traits / Events / Admin / VIP / Profil / Fuse ===== */
 const TI={};
-const triHTML=tr=>tr.map(t=>`<i class="ti ${t}" title="${(typeof MUTN!=='undefined'&&MUTN[t])||t}">${TI[t]||''}</i>`).join('');
+const triHTML=tr=>tr.filter(t=>!isMut(t)).map(t=>`<i class="ti ${t}" title="${(typeof MUTN!=='undefined'&&MUTN[t])||t}">${TI[t]||''}</i>`).join('');
 const SVTc={};
 function SVT(k,tr){const o=P[k][2];if(!tr.length||!o.ill)return SV[k];const key=k+tr.join();return SVTc[key]||(SVTc[key]=illSVG(k,o.ill,{samurai:tr.includes('samurai')}))}
 const eqc=k=>EQ.filter(x=>x==k).length;
 function fixEQ(){const c={};EQ=EQ.filter(n=>(c[n]=(c[n]||0)+1)<=(own[n]||0))}
 /* Events */
 let EV={};
-var EVS={};const PEV={};const evEnd=t=>Math.max((EV[t]&&EV[t].end)||0,(PEV[t]&&PEV[t].end)||0,(EVS[t]&&EVS[t].end)||0);
+var EVS={};const PEV={};const EVALLOW=['samurai'];const evEnd=t=>!EVALLOW.includes(t)?0:Math.max((EV[t]&&EV[t].end)||0,(PEV[t]&&PEV[t].end)||0,(EVS[t]&&EVS[t].end)||0);
 const evActive=t=>evEnd(t)>Date.now();
 const EVD={};
-const rollTraits=()=>{const t=[];if(evActive('samurai')&&Math.random()<.05)t.push('samurai');if(evActive('golden')&&Math.random()<.125)t.push('golden');if(evActive('rainbow')&&Math.random()<.01)t.push('rainbow');if(Math.random()<.001)t.push('diamond');return t};
+function rollTraits(){const t=[],r=Math.random();if(r<.005)t.push('rainbow');else if(r<.025)t.push('diamond');else if(r<.125)t.push('golden');if(evActive('samurai')&&Math.random()<.05)t.push('samurai');return t}
 const mmss=ms=>{const s=Math.max(0,Math.ceil(ms/1000)),h=Math.floor(s/3600),m=Math.floor(s%3600/60),q=s%60;return (h?h+':'+String(m).padStart(2,'0'):m)+':'+String(q).padStart(2,'0')};
 function evRender(){const box=$('evb');for(const t in EVD){let el=$('evi_'+t);const on=evActive(t);if(on&&!el){el=document.createElement('div');el.id='evi_'+t;el.className='evi';el.innerHTML=`<div class="evic" style="background:${EVD[t].bg}" title="${EVD[t].n}">${EVD[t].ic}</div><b class="evt"></b>`;box.appendChild(el);requestAnimationFrame(()=>el.classList.add('on'))}
  if(el){if(on)el.querySelector('.evt').textContent=mmss(evEnd(t)-Date.now());else if(!el.classList.contains('off')){el.classList.add('off');el.classList.remove('on');setTimeout(()=>el.remove(),600)}}}
@@ -2492,7 +2530,7 @@ function admRender(){const tabs=[['msg','GLOBAL MESSAGES'],['stats','STATS'],['g
  if(admTab=='msg'){c.innerHTML='<div class="amh">Nachricht an alle aktuell online befindlichen Spieler</div><input id="amm" maxlength="140" placeholder="Nachricht eingeben…" autocomplete="off"><div class="amp">Vorschau:&nbsp;<span class="adm">Admin:</span>&nbsp;<span id="amv" class="gmt">…</span></div><button class="btn amg dis" id="ams">SENDEN</button>';const i=$('amm');i.oninput=()=>{$('amv').textContent=i.value||'…';$('ams').classList.toggle('dis',!i.value.trim())};$('ams').onclick=async()=>{const v=i.value.trim();if(!v)return;try{await LB.db.doc('admin/msg').set({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),text:v,ts:Date.now()});i.value='';i.oninput();msg('✓ Nachricht gesendet')}catch(e){snd('err');msg('Keine Berechtigung')}}}
  if(admTab=='stats'){c.innerHTML='<div class="ast"><div><small>TOTAL ACCOUNTS</small><b id="st1">0</b></div><div><small>PLAYERS TODAY</small><b id="st2">0</b></div><div><small>PLAYERS ONLINE</small><b id="st3">0</b></div></div><div class="amh">Aktualisiert sich automatisch alle 3 Sekunden</div>';admTick()}
  if(admTab=='give'){c.innerHTML=`<div class="amh">Währung an einen Spieler vergeben (auch offline)</div><input id="agn" maxlength="10" placeholder="Username" autocomplete="off" list="plist"><datalist id="plist">${admNames().map(n=>`<option value="${esc(n)}">`).join('')}</datalist><div class="agr"><input id="aga" type="number" min="1" placeholder="Amount"><div class="agc"><span class="${admCur=='coins'?'on':''}" data-c="coins">Coins</span><span class="${admCur=='gems'?'on':''}" data-c="gems">Gems</span></div></div><button class="btn amg dis" id="agb">GIVE</button>`;const chk=()=>$('agb').classList.toggle('dis',!($('agn').value.trim()&&+$('aga').value>0));$('agn').oninput=chk;$('aga').oninput=chk;document.querySelectorAll('.agc span').forEach(s=>s.onclick=()=>{admCur=s.dataset.c;document.querySelectorAll('.agc span').forEach(x=>x.classList.toggle('on',x==s))});$('agb').onclick=admGive}
- if(admTab=='ev'){const EVN=['samurai','golden','rainbow'];c.innerHTML=EVN.map(t=>`<div class="aev" id="aev_${t}"><div class="evic" style="background:${EVD[t].bg}">${EVD[t].ic}</div><div class="aen"><b>${EVD[t].n}</b><small id="aes_${t}">Inaktiv</small></div><label>Duration (min)</label><input class="aed" id="aed_${t}" type="number" min="1" max="1440" placeholder="z. B. 30"><button class="btn aeb dis" id="aeb_${t}">START EVENT</button><button class="btn aeb gr" id="aex_${t}" style="display:none">STOP</button></div>`).join('');for(const t of EVN){const d=$('aed_'+t);d.oninput=()=>{const v=+d.value;$('aeb_'+t).classList.toggle('dis',!(v>=1&&v<=1440))};$('aeb_'+t).onclick=()=>admEvent(t,true);$('aex_'+t).onclick=()=>admEvent(t,false)}admTick()}
+ if(admTab=='ev'){const EVN=['samurai'];c.innerHTML=EVN.map(t=>`<div class="aev" id="aev_${t}"><div class="evic" style="background:${EVD[t].bg}">${EVD[t].ic}</div><div class="aen"><b>${EVD[t].n}</b><small id="aes_${t}">Inaktiv</small></div><label>Duration (min)</label><input class="aed" id="aed_${t}" type="number" min="1" max="1440" placeholder="z. B. 30"><button class="btn aeb dis" id="aeb_${t}">START EVENT</button><button class="btn aeb gr" id="aex_${t}" style="display:none">STOP</button></div>`).join('');for(const t of EVN){const d=$('aed_'+t);d.oninput=()=>{const v=+d.value;$('aeb_'+t).classList.toggle('dis',!(v>=1&&v<=1440))};$('aeb_'+t).onclick=()=>admEvent(t,true);$('aex_'+t).onclick=()=>admEvent(t,false)}admTick()}
  if(admTab=='luck'){c.innerHTML=`<div class="amh">Luck-Event starten – Multiplikator wählen und IMMER eine Dauer angeben</div><div class="lkm">${[2,4,8,16].map(m=>`<div class="lkc${lkSel==m?' on':''}" data-m="${m}"><span class="lki">${EVD['luck'+m].ic}</span><b>${m}x</b></div>`).join('')}</div><div class="agr"><input id="lkd" type="number" min="1" placeholder="Dauer"><div class="agc"><span class="on" data-u="1">Min</span><span data-u="60">Std</span></div></div><button class="btn amg dis" id="lkb">LUCK-EVENT STARTEN</button><div class="lka" id="lka"></div>`;let unit=1;const chk=()=>{const v=+$('lkd').value*unit;$('lkb').classList.toggle('dis',!(lkSel&&v>=1&&v<=10080))};document.querySelectorAll('.lkc').forEach(e=>e.onclick=()=>{lkSel=+e.dataset.m;document.querySelectorAll('.lkc').forEach(x=>x.classList.toggle('on',x==e));chk()});$('lkd').oninput=chk;document.querySelectorAll('.agc span').forEach(s=>s.onclick=()=>{unit=+s.dataset.u;document.querySelectorAll('.agc span').forEach(x=>x.classList.toggle('on',x==s));chk()});$('lkb').onclick=async()=>{const v=+$('lkd').value*unit;if(!lkSel||!(v>=1&&v<=10080))return;try{await LB.db.doc('events/luck'+lkSel).set({start:Date.now(),end:Date.now()+Math.round(v*60000),dur:v,mult:lkSel});msg('✓ '+lkSel+'x Luck gestartet')}catch(e){snd('err');msg('Keine Berechtigung')}};
   $('lka').innerHTML=[2,4,8,16].map(m=>`<div class="lkx" id="lkx${m}" style="display:none"><span class="lki">${EVD['luck'+m].ic}</span><b>${m}x Luck</b><em id="lkt${m}">–</em><button class="btn aeb gr" data-m="${m}">STOP</button></div>`).join('');document.querySelectorAll('.lkx button').forEach(b=>b.onclick=async()=>{try{await LB.db.doc('events/luck'+b.dataset.m).delete();msg('Event beendet')}catch(e){snd('err');msg('Keine Berechtigung')}});admTick()}
  if(admTab=='roll'){const grp=[['Basic Animals',P.filter(p=>p[4]===0)],['Water',P.filter(p=>p[4]===1)],['Exclusive',P.filter(p=>p[1]>=8)]];c.innerHTML=`<div class="amh">Nächster Roll eines Spielers: garantiertes Pet + Mutationen</div><div class="agr"><input id="aon" maxlength="10" placeholder="Spielername" autocomplete="off" list="plist"><datalist id="plist">${admNames().map(n=>`<option value="${esc(n)}">`).join('')}</datalist><select id="aop"><option value="">Pet wählen…</option>${grp.map(([n,l])=>`<optgroup label="${n}">${l.map(p=>`<option>${esc(p[0])}</option>`).join('')}</optgroup>`).join('')}</select></div><div class="mtr">${MUTS.map(m=>`<div class="mtc${ovMsel.includes(m)?' on':''}" data-m="${m}"><i class="ti ${m}">${TI[m]}</i>${m[0].toUpperCase()+m.slice(1)}</div>`).join('')}</div><button class="btn amg dis" id="aob">Next Roll: 100% Selected Pet</button><div class="lka" id="aos"></div>`;
@@ -2505,7 +2543,7 @@ async function admOvStatus(){const el=$('aos');if(!el)return;const hit=admFind($
  if(!d){el.innerHTML='<div class="lkx" style="display:flex"><em>Kein Override für '+esc(hit[1].n||'')+'</em></div>';return}
  const done=(hit[1].ovDone===d.id)||(hit[0]==LB.uid&&usedOv.includes(d.id));el.innerHTML=`<div class="lkx" style="display:flex"><b>${esc(d.pet)}${(d.muts||[]).length?' + '+d.muts.map(m=>m[0].toUpperCase()+m.slice(1)).join(' + '):''}</b><em>${done?'✓ ausgeführt':'⏳ wartet auf nächsten Roll'}</em><button class="btn aeb gr" id="aoc">ABBRECHEN</button></div>`;$('aoc').onclick=async()=>{try{await LB.db.doc('override/'+hit[0]).delete();msg('Override entfernt');admOvStatus()}catch(e){snd('err');msg('Keine Berechtigung')}}}
 function admTick(){if(admTab=='stats'){const st=admStats();['tot','today','on'].forEach((k,i)=>{const e=$('st'+(i+1));if(e)e.textContent=fmt(st[k])})}
- if(admTab=='ev')for(const t of['samurai','golden','rainbow']){const on=evActive(t),s=$('aes_'+t);if(!s)continue;s.textContent=on?'Aktiv · noch '+mmss(evEnd(t)-Date.now()):'Inaktiv';s.className=on?'on':'';$('aex_'+t).style.display=on?'':'none'}
+ if(admTab=='ev')for(const t of['samurai']){const on=evActive(t),s=$('aes_'+t);if(!s)continue;s.textContent=on?'Aktiv · noch '+mmss(evEnd(t)-Date.now()):'Inaktiv';s.className=on?'on':'';$('aex_'+t).style.display=on?'':'none'}
  if(admTab=='luck')for(const m of[2,4,8,16]){const on=evActive('luck'+m),x=$('lkx'+m);if(!x)continue;x.style.display=on?'flex':'none';if(on)$('lkt'+m).textContent='noch '+mmss(EV['luck'+m].end-Date.now())}}
 /* ---------- VIP: 7 Tage für Gems ---------- */
 function fmtLeft(ms){const d=Math.floor(ms/864e5),h=Math.floor(ms%864e5/36e5),m=Math.floor(ms%36e5/6e4),s=Math.floor(ms%6e4/1e3);return d?`${d}T ${h}h ${String(m).padStart(2,'0')}m`:`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`}
@@ -2525,8 +2563,8 @@ function buildVipCard(){const old=document.querySelector('.vipc');if(old)old.rem
 /* ---------- Mutationen (Rainbow / Golden) ---------- */
 TI.golden='<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#ffc83a" stroke="#7a5008" stroke-width="1.6"/><path d="M12,5 L14,10 L19,10.4 L15,13.6 L16.4,18.6 L12,15.8 L7.6,18.6 L9,13.6 L5,10.4 L10,10Z" fill="#fff2a8" stroke="#b8861a" stroke-width=".8"/></svg>';
 TI.rainbow='<svg viewBox="0 0 24 24"><path d="M2,18 a10,10 0 0,1 20,0" stroke="#ff4a6a" stroke-width="2.6" fill="none"/><path d="M5,18 a7,7 0 0,1 14,0" stroke="#ffd23a" stroke-width="2.6" fill="none"/><path d="M8,18 a4,4 0 0,1 8,0" stroke="#3ab0ff" stroke-width="2.6" fill="none"/></svg>';
-TM.golden=2;TM.rainbow=10;TM.samurai=3;
-const MUTN={golden:'Gold',rainbow:'Rainbow',samurai:'Samurai'};
+TM.golden=2;TM.diamond=5;TM.rainbow=10;TM.samurai=3;
+const MUTN={golden:'Gold',diamond:'Diamond',rainbow:'Rainbow',samurai:'Samurai'};
 function mutWrap(svg,m){return m.length?svg.replace('<svg ',`<svg data-m="${m.join(' ')}" `):svg}
 function SVT(k,tr){const o=P[k][2];if(!tr.length)return SV[k];const key=k+tr.join();const m=tr.filter(t=>t=='golden'||t=='rainbow');return SVTc[key]||(SVTc[key]=mutWrap(o.ill?illSVG(k,o.ill,{samurai:tr.includes('samurai')}):SV[k],m))}
 /* ---------- Profil-Karte: Skins, Badge, Leaderboard ---------- */
@@ -3189,7 +3227,7 @@ const idxClaimed=()=>J('crIdxR',[]);
 function permMult(){return 1+RB_BONUS*rbCount()+IDX_BONUS*idxClaimed().length}
 /* ---------- Diamant-Mutation (1 zu 1000, 25× Cash) ---------- */
 TI.diamond='<svg viewBox="0 0 24 24"><polygon points="12,2 21,9 12,22 3,9" fill="#9af0ff" stroke="#0a5a8a" stroke-width="1.6" stroke-linejoin="round"/><polygon points="12,2 16,9 12,22 8,9" fill="#e8ffff" opacity=".85"/><path d="M3,9 H21" stroke="#0a5a8a" stroke-width="1.2"/></svg>';
-TM.diamond=25;MUTN.diamond='Diamant';if(!MUTS.includes('diamond'))MUTS.push('diamond');
+TM.diamond=5;MUTN.diamond='Diamond';if(!MUTS.includes('diamond'))MUTS.push('diamond');
 (function(){const prev=SVT;SVT=function(k,tr){if(!tr.includes('diamond'))return prev(k,tr);const rest=tr.filter(x=>x!='diamond'),key=k+'~D'+rest.join();if(SVTc[key])return SVTc[key];
  let s=rest.length?prev(k,rest):SV[k];s=/data-m="/.test(s)?s.replace('data-m="','data-m="diamond '):s.replace(/<svg /,'<svg data-m="diamond" ');
  const sp=[[18,22,3],[82,30,2.6],[12,66,2.2],[88,62,3],[50,8,2.6],[30,92,2],[72,90,2.4]].map(([x,y,r],i)=>SPK(x,y,r,'#e8ffff',i*.45)).join('');
@@ -3206,8 +3244,8 @@ function pityUpd(){const c=$('pityc');if(!c)return;const left=Math.max(0,PITY_E-
 pityUpd();
 /* ---------- Reveal-Show bei seltenen Pets ---------- */
 (function(){const w=document.createElement('div');w.id='rfx';$('stage').appendChild(w)})();
-function rareFx(ri,k,tr){const col=R[ri][1],big=ri>=6||tr.includes('diamond')||tr.includes('rainbow'),w=$('rfx'),name=R[ri][0].toUpperCase()+'!';
- w.className='';void w.offsetWidth;w.style.setProperty('--c',col);w.innerHTML=`<i class="rf1"></i><i class="rf2"></i><div class="rft">${tr.includes('diamond')?'💎 DIAMANT! ':''}${name}</div><div class="rfs">${esc(sn(P[k][0]))}</div>`+[...Array(big?30:16)].map(()=>`<b class="rfp" style="--a:${Math.random()*360}deg;--d:${(120+Math.random()*220).toFixed(0)}px;animation-delay:${(Math.random()*.3).toFixed(2)}s"></b>`).join('');
+function rareFx(ri,k,tr){const col=R[ri][1],big=ri>=6||tr.includes('diamond')||tr.includes('rainbow'),w=$('rfx'),mu=tr.find(t=>t=='rainbow'||t=='diamond'),name=((mu&&ri<4)?(MUTN[mu]||mu):R[ri][0]).toUpperCase()+'!';
+ w.className='';void w.offsetWidth;w.style.setProperty('--c',col);w.innerHTML=`<i class="rf1"></i><i class="rf2"></i><div class="rft">${name}</div><div class="rfs">${esc(sn(P[k][0]))}</div>`+[...Array(big?30:16)].map(()=>`<b class="rfp" style="--a:${Math.random()*360}deg;--d:${(120+Math.random()*220).toFixed(0)}px;animation-delay:${(Math.random()*.3).toFixed(2)}s"></b>`).join('');
  w.className='on'+(big?' big':'');stg.classList.remove('rshk');void stg.offsetWidth;stg.classList.add('rshk');setTimeout(()=>stg.classList.remove('rshk'),900);
  try{[0,1,2,3,4].forEach(i=>tone(330*Math.pow(1.26,i*(big?2:1.5)),.5,'triangle',.09,null,i*.11));tone(110,big?1.6:1,'sawtooth',.07,40);if(big)tone(1320,1.2,'sine',.06,1760,.5)}catch(e){}
  clearTimeout(rareFx.t);rareFx.t=setTimeout(()=>{w.className=''},big?2600:1900)}
@@ -3226,14 +3264,14 @@ function idxRwRender(){const iv=$('nxG');if(!iv)return;let b=$('irw');if(!b){b=d
 /* ---------- Automatische Events (täglich 19:00 CH + Wochenend-Luck) ---------- */
 Object.assign(EVMUL,{luckw:2});
 EVD.luckw={n:'Wochenend-Luck 2x',msgN:'Wochenend-Luck 2x',ic:clover(['#ffc83a']),bg:'linear-gradient(#8a6a1a,#4a3408)',lbl:1};
-const SCHED_T=['samurai','golden','rainbow'],SCHED_H=19,SCHED_LEN=30;
+const SCHED_T=['samurai'],SCHED_H=19,SCHED_LEN=30;
 function zNow(){const p={};new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Zurich',weekday:'short',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);
  const h=(+p.hour)%24;return{wd:p.weekday,day:Math.floor(Date.UTC(+p.year,+p.month-1,+p.day)/864e5),msod:h*36e5+(+p.minute)*6e4+(+p.second)*1e3}}
 function schedCalc(){const z=zNow(),now=Date.now(),out={},on=typeof offOn=='function'?offOn('sched'):true;if(!on)return{out,next:null};
- const wk=z.wd=='Sat'||z.wd=='Sun';if(wk)out.luckw={end:now+(864e5-z.msod)};
- const a=SCHED_H*36e5,b=a+SCHED_LEN*6e4,t=SCHED_T[z.day%3];let next=null;
+ const wk=z.wd=='Sat'||z.wd=='Sun';
+ const a=SCHED_H*36e5,b=a+SCHED_LEN*6e4,t=SCHED_T[z.day%SCHED_T.length];let next=null;
  if(z.msod>=a&&z.msod<b)out[t]={end:now+(b-z.msod)};
- else{const ms=z.msod<a?a-z.msod:864e5-z.msod+a,tt=SCHED_T[(z.day+(z.msod<a?0:1))%3];next={t:tt,in:ms}}
+ else{const ms=z.msod<a?a-z.msod:864e5-z.msod+a,tt=SCHED_T[(z.day+(z.msod<a?0:1))%SCHED_T.length];next={t:tt,in:ms}}
  return{out,next}}
 let schedPrev={};
 function schedTick(){const r=schedCalc();EVS=r.out;for(const t in r.out)if(!schedPrev[t]&&typeof showEvMsg=='function'){try{showEvMsg(EVD[t].msgN)}catch(e){}}schedPrev=Object.assign({},r.out);
@@ -3282,17 +3320,24 @@ function nvIcon(t){
 function nvRail(el,list,cur,fn,withSpin){
  el.innerHTML=list.map(([t,n,c])=>`<div class="nvr${t==cur?' on':''}" data-t="${t}" title="${n}"><i>${nvIcon(t)}</i><b>${n}</b>${c?`<u>${c}</u>`:''}</div>`).join('');
  el.querySelectorAll('.nvr').forEach(b=>b.onclick=()=>{if(b.classList.contains('on'))return;fn(b.dataset.t=='s'?'s':+b.dataset.t);snd('click');const g=$('nvGrid')&&$('inv').classList.contains('open')?$('nvGrid'):$('nxG');if(g){g.classList.remove('swc');void g.offsetWidth;g.classList.add('swc')}})}
+var nvTipCur=null,nvHideT=0;
 function nvTip(tip,root,el,html){
- clearTimeout(nvTipT);tip.innerHTML=html;tip.classList.add('on');
+ clearTimeout(nvHideT);const was=tip.classList.contains('on');if(was&&nvTipCur===el)return;nvTipCur=el;
+ tip.innerHTML=html;
  const rr=root.getBoundingClientRect(),s=rr.width/root.offsetWidth||1,r=el.getBoundingClientRect();
  let x=(r.left-rr.left+r.width/2)/s,y=(r.bottom-rr.top)/s+4;const w=tip.offsetWidth,h=tip.offsetHeight;
- x=Math.max(w/2+8,Math.min(root.offsetWidth-w/2-8,x));if(y+h>root.offsetHeight-6)y=(r.top-rr.top)/s-h-4;
- tip.style.left=x+'px';tip.style.top=Math.max(4,y)+'px';nvTipT=setTimeout(()=>tip.classList.remove('on'),2600)}
-function nvTipHide(tip){clearTimeout(nvTipT);tip.classList.remove('on')}
-function nvBind(grid,tip,root,fn){grid.querySelectorAll('[data-tip]').forEach(c=>{c.addEventListener('mouseenter',()=>nvTip(tip,root,c,fn(c)));c.addEventListener('mouseleave',()=>nvTipHide(tip));c.addEventListener('pointerdown',()=>nvTip(tip,root,c,fn(c)))})}
+ x=Math.max(w/2+8,Math.min(root.offsetWidth-w/2-8,x));let up=false;if(y+h>root.offsetHeight-6){y=(r.top-rr.top)/s-h-4;up=true}
+ tip.style.left=x+'px';tip.style.top=Math.max(4,y)+'px';tip.style.transformOrigin=up?'50% 100%':'50% 0';
+ requestAnimationFrame(()=>tip.classList.add('on'))}
+function nvTipHide(tip,d){clearTimeout(nvHideT);nvHideT=setTimeout(()=>{tip.classList.remove('on');nvTipCur=null},d==null?140:d)}
+function nvBind(grid,tip,root,fn){clearTimeout(nvHideT);grid.querySelectorAll('[data-tip]').forEach(c=>{
+ c.addEventListener('mouseenter',()=>nvTip(tip,root,c,fn(c)));c.addEventListener('mouseleave',()=>nvTipHide(tip,120));
+ c.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(nvTipCur===c&&tip.classList.contains('on')){nvTipHide(tip,0);return}nvTip(tip,root,c,fn(c));clearTimeout(nvTipBt);nvTipBt=setTimeout(()=>nvTipHide(tip,0),3800)})})}
+var nvTipBt=0;document.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(!e.target.closest||!e.target.closest('.nvc[data-tip]'))['nvTip','nxTip'].forEach(i=>{const t=$(i);if(t)nvTipHide(t,0)})},true);
 const nvTrN=tr=>tr.map(t=>(typeof MUTN!=='undefined'&&MUTN[t])||t).join(' · ');
-function nvPetTip(key){const k=pi(bn(key)),tr=trk(key),ri=P[k][1],col=R[ri][1];
- return `<h4>${esc(sn(P[k][0]))}</h4><em style="--c:${col}">${rarName(k)}</em>${tr.length?`<p class="tm">${nvTrN(tr)}</p>`:''}<p>💰 ${fmt(cpsOf(key))}/s</p><p>Besitzt: <b>x${own[key]||0}</b></p>`}
+function nvBadges(tr){const m=tr.find(isMut),t=triHTML(tr);return (t?`<span class="nvtr">${t}</span>`:'')+(m?`<i class="nvmu m-${m}">${(MUTN[m]||m).toUpperCase()}</i>`:'')}
+function nvPetTip(key){const k=pi(bn(key)),tr=trk(key),ri=P[k][1],col=R[ri][1],m=tr.find(isMut),ts=tr.filter(t=>!isMut(t));
+ return `<h4>${esc(sn(P[k][0]))}</h4><em style="--c:${col}">${rarName(k)}</em>${m?`<p class="mu m-${m}">Mutation: <b>${MUTN[m]} ×${TM[m]}</b></p>`:''}${ts.length?`<p class="tm">Traits: <b>${ts.map(t=>(MUTN[t]||t)+(TM[t]>1?' ×'+TM[t]:'')).join(' · ')}</b></p>`:''}<p>💰 ${fmt(cpsOf(key))}/s</p><p>Besitzt: <b>x${own[key]||0}</b></p>`}
 function renderInv(){
  const spv=invW=='s',root=$('inv');root.classList.toggle('spv',spv);
  $('nvEqc').textContent=Math.min(3,EQ.length)+' / 3';
@@ -3301,7 +3346,7 @@ function renderInv(){
  $('nvSlots').innerHTML=[0,1,2].map(i=>{const n=EQ[i];
   if(!n)return `<div class="nvc sl em" data-e="${i}"><i class="pl">+</i></div>`;
   const k=pi(bn(n)),c=R[P[k][1]][1],tr=trk(n);
-  return `<div class="nvc sl f qd${selSlot==i?' sel':''}" data-i="${i}" data-tip="${esc(n)}" style="--c:${c}">${nvStar}<u class="nvu" data-u="${i}">✕</u><div class="nvp">${SVT(k,tr)}</div>${tr.length?`<span class="nvtr">${triHTML(tr)}</span>`:''}<span class="nvw">${abbr(cpsOf(n))}</span></div>`}).join('');
+  return `<div class="nvc sl f qd${selSlot==i?' sel':''}" data-i="${i}" data-tip="${esc(n)}" style="--c:${c}">${nvStar}<u class="nvu" data-u="${i}">✕</u><div class="nvp">${SVT(k,tr)}</div>${nvBadges(tr)}<span class="nvw">${abbr(cpsOf(n))}</span></div>`}).join('');
  const g=$('nvGrid');
  if(spv){
   $('nvTitle').textContent='Spins · '+(totE()||'keine');
@@ -3315,7 +3360,7 @@ function renderInv(){
   let l=ownedList(invW);if(q)l=l.filter(k=>bn(k).toLowerCase().includes(q)||nvTrN(trk(k)).toLowerCase().includes(q));
   $('nvTitle').textContent='Pets · '+cnt;
   g.innerHTML=l.map(key=>{const k=pi(bn(key)),c=R[P[k][1]][1],tr=trk(key),q2=eqc(key);
-   return `<div class="nvc${q2?' qd':''}" data-k="${esc(key)}" data-tip="${esc(key)}" style="--c:${c}">${q2?nvStar:''}<b class="nvq">x${own[key]}</b><div class="nvp">${SVT(k,tr)}</div>${tr.length?`<span class="nvtr">${triHTML(tr)}</span>`:''}<span class="nvw">${abbr(cpsOf(key))}</span></div>`}).join('')||`<div class="nvno">${q?'Nichts gefunden.':invW==5?'Noch keine Limited Pets.<br>Pets mit Mutationen erscheinen hier!':'Noch keine Pets in dieser Kategorie.<br>Rolle oder drehe Spins!'}</div>`;
+   return `<div class="nvc${q2?' qd':''}" data-k="${esc(key)}" data-tip="${esc(key)}" style="--c:${c}">${q2?nvStar:''}<b class="nvq">x${own[key]}</b><div class="nvp">${SVT(k,tr)}</div>${nvBadges(tr)}<span class="nvw">${abbr(cpsOf(key))}</span></div>`}).join('')||`<div class="nvno">${q?'Nichts gefunden.':invW==5?'Noch keine Limited Pets.<br>Pets mit Mutationen erscheinen hier!':'Noch keine Pets in dieser Kategorie.<br>Rolle oder drehe Spins!'}</div>`;
   g.querySelectorAll('.nvc[data-k]').forEach(x=>x.onclick=()=>equipPet(x.dataset.k));
  }
  $('nvSlots').querySelectorAll('.sl.f').forEach(x=>x.onclick=()=>{selSlot=selSlot==+x.dataset.i?-1:+x.dataset.i;renderInv()});
@@ -3330,14 +3375,15 @@ $('nvSort').onclick=()=>{sortM=sortM=='r'?'c':sortM=='c'?'n':'r';snd('click');re
 $('nvFuse').onclick=()=>{closeEggW();setTimeout(()=>$('fuBtn').click(),60)};
 /* ---------- Index ---------- */
 var IXM={};try{IXM=J('crIdxM',{})||{}}catch(e){}
-const nxVar=()=>['golden','rainbow','samurai','diamond'].filter(t=>typeof MUTN!=='undefined'&&MUTN[t]);
-function ixmAdd(n,tr){let ch=false;const b=bn(n);tr.forEach(t=>{if(!MUTN[t])return;(IXM[b]=IXM[b]||[]);if(!IXM[b].includes(t)){IXM[b].push(t);ch=true}});if(ch)try{SS('crIdxM',JSON.stringify(IXM))}catch(e){}}
+const nxVar=()=>MUTL.slice();
+try{Object.keys(IXM).forEach(b=>{IXM[b]=(IXM[b]||[]).filter(isMut);if(!IXM[b].length)delete IXM[b]})}catch(e){}
+function ixmAdd(n,tr){let ch=false;const b=bn(n);tr.forEach(t=>{if(!isMut(t))return;(IXM[b]=IXM[b]||[]);if(!IXM[b].includes(t)){IXM[b].push(t);ch=true}});if(ch)try{SS('crIdxM',JSON.stringify(IXM))}catch(e){}}
 function ixmScan(){Object.keys(own).forEach(k=>{if(own[k]>0)ixmAdd(k,trk(k))})}
 (function(){const a0=addPet;addPet=function(n,c,s){a0(n,c,s);try{ixmAdd(n,trk(n))}catch(e){}}})();
 function nxKeys(t){return t==4?SPIN_CATS().flatMap(c=>c.pets.map(pi).filter(k=>k>=0)):t==5?[]:idxList(t)}
 function nxCnt(k){const p=P[k];return (found.has(p[0])?1:0)+((IXM[p[0]]||[]).length)}
-function nxTipHTML(k){const p=P[k],d=found.has(p[0]),vs=['',...nxVar()],got=IXM[p[0]]||[];
- return `<h4>${d?esc(sn(p[0])):'???'}</h4><em style="--c:${R[p[1]][1]}">${rarName(k)}</em><div class="nxv">${vs.map(v=>{const ok=v?got.includes(v):d;return `<div class="${ok?'':'lk'}" title="${v?MUTN[v]:'Normal'}">${ok?(v?SVT(k,[v]):SV[k]):SV[k]}<s>${v?MUTN[v]:'Normal'}</s></div>`}).join('')}</div><p>💰 ${fmt(CPS[p[0]])}/s</p>`}
+function nxTipHTML(k){const p=P[k],d=found.has(p[0]),vs=['',...nxVar()],got=(IXM[p[0]]||[]).filter(isMut),n=(d?1:0)+got.length;
+ return `<h4>${d?esc(sn(p[0])):'???'}</h4><em style="--c:${R[p[1]][1]}">${rarName(k)}</em><p class="nxl">Mutationen <b>${n}/${vs.length}</b></p><div class="nxv">${vs.map((v,i)=>{const ok=v?got.includes(v):d;return `<div class="v-${v||'base'}${ok?' ok':' lk'}" style="--i:${i}" title="${v?MUTN[v]:'Basic'}">${ok?(v?SVT(k,[v]):SV[k]):SV[k]}<s>${v?MUTN[v]:'Basic'}</s></div>`}).join('')}</div><p>💰 ${fmt(CPS[p[0]])}/s</p>`}
 function renderIdx(){if(!$('nxG'))return;if(!IXM)return;try{MUTN;SPIN_CATS();idxRwRender}catch(e){return}ixmScan();
  const t=idxW,l=nxKeys(t),ex=t==4,cats=ex?SPIN_CATS():null,nv=1+nxVar().length;
  const all=new Set([...idxList(0),...idxList(1),...nxKeys(4)]),gotAll=[...all].filter(k=>found.has(P[k][0])).length;
@@ -3390,4 +3436,13 @@ setInterval(()=>{try{
  const busy=$('ov').classList.contains('on')||eOpen||document.querySelector('#sw.open,#wun,#rfx.on,.pzmd.on');
  if(!drShown&&!busy&&Date.now()-drFree>3500&&drState().ready)drOpen();
  const bt=$('drBtn');if(bt)bt.classList.toggle('rdy',drState().ready)}catch(e){}},1500);
+/* ================= v15: Mutationen (max. 1 pro Pet, immer verfügbar) getrennt von Traits ================= */
+(function(){document.querySelectorAll('#plats .tag').forEach(t=>{if(!t.nextElementSibling||!t.nextElementSibling.classList.contains('tag2'))t.insertAdjacentHTML('afterend','<div class="tag2"></div>')})})();
+/* Migration: alte Schluessel mit mehreren Mutationen auf genau eine (die hoechste) reduzieren */
+function mutMigrate(){let ch=false;
+ for(const k of Object.keys(own)){const nk=mkKey(bn(k),trk(k));if(nk!==k){own[nk]=(own[nk]||0)+own[k];delete own[k];ch=true}}
+ const eq=EQ.map(k=>mkKey(bn(k),trk(k)));if(eq.join('|')!==EQ.join('|')){EQ=eq;ch=true}
+ if(ch){try{fixEQ();save()}catch(e){}}return ch}
+mutMigrate();
+(function(){const a0=addPet;addPet=function(n,c,s){const nn=mkKey(bn(n),trk(n));return a0(nn,c,s)}})();
 </script></body></html>
