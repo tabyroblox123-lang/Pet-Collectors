@@ -3646,11 +3646,11 @@ function nvTip(tip,root,el,html){
  tip.innerHTML=html;
  const rr=root.getBoundingClientRect(),s=rr.width/root.offsetWidth||1,r=el.getBoundingClientRect();
  let x=(r.left-rr.left+r.width/2)/s,y=(r.bottom-rr.top)/s+4;const w=tip.offsetWidth,h=tip.offsetHeight;
- x=Math.max(w/2+8,Math.min(root.offsetWidth-w/2-8,x));let up=false;if(y+h>root.offsetHeight-6){y=(r.top-rr.top)/s-h-4;up=true}
+ x=Math.max(w/2+8,Math.min(root.offsetWidth-w/2-8,x));let up=false;if(y+h>root.offsetHeight-6){y=(r.top-rr.top)/s-h-4;up=true}y=Math.min(y,root.offsetHeight-h-6);
  tip.style.left=x+'px';tip.style.top=Math.max(4,y)+'px';tip.style.transformOrigin=up?'50% 100%':'50% 0';
  requestAnimationFrame(()=>tip.classList.add('on'))}
 function nvTipHide(tip,d){clearTimeout(nvHideT);nvHideT=setTimeout(()=>{tip.classList.remove('on');nvTipCur=null},d==null?140:d)}
-function nvBind(grid,tip,root,fn){clearTimeout(nvHideT);grid.querySelectorAll('[data-tip]').forEach(c=>{
+function nvBind(grid,tip,root,fn){clearTimeout(nvHideT);tip.classList.remove('on');nvTipCur=null;grid.querySelectorAll('[data-tip]').forEach(c=>{
  c.addEventListener('mouseenter',()=>nvTip(tip,root,c,fn(c)));c.addEventListener('mouseleave',()=>nvTipHide(tip,120));
  c.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(nvTipCur===c&&tip.classList.contains('on')){nvTipHide(tip,0);return}nvTip(tip,root,c,fn(c));clearTimeout(nvTipBt);nvTipBt=setTimeout(()=>nvTipHide(tip,0),3800)})})}
 var nvTipBt=0;document.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(!e.target.closest||!e.target.closest('.nvc[data-tip]'))['nvTip','nxTip'].forEach(i=>{const t=$(i);if(t)nvTipHide(t,0)})},true);
