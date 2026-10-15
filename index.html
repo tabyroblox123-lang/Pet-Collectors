@@ -2172,6 +2172,30 @@ button:focus-visible,.nt:focus-visible{outline:3px solid #fff;outline-offset:2px
 .lgc{padding-top:22px}.lgt b{font-size:28px}.lgt{top:-22px}
 .lgtabs{margin:12px 0 9px;height:36px}#auf{gap:6px}.lgin{height:36px}.lgbtn{height:42px;font-size:20px}.lgpill{margin-top:7px}
 .lgst small{font-size:11px}.lgreg .lgin{margin-top:0}.lgst{margin-top:5px;margin-bottom:2px}
+
+/* ===== Spin-Karten (neu): alle Pets in EINER Reihe ===== */
+.qgm{height:246px}
+.qgmt{left:132px;right:130px;top:6px;font-size:34px;line-height:38px;text-align:center;-webkit-text-stroke:7px #111}
+.qgmg{right:12px;top:10px}.qgmg b{font-size:22px;-webkit-text-stroke:5px #111}.qgmg small{font-size:12px}
+.qgme{left:-12px;top:56px;width:150px;height:150px}
+.qgm .qgmp{left:134px;right:10px;top:52px;height:104px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px;align-items:stretch}
+.qgm .qgs,.qgm .qgs.m,.qgm .qgs.big{height:100%;margin:0;border:3px solid #111;border-radius:12px;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,.18));box-shadow:inset 0 -5px 0 color-mix(in srgb,var(--c) 75%,#fff),0 3px 0 rgba(0,0,0,.28);backdrop-filter:none;align-items:flex-start;overflow:visible;transition:transform .25s var(--ease-spring),box-shadow .25s}
+.qgm .qgs:hover,.qgm .qgs:focus{transform:translateY(-5px) scale(1.06);box-shadow:inset 0 -5px 0 color-mix(in srgb,var(--c) 75%,#fff),0 8px 0 rgba(0,0,0,.25),0 0 14px var(--c)}
+.qgm .qgsv{position:absolute;left:3px;right:3px;top:5px;bottom:24px;width:auto;height:auto;filter:drop-shadow(0 3px 0 rgba(0,0,0,.2))}
+.qgm .qgs.big{background:linear-gradient(rgba(255,244,170,.85),rgba(255,214,90,.35));border-color:#111;box-shadow:inset 0 -5px 0 #ffc21a,0 0 16px rgba(255,214,60,.9),0 3px 0 rgba(0,0,0,.3);animation:qgbg 2.4s ease-in-out infinite}
+@keyframes qgbg{50%{box-shadow:inset 0 -5px 0 #ffc21a,0 0 26px rgba(255,214,60,1),0 3px 0 rgba(0,0,0,.3)}}
+.qgm .qgp,.qgm .qgs.big .qgp,.qgm .qgs.m .qgp{left:0;right:0;bottom:2px;text-align:center;font-size:17px;-webkit-text-stroke:5px #111;color:#fff}
+.qgm .qgs.big .qgp{color:#fff6a8}.qgm .qgs.m .qgp{color:#ffe28a}
+.qgm .qgst,.qgm .qgs.big .qgst{left:-7px;top:-9px;width:20px;height:20px}.qgm .qgs.big .qgst{width:24px;height:24px}
+.qgm .qgmy{left:134px;right:10px;width:auto;bottom:12px;gap:8px}
+.qgm .qgb small{font-size:13px;-webkit-text-stroke:4px #111}
+.qgm .qgb .btn{height:36px;font-size:20px}
+.qgm .qgtip{bottom:92%}
+.qgm .qgs.big .qgtip{right:0;left:auto;margin-left:0;bottom:92%}
+.qgm .qgs:nth-child(6) .qgtip{transform-origin:100% 100%}
+.qgm .qgsv{transform:scale(1.22);transform-origin:50% 85%}
+.aev.hwa{flex-wrap:nowrap;gap:8px}.aev.hwa .aed{width:62px!important}.aev.hwa .aeb{width:104px}.aev.hwa .aen{min-width:120px}.aev.hwa label{white-space:nowrap}
+.aeb.gr,.eb2.gr{pointer-events:auto!important;inset:auto}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -4181,11 +4205,11 @@ const HWC={};
  s=s.replace('<svg ','<svg data-hw="1" ');
  return HWC[key]=s}})();
 
-/* ---------- Event-Zustand (Admin → Firestore events/halloween {on,p,ts,by}) ---------- */
+/* ---------- Event-Zustand (Admin → events/halloween {start,end,dur,p,by}) – zeitlich begrenzt wie das Samurai-Event; ohne gültiges Ende ist das Event AUS ---------- */
 const HW_DEF_P=10;                       /* Standard-Chance in %, solange der Admin nichts gespeichert hat */
 const HW_ASSETS={bg:'',music:''};        /* SPÄTER: bg = Bild-URL/Data-URI des Halloween-Hintergrunds, music = Audio-URL (oder EVAUD.halloween = Base64-MP3) */
 window.setHalloweenAssets=o=>{Object.assign(HW_ASSETS,o||{});hwBgApply();if(hwOn())hwTick(true)};
-function hwCfg(){const d=(typeof EV!=='undefined'&&EV&&EV.halloween)||{},p=+d.p;return{on:d.on===true,p:isFinite(p)&&d.p!==''&&d.p!=null?Math.min(100,Math.max(0,p)):HW_DEF_P}}
+function hwCfg(){const d=(typeof EV!=='undefined'&&EV&&EV.halloween)||{},p=+d.p,end=+d.end||0;return{on:end>Date.now(),end,p:isFinite(p)&&d.p!==''&&d.p!=null?Math.min(100,Math.max(0,p)):HW_DEF_P}}
 const hwOn=()=>hwCfg().on;
 /* Roll: Trait nur bei aktivem Event, Chance aus dem Admin-Panel. Basis-Roll (Mutationen/Samurai) bleibt unverändert. */
 (function(){const prev=rollTraits;rollTraits=function(){const t=prev();try{const c=hwCfg();if(c.on&&c.p>0&&Math.random()<c.p/100&&!t.includes('halloween'))t.push('halloween')}catch(e){}return t}})();
@@ -4214,13 +4238,16 @@ setInterval(hwTick,500);hwTick();
 
 /* ---------- Admin-Panel: Halloween-Steuerung (Tab EVENTS) ---------- */
 (function(){const a0=admRender;admRender=function(){a0();if(admTab!='ev')return;const c=$('amc');if(!c||$('hwa'))return;
- c.insertAdjacentHTML('beforeend',`<div class="aev hwa" id="hwa"><div class="evic" style="background:linear-gradient(#ff9a1a,#4a1a7a)">${TI.halloween}</div><div class="aen"><b>HALLOWEEN EVENT</b><small id="hws">Inaktiv</small></div><label>Trait-Chance (%)</label><input class="aed" id="hwp" type="number" min="0" max="100" step="0.1" placeholder="%"><button class="btn aeb" id="hwsv">SPEICHERN</button><button class="btn aeb" id="hwtg">AKTIVIEREN</button></div>`);
+ c.insertAdjacentHTML('beforeend',`<div class="aev hwa" id="hwa"><div class="evic" style="background:linear-gradient(#ff9a1a,#4a1a7a)">${TI.halloween}</div><div class="aen"><b>HALLOWEEN EVENT</b><small id="hws">Inaktiv</small></div><label>Dauer (min)</label><input class="aed" id="hwd" type="number" min="1" max="1440" placeholder="z. B. 30"><label>Chance (%)</label><input class="aed" id="hwp" type="number" min="0" max="100" step="0.1" placeholder="%"><button class="btn aeb" id="hwtg">START EVENT</button></div>`);
  const inp=$('hwp');inp.value=String(+hwCfg().p.toFixed(2));
  const pv=()=>{const v=inp.value.trim();const n=+v;if(v===''||!isFinite(n)||n<0||n>100){snd('err');msg('Chance muss zwischen 0 und 100 % liegen');return null}return n};
- const save=async on=>{if(!isAdmin()){snd('err');msg('Keine Berechtigung');return}const p=pv();if(p===null)return;
-  try{const d={on,p,ts:Date.now(),by:LB.uid||''};await LB.db.doc('events/halloween').set(d);EV=Object.assign({},EV,{halloween:d});hwTick();admTick();snd('buy');msg('✓ Halloween gespeichert · '+(on?'aktiv':'inaktiv')+' · '+p+' %')}catch(e){snd('err');msg('Keine Berechtigung')}};
- $('hwsv').onclick=()=>save(hwCfg().on);$('hwtg').onclick=()=>save(!hwCfg().on);admTick()}})();
-(function(){const t0=admTick;admTick=function(){t0();if(admTab!='ev')return;const s=$('hws'),b=$('hwtg');if(!s)return;const c=hwCfg();s.textContent=c.on?'Aktiv · Trait-Chance '+(+c.p.toFixed(2))+' %':'Inaktiv · keine neuen Halloween-Traits';s.className=c.on?'on':'';if(b){b.textContent=c.on?'DEAKTIVIEREN':'AKTIVIEREN';b.classList.toggle('gr',c.on)}}})();
+ const dv=()=>{const n=+$('hwd').value;if(!(n>=1&&n<=1440)){snd('err');msg('Dauer: 1–1440 Minuten angeben');return null}return n};
+ const put=async d=>{try{await LB.db.doc('events/halloween').set(d);EV=Object.assign({},EV,{halloween:d});hwTick();admTick();return true}catch(e){snd('err');msg('Keine Berechtigung');return false}};
+ $('hwtg').onclick=async()=>{if(!isAdmin()){snd('err');msg('Keine Berechtigung');return}const c=hwCfg(),p=pv();if(p===null)return;
+  if(c.on){if(await put({start:0,end:0,dur:0,p,ts:Date.now(),by:LB.uid||''})){snd('buy');msg('✓ Halloween-Event beendet')}return}
+  const m=dv();if(m===null)return;if(await put({start:Date.now(),end:Date.now()+Math.round(m*60000),dur:m,p,ts:Date.now(),by:LB.uid||''})){snd('buy');msg('✓ Halloween-Event gestartet · '+m+' min · '+p+' %')}};
+ inp.onchange=async()=>{const c=hwCfg(),p=pv();if(p===null||!c.on||!isAdmin())return;const d=Object.assign({},EV.halloween,{p,ts:Date.now()});if(await put(d)){snd('click');msg('✓ Chance auf '+p+' % gesetzt')}};admTick()}})();
+(function(){const t0=admTick;admTick=function(){t0();if(admTab!='ev')return;const s=$('hws'),b=$('hwtg');if(!s)return;const c=hwCfg();const rm=Math.max(0,c.end-Date.now()),mm=Math.floor(rm/6e4),ss=Math.floor(rm%6e4/1e3);s.textContent=c.on?'Aktiv · noch '+mm+':'+String(ss).padStart(2,'0')+' · Chance '+(+c.p.toFixed(2))+' %':'Inaktiv · keine neuen Halloween-Traits';s.className=c.on?'on':'';if(b){b.textContent=c.on?'STOP':'START EVENT';b.classList.toggle('gr',c.on)}const di=$('hwd');if(di)di.disabled=c.on}})();
 /* ===== Welt-Wechsel: Wasser-Welle (steigt von unten, trägt die Szene um, läuft oben ab) ===== */
 const WT={busy:false};
 function wtWave(w,fill,foam){const n=Math.ceil(w/120)+1;let d='M0,60';for(let k=0;k<n;k++){const x=k*120;d+=` C${x+30},${k%2?34:6} ${x+90},${k%2?6:34} ${x+120},20`}d+=` V60Z`;return d}
