@@ -2015,6 +2015,62 @@ svg[data-m~="diamond"]{filter:grayscale(1) sepia(1) hue-rotate(150deg) saturate(
 #trq2 .tra{width:44px;height:36px;border:3px solid #111;border-radius:9px;background:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center}#trq2 .tra svg{width:100%;height:100%}
 .trqt{display:flex;flex-direction:column;line-height:1.1;color:#111}.trqt b{font-weight:400;font-size:20px;color:#fff;-webkit-text-stroke:5px #111;paint-order:stroke fill;stroke-linejoin:round}.trqt span{font-size:13px;color:#444}
 #tradeBtn .cbd{display:none}
+
+/* ================= PREMIUM-SCHICHT: Bewegung, Tiefe, Performance ================= */
+:root{--ease-out:cubic-bezier(.16,1,.3,1);--ease-spring:cubic-bezier(.34,1.56,.64,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+html,body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+/* --- Performance: nur animieren, was man sieht --- */
+.wld:not(.on) *,.wld:not(.on){animation-play-state:paused!important}
+#game.blur *,#game.blur:before,#game.blur:after{animation-play-state:paused!important}
+#cs:not(.on) *{animation-play-state:paused!important}
+#win:not(.open) *,#sw:not(.open) *,#sset:not(.open) *,#set:not(.open) *,#fz:not(.open) *,#fzs:not(.open) *,#chatw:not(.open) *,#trw:not(.open) *,#adm:not(.open) *,#sell:not(.open) *,#sk:not(.open) *,#idx:not(.open) *,#inv:not(.open) *,#lbw:not(.open) *,#pf:not(.open) *,#upw:not(.open) *,#ewin:not(.open) *{animation-play-state:paused!important}
+/* --- Fenster: weiches Einblenden statt hartem Hochschieben --- */
+#win,#ewin,#upw,#inv,#chatw,#trw,#lbw,#pf,#sset,#set,#fz{opacity:0;visibility:hidden;pointer-events:none;transform:translateY(34px) scale(.93)!important;transform-origin:50% 60%;
+ transition:transform .55s var(--ease-out),opacity .26s ease,visibility 0s linear .55s!important;will-change:transform,opacity}
+#win.open,#ewin.open,#upw.open,#inv.open,#chatw.open,#trw.open,#lbw.open,#pf.open,#sset.open,#set.open,#fz.open{opacity:1;visibility:visible;pointer-events:auto;transform:none!important;
+ transition:transform .6s var(--ease-out),opacity .3s ease,visibility 0s!important}
+#idx{transition:transform .55s var(--ease-out)!important}
+#ov{transition:opacity .45s ease!important;backdrop-filter:none}
+#game{transition:filter .45s ease,transform .6s var(--ease-out)}
+#game.blur{filter:blur(3px) saturate(1.08) brightness(.92)}
+/* --- Buttons: einheitliches, federndes Feedback --- */
+.btn,.trb,.czs,.skb,.pfbt,.lbc,.itb,.wbtn,.nt,.xb,.czx,.sb,.eo-buy,.pfl .pflo,.trmx{transition:transform .22s var(--ease-spring),filter .2s ease,box-shadow .2s ease,background .25s ease!important;-webkit-tap-highlight-color:transparent}
+.btn:active,.trb:active:not(:disabled),.czs:active,.skb:active,.pfbt:active,.lbc:active,.wbtn:active,.eo-buy:active{transform:translateY(3px) scale(.965)!important;transition-duration:.08s!important}
+.nt:active{transform:scale(.9) translateY(2px)!important;transition-duration:.08s!important}
+.nt:hover{transform:translateY(-3px) scale(1.06)}
+button:focus-visible,.nt:focus-visible{outline:3px solid #fff;outline-offset:2px;box-shadow:0 0 0 6px #1a8cff}
+.rpl{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(255,255,255,.75),rgba(255,255,255,0) 70%);transform:translate(-50%,-50%) scale(0);animation:rpl .6s var(--ease-out) forwards;z-index:5}
+@keyframes rpl{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+/* --- Karten: Hover-Tiefe --- */
+.pc,.icd,.pfk,.skr,.trr,.qgm,#sc .card,.uc,.ic,.lr{transition:transform .35s var(--ease-out),box-shadow .35s ease,filter .3s ease}
+.pc:hover,.icd:hover,.trr:hover,.skr:hover,.uc:hover{transform:translateY(-3px);filter:brightness(1.04)}
+.lr:hover{filter:brightness(1.06)}
+/* --- Toast: federnd --- */
+#toast{transition:opacity .28s ease,transform .5s var(--ease-spring)!important;transform:translate(-50%,26px) scale(.9)}
+#toast.on{transform:translate(-50%,0) scale(1)!important}
+/* --- Zähler-Puls --- */
+.pulse{animation:pls .5s var(--ease-spring)}
+@keyframes pls{0%{transform:scale(1)}35%{transform:scale(1.22);filter:brightness(1.35)}100%{transform:scale(1)}}
+.pulse.neg{animation-name:plsn}@keyframes plsn{0%{transform:scale(1)}35%{transform:scale(.88);filter:hue-rotate(-30deg) brightness(.9)}100%{transform:scale(1)}}
+/* --- Tiefe: Vignette, Licht, Parallax --- */
+#game:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:2;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(10,16,40,.28) 100%),linear-gradient(rgba(255,255,255,.07),transparent 28%)}
+.wld{will-change:transform;transform:translate3d(var(--px,0px),var(--py,0px),0) scale(1.04)}
+#plats{transform:translate3d(var(--qx,0px),var(--qy,0px),0)}
+/* --- Intro: UI schwebt nach dem Laden ein --- */
+#stage.intro #nav .nt{animation:ntin .7s var(--ease-spring) backwards;animation-delay:calc(var(--i,0)*70ms + 120ms)}
+@keyframes ntin{from{opacity:0;transform:translateX(-40px) scale(.7)}}
+#stage.intro #hud{animation:hudin .8s var(--ease-out) .25s backwards}
+@keyframes hudin{from{opacity:0;transform:translateY(40px)}}
+#stage.intro #rwrap{animation:rwin .8s var(--ease-spring) .35s backwards}
+@keyframes rwin{from{opacity:0;transform:translateY(40px) scale(.85)}}
+#stage.intro #plats{animation:plin 1s var(--ease-out) .15s backwards}
+@keyframes plin{from{opacity:0;transform:translateY(-24px)}}
+/* --- Roll-Button atmet leicht --- */
+#rwrap .rbtn:not(:active){animation:rbr 3.2s ease-in-out infinite}
+@keyframes rbr{0%,100%{filter:drop-shadow(0 0 0 rgba(255,90,70,0))}50%{filter:drop-shadow(0 0 12px rgba(255,90,70,.55))}}
+/* --- Scrollbars einheitlich --- */
+#sc,#iv,.pfr,.trls,.trpg,.lbl{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -4076,4 +4132,32 @@ function wtBuild(){const o=document.createElement('div');o.id='wtr';
  const out=band.animate([{transform:'translateY(0)'},{transform:`translateY(${-(H+E)}px)`}],{duration:1050,easing:'cubic-bezier(.4,.05,.2,1)',fill:'forwards'});
  await out.finished.catch(()=>{});
  o.remove();st.classList.remove('wtrOn');WT.busy=false}})();
+/* ================= PREMIUM: Mikro-Interaktionen ================= */
+(function(){
+ /* Ripple auf Buttons */
+ const SEL='.btn,.trb,.czs,.skb,.pfbt,.lbc,.itb,.wbtn,.eo-buy,.sbt,.trmx';
+ document.addEventListener('pointerdown',e=>{const b=e.target.closest&&e.target.closest(SEL);if(!b||b.disabled||b.classList.contains('dis'))return;
+  const r=b.getBoundingClientRect(),sc=r.width/(b.offsetWidth||r.width)||1,x=(e.clientX-r.left)/sc,y=(e.clientY-r.top)/sc;
+  const cs=getComputedStyle(b),po=cs.position,ov=b.style.overflow;if(po=='static')b.style.position='relative';b.style.overflow='hidden';
+  const d=document.createElement('i');d.className='rpl';const s=Math.max(b.offsetWidth,b.offsetHeight)*2.2;d.style.cssText=`left:${x}px;top:${y}px;width:${s}px;height:${s}px`;b.appendChild(d);
+  setTimeout(()=>{d.remove();b.style.overflow=ov;if(po=='static')b.style.position=''},620)},{passive:true});
+ /* Nav-Buttons: Index für gestaffeltes Einschweben */
+ document.querySelectorAll('#nav .nt').forEach((n,i)=>n.style.setProperty('--i',i));
+ /* Intro nach dem Laden */
+ const st=document.getElementById('stage');
+ const t=setInterval(()=>{if(!document.getElementById('ld')){clearInterval(t);st.classList.add('intro');setTimeout(()=>st.classList.remove('intro'),2200)}},120);
+ /* Zähler-Puls (nur bei echten Änderungen, nicht beim Sekundentakt) */
+ let lc=null,ld=null;const pulse=(el,neg)=>{if(!el)return;el.classList.remove('pulse','neg');void el.offsetWidth;el.classList.add('pulse');if(neg)el.classList.add('neg')};
+ const u0=updHud;updHud=function(){u0.apply(this,arguments);try{
+  if(lc!==null&&Math.abs(cash-lc)>Math.max(2,lc*.03)){const g=document.getElementById('mny')?document.querySelector('#mny .mny:not(.gem)'):null;pulse(g,cash<lc)}
+  if(ld!==null&&dia!==ld)pulse(document.getElementById('gemd'),dia<ld);lc=cash;ld=dia}catch(e){}};
+ /* Parallax: Welt und Podeste bewegen sich minimal gegenläufig zur Maus */
+ if(!matchMedia('(pointer:coarse)').matches&&!matchMedia('(prefers-reduced-motion:reduce)').matches){
+  let tx=0,ty=0,cx=0,cy=0,run=false;const wl=()=>document.querySelectorAll('.wld'),pl=document.getElementById('plats');
+  const tick=()=>{cx+=(tx-cx)*.07;cy+=(ty-cy)*.07;const a=cx.toFixed(2),b=cy.toFixed(2);
+   document.querySelectorAll('.wld.on').forEach(w=>{w.style.setProperty('--px',(-a*10)+'px');w.style.setProperty('--py',(-b*6)+'px')});
+   if(pl){pl.style.setProperty('--qx',(a*5)+'px');pl.style.setProperty('--qy',(b*3)+'px')}
+   if(Math.abs(tx-cx)>.002||Math.abs(ty-cy)>.002)requestAnimationFrame(tick);else run=false};
+  window.addEventListener('pointermove',e=>{if(document.getElementById('game').classList.contains('blur'))return;const r=st.getBoundingClientRect();tx=((e.clientX-r.left)/r.width-.5)*2;ty=((e.clientY-r.top)/r.height-.5)*2;if(!run){run=true;requestAnimationFrame(tick)}},{passive:true})}
+})();
 </script></body></html>
