@@ -2648,6 +2648,69 @@ button:focus-visible,.nt:focus-visible{outline:3px solid #fff;outline-offset:2px
 .wtlv{margin-top:6px!important}.wtlv>div{padding:3px 9px!important}.wtf{margin-top:8px!important}.wtf .btn{height:34px}
 #stage:has(#wtu) #msgs,#stage:has(#wq.on) #msgs,#stage.hwOpen #msgs{display:none!important}
 #stage.wtrOn #msgs,#stage.cine #msgs{display:none!important}
+/* ===== Upgrades: Luck-Karte ===== */
+#upw #usc{display:block}
+.lqc{position:relative;margin:2px 4px;padding:10px 14px 12px;border-radius:16px;background:linear-gradient(#1f3a2c,#12251c);border:3px solid #0a0a0a;box-shadow:inset 0 0 0 2px rgba(120,255,160,.25),0 6px 16px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:7px;color:#fff;overflow:hidden}
+.lqc.mx{box-shadow:inset 0 0 0 2px rgba(255,210,80,.7),0 0 24px rgba(255,200,60,.35)}
+.lqh{display:flex;align-items:center;gap:10px}
+.lqi{width:42px;height:42px;flex:none;border-radius:12px;background:rgba(0,0,0,.35);border:2px solid #0a0a0a;padding:5px}.lqi svg{width:100%;height:100%}
+.lqn{flex:1;min-width:0}.lqn b{display:block;font-size:24px;line-height:1;letter-spacing:2px;font-weight:400}.lqn small{color:#a9e8bc;font-size:11px}
+.lqb2{font-size:14px;letter-spacing:1px;background:rgba(0,0,0,.4);border:2px solid #0a0a0a;border-radius:10px;padding:4px 10px;color:#caffd8}.lqb2 em{font-style:normal;color:#fff}
+.lqm{display:flex;align-items:center;justify-content:center;gap:18px}
+.lqv{text-align:center;min-width:130px}.lqv small{display:block;font-size:10px;letter-spacing:1px;color:#8fd6a6}.lqv b{font-size:34px;font-weight:400;line-height:1.05;text-shadow:-2px -2px 0 #111,2px -2px 0 #111,-2px 2px 0 #111,2px 2px 0 #111,0 3px 0 #111}
+.lqv.nxv b{color:#6dff8e}.lqm .ar{font-size:26px;color:#6dff8e}.lqm .mxs{font-size:26px;letter-spacing:3px;color:#ffd45a;text-shadow:0 0 14px rgba(255,200,60,.7)}
+.lqbar{position:relative;height:18px;border-radius:9px;background:#0a120d;border:2px solid #0a0a0a;overflow:hidden}
+.lqbar i{position:absolute;left:0;top:0;bottom:0;border-radius:7px;background:linear-gradient(#8bffa6,#2fbf55);box-shadow:0 0 12px rgba(120,255,160,.6);transition:width .4s}
+.lqbar span{position:absolute;top:1px;font-size:10px;color:#fff;text-shadow:0 1px 0 #000}.lqbar span:nth-of-type(1){left:6px}.lqbar span:nth-of-type(2){left:50%;transform:translateX(-50%)}.lqbar span:nth-of-type(3){right:6px}
+.lqx{text-align:center;font-size:12px;color:#c6f1d3}.lqx b{color:#fff}
+.lqpv{display:flex;gap:6px}.lqp{flex:1;border-radius:10px;background:rgba(0,0,0,.3);border:2px solid rgba(0,0,0,.6);padding:4px 6px;text-align:center;opacity:.75}
+.lqp.nx{opacity:1;border-color:#6dff8e}.lqp.ok{background:rgba(60,200,100,.25)}
+.lqp small{display:block;font-size:9px;color:#8fd6a6;letter-spacing:1px}.lqp b{display:block;font-size:18px;font-weight:400}.lqp span{display:flex;align-items:center;justify-content:center;gap:3px;font-size:12px;color:#ffe08a}.lqp .ico{width:13px;height:13px;display:inline-block}.lqp .ico svg{width:100%;height:100%}
+.lqbt{display:flex;gap:8px}.lqbt .uqb{margin-top:0;flex:1.5}.lqbt .lqmx{flex:1}
+.lqbt .uqb.can{background:linear-gradient(#5be070,#23a63c)}.lqbt .uqb.no{background:linear-gradient(#5b6272,#3a3f4c);filter:saturate(.6)}
+/* ===== Ladebildschirm neu ===== */
+#ld{background:linear-gradient(#150a3d 0%,#3a1a7a 34%,#b0408f 62%,#ff8d5c 86%,#ffc27a 100%)}
+#ld .lds{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,196,110,.55),transparent 60%),radial-gradient(ellipse at 20% 20%,rgba(120,90,255,.35),transparent 50%)}
+#ld .ldsun{position:absolute;left:50%;top:44%;width:300px;height:300px;margin:-150px 0 0 -150px;border-radius:50%;background:radial-gradient(circle,rgba(255,236,170,.75),rgba(255,160,120,.25) 45%,transparent 70%);animation:ldsn 5s ease-in-out infinite}
+@keyframes ldsn{50%{transform:scale(1.12);opacity:.8}}
+.ldsr{position:absolute;width:var(--z);height:var(--z);border-radius:50%;background:#fff;box-shadow:0 0 6px #fff;animation:ldtw var(--d) ease-in-out infinite;animation-delay:var(--l)}
+@keyframes ldtw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.2)}}
+.ldor{position:absolute;bottom:-20px;width:var(--z);height:var(--z);border-radius:50%;background:radial-gradient(circle,#fff,rgba(255,220,150,.6) 60%,transparent);animation:ldup var(--d) linear infinite;animation-delay:var(--l);opacity:0}
+@keyframes ldup{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-460px) translateX(24px);opacity:0}}
+.ldcl{position:absolute;height:36px;border-radius:30px;background:rgba(255,255,255,.14);filter:blur(3px);animation:ldcd linear infinite}
+.ldcl:before,.ldcl:after{content:'';position:absolute;background:inherit;border-radius:50%}.ldcl:before{width:46%;height:150%;left:14%;top:-60%}.ldcl:after{width:34%;height:125%;right:16%;top:-40%}
+.ldcl.c1{width:170px;top:16%;animation-duration:42s;left:-200px}.ldcl.c2{width:120px;top:30%;animation-duration:58s;animation-delay:-20s;left:-200px}.ldcl.c3{width:200px;top:8%;animation-duration:70s;animation-delay:-45s;left:-200px}
+@keyframes ldcd{to{transform:translateX(1000px)}}
+#ld .ldp{filter:none;opacity:.5;filter:drop-shadow(0 0 6px rgba(255,255,255,.35)) saturate(1.2)}
+#ld .ldh{position:absolute;left:0;right:0;bottom:0;width:100%;height:100%;pointer-events:none}
+#ldi{box-shadow:0 0 0 4px #ffd36b,0 14px 30px rgba(0,0,0,.45),0 0 60px rgba(255,200,120,.65)}
+#ldt{z-index:3;bottom:36px;text-shadow:0 3px 0 rgba(0,0,0,.4)}
+.ldbar{position:absolute;left:50%;bottom:16px;width:240px;height:10px;margin-left:-120px;border-radius:6px;background:rgba(10,5,40,.55);border:2px solid #0a0a0a;overflow:hidden;z-index:3}
+.ldbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ffd45a,#ff8d5c,#ff5fa0);border-radius:4px;animation:ldbr 3s cubic-bezier(.3,.6,.3,1) forwards}
+@keyframes ldbr{to{width:100%}}
+@media (hover:none){#nvTip,#nxTip{display:none!important}}
+/* ===== Anleitung ===== */
+#gd{position:absolute;inset:0;z-index:92;display:none;align-items:center;justify-content:center;background:rgba(6,8,22,.7);opacity:0;transition:opacity .25s}
+#gd.on{display:flex;opacity:1}
+.gdc{--ac:#ffd45a;position:relative;width:600px;height:350px;padding:12px 18px 14px;border-radius:20px;background:radial-gradient(ellipse at 50% -20%,#2d3670,#171b3a 60%,#0e1124);border:3px solid #0a0a0a;box-shadow:0 0 0 3px var(--ac),0 18px 50px rgba(0,0,0,.7);display:flex;flex-direction:column;gap:8px;color:#fff}
+.gdc.pg .gdh,.gdc.pg #gdb{animation:gdin .3s ease-out}
+@keyframes gdin{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
+.gdxx{position:absolute;right:10px;top:8px;width:30px;height:30px;border-radius:9px;background:#e03a3a;border:2px solid #0a0a0a;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:15px}
+.gdh{display:flex;align-items:center;gap:12px;padding-right:36px}.gdh i{font-style:normal;font-size:42px;line-height:1}.gdh b{font-size:28px;letter-spacing:2px;font-weight:400;color:var(--ac)}
+#gdb{flex:1;display:flex;flex-direction:column;gap:7px;justify-content:center}
+.gdi{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.06);border:2px solid rgba(255,255,255,.08);border-radius:13px;padding:8px 11px}
+.gdi>span{font-size:24px;line-height:1.1;flex:none;width:30px;text-align:center}.gdi b{display:block;font-size:15px;font-weight:400;color:var(--ac);letter-spacing:.5px}
+.gdi p{margin:1px 0 0;font-size:13px;line-height:1.3;color:#dfe4f7}.gdi p b{display:inline;font-size:inherit;color:#fff}
+#gdd{display:flex;gap:6px;justify-content:center}#gdd i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer}#gdd i.on{background:var(--ac);transform:scale(1.3)}
+.gdn{display:flex;justify-content:space-between;gap:10px}.gdn .btn{font-size:16px;padding:8px 22px}
+#topl #guideBtn{position:relative!important;width:36px;height:36px;font-size:20px;flex:none;margin:0;border-radius:9px;background:linear-gradient(#ffd45a,#e0a21a);color:#2a1a00;text-shadow:none;border:3px solid #0a0a0a}
+.gdc{width:650px;height:auto;max-height:392px;padding:10px 18px 12px;gap:6px}
+.gdh i{font-size:34px}.gdh b{font-size:24px}
+.gdi{padding:6px 10px}.gdi b{font-size:14px}.gdi p{font-size:11.5px;line-height:1.25}.gdi>span{font-size:20px}
+#gdb{gap:5px}
+.gdn .btn{font-size:15px;padding:6px 20px}
+#stage:has(#gd.on) #msgs{display:none}
+.gdc{top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;transform:none!important}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -3137,7 +3200,7 @@ function put(s,k,sil){s.querySelectorAll('.pet').forEach(o=>{o.classList.add('o'
 let busy=false;
 $('rb').onclick=roll;
 $('wsel').innerHTML='<button class="btn wbtn" id="wb">WORLD</button><div id="lk"></div>';
-function luckV(){let v=false;try{v=vip}catch(e){}return(1+.25*lkLv)*(v?2:1)}const fmtL=v=>String(+(+v).toFixed(2)).replace('.',','),updLK=()=>$('lk').textContent='🍀 Luck x'+fmtL(luckV());updLK();
+function luckV(){let v=false;try{v=vip}catch(e){}return(1+.5*lkLv)*(v?2:1)}const fmtL=v=>String(+(+v).toFixed(2)).replace('.',','),updLK=()=>$('lk').textContent='🍀 Luck x'+fmtL(luckV());updLK();
 function renderWM(){$('wl').innerHTML=W.map((w,i)=>{const k=pi(['Foxy','Frosty','Blaze','Seraph'][i]),on=i==cw;
  return `<div class="wcd${on?' eqd':''}"><div class="pv" style="background:${w.sky}"><div class="pvf" style="background:${w.fl}"></div><div class="pvp">${SV[k]}</div><i class="pvb">WORLD ${i+1}</i></div><b>${w.n}</b><div class="lkc">🍀 Luck x${i+1}</div><button class="btn eq${on?' dis on':''}" data-i="${i}">${on?'✓ AUSGERÜSTET':'AUSRÜSTEN'}</button></div>`}).join('');
  document.querySelectorAll('.eq').forEach(b=>b.onclick=()=>equip(+b.dataset.i))}
@@ -3330,7 +3393,7 @@ const wPets=w=>P.map((p,k)=>k).filter(k=>P[k][4]===w);
 function idxList(t){return P.map((p,k)=>k).filter(k=>t<4?P[k][4]===t:P[k][1]>=8&&P[k][1]<=10).sort((a,b)=>P[a][1]-P[b][1]||CPS[P[a][0]]-CPS[P[b][0]])}
 $('idxBtn').onclick=openIdx;$('ix').onclick=closeEggW;
 /* ===== Upgrades ===== */
-const RS_COST=[...Array(10)].map((_,i)=>100*Math.pow(10,i)),LK_COST=[...Array(12)].map((_,i)=>100*Math.pow(10,i)),POD_COST=[0,250,5000],rsT=l=>(2.5-.2*l).toFixed(1).replace('.',',')+'s';
+const RS_COST=[...Array(10)].map((_,i)=>100*Math.pow(10,i)),LK_COST=[...Array(18)].map((_,i)=>{const v=100*Math.pow(10,i*.65),m=Math.pow(10,Math.floor(Math.log10(v))-1);return Math.round(v/m)*m}),POD_COST=[0,250,5000],rsT=l=>(2.5-.2*l).toFixed(1).replace('.',',')+'s';
 const IC_BOLT='<svg viewBox="0 0 40 40"><polygon points="24,2 8,22 19,22 14,38 33,16 22,16" fill="#3ab0ff" stroke="#111" stroke-width="2.4" stroke-linejoin="round"/><polygon points="22,6 13,20 20,20" fill="#9ae0ff"/></svg>';
 const IC_POD='<svg viewBox="0 0 40 40"><ellipse cx="20" cy="30" rx="17" ry="6" fill="#6a4ce0" stroke="#111" stroke-width="2"/><rect x="3" y="24" width="34" height="6" fill="#6a4ce0"/><ellipse cx="20" cy="24" rx="17" ry="6" fill="#ffd36b" stroke="#111" stroke-width="2"/><ellipse cx="20" cy="17" rx="11" ry="4.4" fill="#8a6af0" stroke="#111" stroke-width="2"/><rect x="9" y="12" width="22" height="5" fill="#8a6af0"/><ellipse cx="20" cy="12" rx="11" ry="4.4" fill="#f0e4ff" stroke="#111" stroke-width="2"/></svg>';
 function tweenNum(el,a,b,f,ms=450){if(!el)return;const t0=performance.now(),st=t=>{const p=Math.min(1,(t-t0)/ms),e=1-Math.pow(1-p,3);el.textContent=f(a+(b-a)*e);if(p<1)requestAnimationFrame(st)};requestAnimationFrame(st)}
@@ -3347,7 +3410,7 @@ const openUp=()=>{renderUp();$('ov').classList.add('on');$('game').classList.add
 $('upBtn').onclick=openUp;$('ux2').onclick=closeEggW;
 /* ===== Roll (Roll Speed + Podeste) ===== */
 function drawN(n){const pool=wPets(cw),r=[],w=RW.slice(0,7).map((x,i)=>x*Math.pow(luckV(),RWE[i]||0)),t=w.reduce((a,b)=>a+b);let g=0;while(r.length<n&&g++<500){let x=Math.random()*t,ri=0;for(;ri<6&&x>=w[ri];ri++)x-=w[ri];const l=pool.filter(k=>P[k][1]==ri),k=l[rnd(l.length)];if(!r.includes(k))r.push(k)}return r}
-async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;snd('roll');const pl=$('plats'),act=slots.slice(0,pods),D=(2.5-.2*rsLv)*1000;const T0=performance.now(),at=ms=>wait(Math.max(0,T0+ms-performance.now()));window.__rollStart=T0;$('rb').classList.add('dis');pl.classList.add('chg');act.forEach(clear);
+async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;snd('roll');const pl=$('plats'),act=slots.slice(0,pods),D=2500;const T0=performance.now(),at=ms=>wait(Math.max(0,T0+ms-performance.now()));window.__rollStart=T0;$('rb').classList.add('dis');pl.classList.add('chg');act.forEach(clear);
  await at(D*.12);const ov=ovPending(),ovOk=ov&&pi(ov.pet)>=0,res=drawN(act.length),pool=wPets(cw);if(ovOk)res[0]=pi(ov.pet);let prev=[],acc=D*.12;
  for(const g of [240,270,330,420,540]){const cur=[];act.forEach((s,i)=>{let k,n=0;do{k=pool[rnd(pool.length)]}while((cur.includes(k)||k==prev[i])&&n++<20);cur.push(k);put(s,k,true)});prev=cur;acc+=g/1800*D*.66;await at(acc)}
  act.forEach((s,i)=>put(s,res[i],true));await at(D);window.__rollReveal=performance.now()-window.__rollStart;
@@ -3361,9 +3424,9 @@ offers();updE();updHud();renderIdx();applyPods();$('ebi').innerHTML=egg('c');
 /* ===== Loading Screen + Name + Tutorial ===== */
 const LS=k=>{try{return localStorage.getItem(k)}catch(e){return null}},SS=(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}};
 (function(){let h='';const wp=P.map((p,k)=>k).filter(k=>typeof P[k][4]==='number'&&P[k][1]<=2),rr=(()=>{let s=7;return()=>(s=(s*16807)%2147483647)/2147483647})();
- let n=0;for(let r=0;r<8;r++){const off=r%2?31:0;for(let c=0;c<13;c++){const k=wp[(n*37+r*11)%wp.length];n++;const x=c*62-off,y=r*52-4,sv=SV[k].replace(/ class="[^"]*"/g,'').replace(/viewBox="-8 -(12|24) 116 (114|126)"/,'viewBox="16 8 68 52"');
+ let n=0;for(let r=0;r<8;r++){const off=r%2?31:0;for(let c=0;c<13;c++){if((r*2+c)%3!==0)continue;const k=wp[(n*37+r*11)%wp.length];n++;const x=c*62-off,y=r*52-4,sv=SV[k].replace(/ class="[^"]*"/g,'').replace(/viewBox="-8 -(12|24) 116 (114|126)"/,'viewBox="16 8 68 52"');
   h+=`<div class="ldp" style="left:${x}px;top:${y}px;--dx:${(6+rr()*12).toFixed(1)}px;--dy:${(6+rr()*12).toFixed(1)}px;--r:${(2+rr()*5).toFixed(1)}deg;--t:${(5+rr()*6).toFixed(1)}s;--l:-${(rr()*8).toFixed(1)}s;${rr()>.5?'':'--dx:-'+(6+rr()*12).toFixed(1)+'px;'}">${sv}</div>`}}
- $('ldb').innerHTML=h;
+ $('ldb').innerHTML='<div class="lds"></div><div class="ldsun"></div>'+(()=>{let t='';const q=(()=>{let s=11;return()=>(s=(s*16807)%2147483647)/2147483647})();for(let i=0;i<46;i++)t+=`<i class="ldsr" style="left:${(q()*100).toFixed(1)}%;top:${(q()*62).toFixed(1)}%;--z:${(1+q()*2.2).toFixed(1)}px;--d:${(1.4+q()*2.6).toFixed(1)}s;--l:-${(q()*4).toFixed(1)}s"></i>`;for(let i=0;i<14;i++)t+=`<i class="ldor" style="left:${(q()*100).toFixed(1)}%;--z:${(3+q()*7).toFixed(1)}px;--d:${(6+q()*7).toFixed(1)}s;--l:-${(q()*12).toFixed(1)}s"></i>`;return t})()+'<i class="ldcl c1"></i><i class="ldcl c2"></i><i class="ldcl c3"></i>'+h+'<svg class="ldh" viewBox="0 0 722 405" preserveAspectRatio="none"><path d="M0,300 C110,250 190,262 290,285 C400,310 500,240 722,272 V405 H0Z" fill="#5b2f8a" opacity=".75"/><path d="M0,335 C120,300 220,330 340,316 C470,300 580,322 722,300 V405 H0Z" fill="#3a1d6e"/><path d="M0,372 C140,348 260,376 400,360 C540,344 640,366 722,356 V405 H0Z" fill="#22104d"/></svg><div class="ldbar"><i></i></div>';
  $('ldi').innerHTML='<div class="ldg"></div>'+egg('c')+'<i class="ldst s1"></i><i class="ldst s2"></i>'})();
 let tutStep=-2,tutCash0=0,tutT0=0,tutLast='',tutTimer=0;
 (function(){if(LS('crTutDone'))return;const st=LS('crTutStep'),nm=LS('crName');if(st===null&&!nm){if(LS('crSave')){SS('crTutDone','1');return}SS('crTutStep','-1');tutStep=-1}else{tutStep=+(st===null?0:st);if(nm&&tutStep<0)tutStep=0}})();
@@ -3383,7 +3446,7 @@ function tutTick(){if(tutStep<0)return;
  if($('inv').classList.contains('open')){if(tutStep<2)tutSet(2);tutText('Rüste dein erstes Pet aus!',1);pointAt($('nvGrid').querySelector('.nvc')||$('nvBest'),'up')}
  else{if(tutStep>1)tutSet(1);tutText('Öffne dein Inventar!',0);pointAt($('invBtn'),'left')}}
 function tutHook(t){if(t=='roll'&&tutStep==0)tutSet(1)}
-function tutDone(){tutStep=-2;clearInterval(tutTimer);SS('crTutDone','1');$('ttxt').classList.remove('on');$('tarr').classList.remove('on');stg.classList.remove('tut','s0','s1','s2','s3');document.querySelectorAll('.nt').forEach((n,i)=>{n.style.animationDelay=i*.12+'s';n.classList.add('rv')});setTimeout(()=>document.querySelectorAll('.nt').forEach(n=>n.classList.remove('rv')),1500);snd('reveal');msg('🎉 Tutorial abgeschlossen!')}
+function tutDone(){tutStep=-2;clearInterval(tutTimer);SS('crTutDone','1');$('ttxt').classList.remove('on');$('tarr').classList.remove('on');stg.classList.remove('tut','s0','s1','s2','s3');document.querySelectorAll('.nt').forEach((n,i)=>{n.style.animationDelay=i*.12+'s';n.classList.add('rv')});setTimeout(()=>document.querySelectorAll('.nt').forEach(n=>n.classList.remove('rv')),1500);snd('reveal');msg('🎉 Tutorial abgeschlossen!');setTimeout(()=>{if(typeof guideOpen==='function'&&!LS('crGuide2'))guideOpen(0)},1600)}
 $('invBtn').addEventListener('click',()=>{if(tutStep>=0)setTimeout(tutTick,450)});
 function showName(){const m=$('nm'),i=$('nmi');m.style.display='flex';requestAnimationFrame(()=>m.classList.add('on'));const chk=()=>{i.value=i.value.slice(0,10);const ok=i.value.trim().length>=1;$('nmok').classList.toggle('dis',!ok);$('nmc').textContent=i.value.length+' / 10'};i.oninput=chk;chk();setTimeout(()=>i.focus(),500);
  const go=()=>{const v=i.value.trim().slice(0,10);if(!v)return;if(/^(taby2010|rico)$/i.test(v)&&!(LB&&LB.owner)){i.value='';chk();$('nmc').textContent='Dieser Name ist reserviert';snd('err');return}SS('crName',v);$('pname').textContent=v;$('pname').style.display='flex';m.classList.remove('on');snd('buy');setTimeout(()=>m.style.display='none',450);tutStep=0;tutOn()};$('nmok').onclick=go;i.onkeydown=e=>{if(e.key=='Enter')go()}}
@@ -3570,7 +3633,7 @@ function updHud(){const c=totalCps();$('hc').textContent=fmt(cash);$('hdia').tex
 /* ---------- Luck ---------- */
 function luckEv(){try{let m=1;for(const k in EV)if(k.indexOf('luck')==0&&evActive(k))m*=(+EV[k].mult||+k.slice(4)||1);return m}catch(e){return 1}}
 function evMult(){let m=1;try{for(const k in EVMUL)if(evActive(k))m*=EVMUL[k]}catch(e){}return m}
-function luckV(){let v=false;try{v=vip}catch(e){}return(1+.25*lkLv)*(v?2:1)*luckEv()*evMult()}
+function luckV(){let v=false;try{v=vip}catch(e){}return(1+.5*lkLv)*(v?2:1)*luckEv()*evMult()}
 function clover(cols){const leaf=(a,c)=>`<g transform="rotate(${a} 20 20)"><path d="M20,19 C12,17 8,9 12.5,5.5 C16,3 20,6 20,9.5 C20,6 24,3 27.5,5.5 C32,9 28,17 20,19Z" fill="${c}" stroke="#14301a" stroke-width="1.6" stroke-linejoin="round"/><path d="M14,8 Q17,6 19,9" stroke="#fff" stroke-width="1.6" fill="none" opacity=".55" stroke-linecap="round"/></g>`;return `<svg viewBox="0 0 40 40">${[0,90,180,270].map((a,i)=>leaf(a,cols[i%cols.length])).join('')}<path d="M20,22 Q24,30 30,34" stroke="#14301a" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M20,22 Q24,30 30,34" stroke="#3a9a4a" stroke-width="1.8" fill="none" stroke-linecap="round"/><circle cx="20" cy="20" r="2.2" fill="#14301a" opacity=".5"/></svg>`}
 [[2,['#3ddc5a'],'linear-gradient(#2a6a3a,#143a22)'],[4,['#ffc83a'],'linear-gradient(#8a6a1a,#4a3408)'],[8,['#a45aff'],'linear-gradient(#5a2a9a,#2a1450)'],[16,['#ff4a6a','#ffd23a','#3ddc5a','#3ab0ff'],'linear-gradient(#3a2a6a,#1a1440)']].forEach(([m,c,bg])=>{EVD['luck'+m]={n:m+'x Luck',ic:clover(c),bg,lbl:1,msgN:m+'x Luck'}});
 function evRender(){const box=$('evb');for(const t in EVD){let el=$('evi_'+t);const on=evActive(t);if(on&&!el){el=document.createElement('div');el.id='evi_'+t;el.className='evi';el.innerHTML=`<div class="evic" style="background:${EVD[t].bg}" title="${EVD[t].n}">${EVD[t].ic}</div>${EVD[t].lbl?`<small class="evl">${EVD[t].n}</small>`:''}<b class="evt"></b>`;box.appendChild(el);requestAnimationFrame(()=>el.classList.add('on'))}
@@ -3906,26 +3969,30 @@ const IC_CLV='<svg viewBox="0 0 40 40"><g stroke="#111" stroke-width="2" stroke-
 var IC_COIN='<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8.5" fill="#ffd45a" stroke="#111" stroke-width="2"/><circle cx="10" cy="10" r="5.2" fill="none" stroke="#c8901a" stroke-width="1.6"/><path d="M10,6.2 v7.6 M8,8 q2,-1.4 4,0 M8,12 q2,1.4 4,0" stroke="#a8700a" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>';
 function chPct(L){const w=RW.slice(0,7).map((x,i)=>x*Math.pow(L,RWE[i]||0)),t=w.reduce((a,b)=>a+b);return w.map(x=>x/t*100)}
 const epicPlus=L=>{const c=chPct(L);return c[3]+c[4]+c[5]+c[6]},pcs=v=>(v<10?v.toFixed(2):v.toFixed(1)).replace('.',',')+' %';
-const lkBase=l=>1+.25*l,upMult=()=>(vip?2:1)*luckEv();
+const lkBase=l=>1+.5*l,upMult=()=>(vip?2:1)*luckEv();
 function upBuild(){const w=$('upw');w.innerHTML=`<div class="uh"><div class="uhi"><svg viewBox="0 0 40 40"><path d="M20,4 L35,21 H26 V36 H14 V21 H5Z" fill="#fff" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg></div><div class="uht"><b class="out">UPGRADES</b><span id="uwp"></span></div><div class="uhc"><span class="ico">${IC_COIN}</span><b id="uhc">0</b></div><div id="ux2" class="uxx">✕</div></div><div class="ubd"><div id="usc"></div></div><div class="uf">⚠ Upgrades gelten nur in dieser Welt – jede neue Welt startet wieder bei Level 0.</div>`;$('ux2').onclick=closeEggW}
-function uqModels(){const m=upMult();return[
- {id:'rs',ac:'#3ab0ff',ic:IC_BOLT,name:'ROLL SPEED',sub:'Schnelleres Rollen',lv:rsLv,max:10,cost:RS_COST,cur:l=>rsT(l),ex:mx=>mx?'⚡ Schnellstmögliche Rollzeit erreicht':'⚡ Jedes Level: −0,2 s pro Roll'},
- {id:'lk',ac:'#58e070',ic:IC_CLV,name:'LUCK',sub:'Bessere Pet-Chancen',lv:lkLv,max:12,cost:LK_COST,cur:l=>'x'+fmtL(lkBase(l)),ex:mx=>mx?'🍀 Epic oder besser: '+pcs(epicPlus(lkBase(lkLv)*m)):'🍀 Epic+ Chance: '+pcs(epicPlus(lkBase(lkLv)*m))+' ➜ '+pcs(epicPlus(lkBase(lkLv+1)*m))}]}
-function uqCard(c){const mx=c.lv>=c.max,cost=mx?0:c.cost[c.lv],can=!mx&&cash>=cost,left=c.max-c.lv,p=mx?100:Math.min(100,Math.floor(cash/cost*100));
- return `<div class="uq${mx?' mx':''}" id="uq_${c.id}" style="--ac:${c.ac}"><div class="uqh"><div class="uqi">${c.ic}</div><div class="uqn"><b class="out">${c.name}</b><small>${c.sub}</small></div></div>
- <div class="uql"><span>LEVEL <em id="${c.id}l">${c.lv}</em><i>/ ${c.max}</i></span><span class="rm">${mx?'MAXIMIERT':left+(left==1?' Upgrade':' Upgrades')+' übrig'}</span></div>
- <div class="uqs">${[...Array(c.max)].map((_,i)=>`<i class="${i<c.lv?'on':i==c.lv?'nx':''}" style="--k:${i}"></i>`).join('')}</div>
- <div class="uqv"><div class="cv"><small>JETZT</small><b id="${c.id}c">${c.cur(c.lv)}</b></div>${mx?'<div class="mxs">★ MAX ★</div>':`<span class="ar">➜</span><div class="cv nxv"><small>NÄCHSTES</small><b id="${c.id}n">${c.cur(c.lv+1)}</b></div>`}</div>
- <div class="uqx">${c.ex(mx)}</div>
- <button class="uqb ${mx?'mx':can?'can':'no'}" id="ub_${c.id}" style="--p:${p}%"><span class="bt">${mx?'MAX LEVEL':'UPGRADE'}</span>${mx?'':`<span class="pr"><span class="ico">${IC_COIN}</span><b id="${c.id}p">${ab2(cost)}</b></span>`}</button></div>`}
-function renderUp(flash,old){if(!$('uwp'))upBuild();const w=W[cw];$('uwp').textContent=w.e+' WORLD '+(cw+1)+' · '+w.n.toUpperCase();$('uhc').textContent='$'+ab2(cash);
- $('usc').innerHTML=uqModels().map(uqCard).join('');['rs','lk'].forEach(id=>$('ub_'+id).onclick=()=>buyUp(id));
- if(flash){const c=$('uq_'+flash);c.classList.add('bump');setTimeout(()=>c.classList.remove('bump'),650);c.querySelectorAll('.cv b,.uql em').forEach(e=>{e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')});const nx=c.querySelector('.uqs i.on:last-of-type, .uqs i.on:last-child');const on=c.querySelectorAll('.uqs i.on');if(on.length)on[on.length-1].classList.add('fl');upBurst(c)}}
+const LK_MAX=18;
+function upBuild(){const w=$('upw');w.innerHTML=`<div class="uh"><div class="uhi"><svg viewBox="0 0 40 40"><path d="M20,4 L35,21 H26 V36 H14 V21 H5Z" fill="#fff" stroke="#111" stroke-width="2.6" stroke-linejoin="round"/></svg></div><div class="uht"><b class="out">UPGRADES</b><span id="uwp"></span></div><div class="uhc"><span class="ico">${IC_COIN}</span><b id="uhc">0</b></div><div id="ux2" class="uxx">✕</div></div><div class="ubd"><div id="usc"></div></div><div class="uf">⚠ Upgrades gelten nur in dieser Welt – jede neue Welt startet wieder bei Level 0.</div>`;$('ux2').onclick=closeEggW}
+function lkMaxBuy(){let n=0,c=cash;for(let l=lkLv;l<LK_MAX;l++){if(c>=LK_COST[l]){c-=LK_COST[l];n++}else break}return n}
+function lkCard(){const m=upMult(),lv=lkLv,mx=lv>=LK_MAX,cost=mx?0:LK_COST[lv],can=!mx&&cash>=cost,pct=Math.round((lkBase(lv)-1)/9*100),nb=lkMaxBuy();
+ const pv=[];for(let l=lv;l<Math.min(LK_MAX,lv+4);l++)pv.push(`<div class="lqp${l==lv?' nx':''}${cash>=LK_COST[l]?' ok':''}"><small>LEVEL ${l+1}</small><b>x${fmtL(lkBase(l+1))}</b><span><i class="ico">${IC_COIN}</i>${ab2(LK_COST[l])}</span></div>`);
+ return `<div class="lqc${mx?' mx':''}" id="uq_lk"><div class="lqh"><div class="lqi">${IC_CLV}</div><div class="lqn"><b class="out">LUCK</b><small>Mehr Luck = bessere Chancen auf seltene Pets</small></div><div class="lqb2">${mx?'MAX':'LEVEL <em id="lkl">'+lv+'</em> / '+LK_MAX}</div></div>
+ <div class="lqm"><div class="lqv"><small>DEIN LUCK</small><b id="lkc">x${fmtL(lkBase(lv))}</b></div>${mx?'<div class="mxs">★ MAX x10 ★</div>':`<span class="ar">➜</span><div class="lqv nxv"><small>NÄCHSTES LEVEL</small><b id="lkn">x${fmtL(lkBase(lv+1))}</b></div>`}</div>
+ <div class="lqbar"><i style="width:${pct}%"></i><span>x1</span><span>x5,5</span><span>x10</span></div>
+ <div class="lqx">${mx?'🍀 Epic oder besser: '+pcs(epicPlus(lkBase(lv)*m)):'🍀 Epic+ Chance: <b>'+pcs(epicPlus(lkBase(lv)*m))+'</b> ➜ <b>'+pcs(epicPlus(lkBase(lv+1)*m))+'</b>'} · <b>+0,5 Luck</b> pro Upgrade</div>
+ <div class="lqpv">${pv.join('')}</div>
+ <div class="lqbt"><button class="uqb ${mx?'mx':can?'can':'no'}" id="ub_lk" style="--p:${mx?100:Math.min(100,Math.floor(cash/cost*100))}%"><span class="bt">${mx?'MAX LEVEL':'UPGRADE'}</span>${mx?'':`<span class="pr"><span class="ico">${IC_COIN}</span><b id="lkp">${ab2(cost)}</b></span>`}</button>${mx?'':`<button class="uqb ${nb>1?'can':'no'} lqmx" id="ub_lkmax"><span class="bt">MAX KAUFEN</span><span class="pr"><b id="lkmn">+${nb}</b></span></button>`}</div></div>`}
+function renderUp(flash){if(!$('uwp'))upBuild();const w=W[cw];$('uwp').textContent=w.e+' WORLD '+(cw+1)+' · '+w.n.toUpperCase();$('uhc').textContent='$'+ab2(cash);
+ $('usc').innerHTML=lkCard();$('ub_lk').onclick=()=>buyUp('lk');const mb=$('ub_lkmax');if(mb)mb.onclick=()=>buyUp('lkmax');
+ if(flash){const c=$('uq_lk');c.classList.add('bump');setTimeout(()=>c.classList.remove('bump'),650);c.querySelectorAll('.lqv b,.lqb2 em').forEach(e=>{e.classList.remove('pop');void e.offsetWidth;e.classList.add('pop')});upBurst(c)}}
 function upBurst(c){for(let k=0;k<18;k++){const b=document.createElement('b');b.className='ubp';const a=Math.random()*6.283,d=50+Math.random()*90;b.style.cssText=`--x:${Math.cos(a)*d}px;--y:${Math.sin(a)*d}px;--s:${4+Math.random()*7}px`;c.appendChild(b);setTimeout(()=>b.remove(),900)}}
-function upRefresh(){const h=$('uhc');if(!h)return;h.textContent='$'+ab2(cash);uqModels().forEach(c=>{const b=$('ub_'+c.id);if(!b||c.lv>=c.max)return;const cost=c.cost[c.lv],can=cash>=cost;b.classList.toggle('can',can);b.classList.toggle('no',!can);b.style.setProperty('--p',Math.min(100,Math.floor(cash/cost*100))+'%')})}
+function upRefresh(){const h=$('uhc');if(!h)return;h.textContent='$'+ab2(cash);if(lkLv>=LK_MAX)return;const b=$('ub_lk');if(!b)return;const cost=LK_COST[lkLv],can=cash>=cost;b.classList.toggle('can',can);b.classList.toggle('no',!can);b.style.setProperty('--p',Math.min(100,Math.floor(cash/cost*100))+'%');
+ const nb=lkMaxBuy(),mb=$('ub_lkmax');if(mb){mb.classList.toggle('can',nb>1);mb.classList.toggle('no',nb<=1);$('lkmn').textContent='+'+nb}
+ document.querySelectorAll('.lqp').forEach((e,i)=>e.classList.toggle('ok',cash>=LK_COST[lkLv+i]))}
 setInterval(()=>{if($('upw').classList.contains('open'))upRefresh()},350);
-buyUp=function(t){const mx=t=='rs'?10:12,lv=t=='rs'?rsLv:lkLv;if(lv>=mx)return;const c=(t=='rs'?RS_COST:LK_COST)[lv];if(cash<c){snd('err');msg('Nicht genug Cash! ($'+fmt(c)+' benötigt)');const b=$('ub_'+t);if(b){b.classList.remove('shk');void b.offsetWidth;b.classList.add('shk')}return}
- cash-=c;if(t=='rs')rsLv++;else{lkLv++;updLK()}snd('coin');if(lv+1>=mx)setTimeout(()=>snd('rare'),120);save();updHud();renderUp(t);renderWM()};
+buyUp=function(t){if(lkLv>=LK_MAX)return;const c=LK_COST[lkLv];if(cash<c){snd('err');msg('Nicht genug Cash! ($'+fmt(c)+' benötigt)');const b=$('ub_lk');if(b){b.classList.remove('shk');void b.offsetWidth;b.classList.add('shk')}return}
+ let n=0;if(t=='lkmax'){while(lkLv<LK_MAX&&cash>=LK_COST[lkLv]){cash-=LK_COST[lkLv];lkLv++;n++}}else{cash-=c;lkLv++;n=1}
+ updLK();snd('coin');if(lkLv>=LK_MAX)setTimeout(()=>snd('rare'),120);save();updHud();renderUp('lk');renderWM()};
 /* ----- Welten: Freischalt-Animation, Eintritt, Atmosphäre ----- */
 (function(){const w=document.createElement('div');w.id='watm';w.innerHTML='<i class="a1"></i><i class="a2"></i><i class="a3"></i>';$('worlds').after(w)})();
 function wAtm(i){['wa0','wa1','wa2','wa3'].forEach(c=>st.classList.remove(c));st.classList.add('wa'+i)}
@@ -3937,7 +4004,7 @@ function wUnlockFx(i){closeEggW();$('wm').classList.remove('on');$('game').class
 function wEnterFx(i){if(i<1)return;const w=W[i],b=document.createElement('div');b.id='wbn';b.innerHTML=`<i class="wbl"></i><small>WORLD ${i+1}</small><b class="out">${w.n.toUpperCase()}</b><i class="wbl"></i>`;st.appendChild(b);const f=document.createElement('div');f.id='wfl';st.appendChild(f);setTimeout(()=>{b.remove();f.remove()},3200);snd('reveal');
  if(!wSeen.includes(i)){wSeen.push(i);save();setTimeout(()=>wNewMsg(i),2000)}}
 function wNewMsg(i){const o=document.createElement('div');o.id='wnm';
- o.innerHTML=`<div class="wnr"></div><div class="wnc"><h2 class="out">NEUE WELT FREIGESCHALTET! 🌎</h2><p>Alle Upgrades dieser Welt starten bei <b>0</b>. Verbessere jetzt deine Roll Speed und dein Luck und werde immer stärker!</p><div class="wnm2">${[['ROLL SPEED','#3ab0ff',10,IC_BOLT],['LUCK','#58e070',12,IC_CLV]].map(([n,c,m,ic])=>`<div style="--ac:${c}"><span class="wnl"><i class="ico">${ic}</i>${n}</span><em>LEVEL 0 / ${m}</em><div class="uqs">${[...Array(m)].map((_,k)=>`<i class="on" style="--k:${k}"></i>`).join('')}</div></div>`).join('')}</div><div class="wnb"><button class="btn wnu">ZU DEN UPGRADES</button><button class="btn wno">LOS GEHT'S!</button></div></div>`;
+ o.innerHTML=`<div class="wnr"></div><div class="wnc"><h2 class="out">NEUE WELT FREIGESCHALTET! 🌎</h2><p>Alle Upgrades dieser Welt starten bei <b>0</b>. Verbessere jetzt dein Luck und werde immer stärker!</p><div class="wnm2">${[['LUCK','#58e070',18,IC_CLV]].map(([n,c,m,ic])=>`<div style="--ac:${c}"><span class="wnl"><i class="ico">${ic}</i>${n}</span><em>LEVEL 0 / ${m}</em><div class="uqs">${[...Array(m)].map((_,k)=>`<i class="on" style="--k:${k}"></i>`).join('')}</div></div>`).join('')}</div><div class="wnb"><button class="btn wnu">ZU DEN UPGRADES</button><button class="btn wno">LOS GEHT'S!</button></div></div>`;
  wBurst(o,34,45);st.appendChild(o);snd('rare');requestAnimationFrame(()=>o.classList.add('on'));
  const end=up=>{o.classList.add('out');setTimeout(()=>o.remove(),500);if(up)setTimeout(openUp,300)};o.querySelector('.wno').onclick=()=>end(false);o.querySelector('.wnu').onclick=()=>end(true)}
 wAtm(cw);
@@ -4446,9 +4513,9 @@ function nvTip(tip,root,el,html){
  tip.style.left=x+'px';tip.style.top=Math.max(4,y)+'px';tip.style.transformOrigin=up?'50% 100%':'50% 0';
  requestAnimationFrame(()=>tip.classList.add('on'))}
 function nvTipHide(tip,d){clearTimeout(nvHideT);nvHideT=setTimeout(()=>{tip.classList.remove('on');nvTipCur=null},d==null?140:d)}
-function nvBind(grid,tip,root,fn){clearTimeout(nvHideT);tip.classList.remove('on');nvTipCur=null;grid.querySelectorAll('[data-tip]').forEach(c=>{
- c.addEventListener('mouseenter',()=>nvTip(tip,root,c,fn(c)));c.addEventListener('mouseleave',()=>nvTipHide(tip,120));
- c.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(nvTipCur===c&&tip.classList.contains('on')){nvTipHide(tip,0);return}nvTip(tip,root,c,fn(c));clearTimeout(nvTipBt);nvTipBt=setTimeout(()=>nvTipHide(tip,0),3800)})})}
+var NV_HOVER=(()=>{try{return matchMedia('(hover:hover) and (pointer:fine)').matches}catch(e){return false}})();
+function nvBind(grid,tip,root,fn){clearTimeout(nvHideT);tip.classList.remove('on');nvTipCur=null;if(!NV_HOVER)return;grid.querySelectorAll('[data-tip]').forEach(c=>{
+ c.addEventListener('mouseenter',e=>{if(e.pointerType&&e.pointerType!=='mouse')return;nvTip(tip,root,c,fn(c))});c.addEventListener('mouseleave',()=>nvTipHide(tip,120))})}
 var nvTipBt=0;document.addEventListener('pointerdown',e=>{if(e.pointerType=='mouse')return;if(!e.target.closest||!e.target.closest('.nvc[data-tip]'))['nvTip','nxTip'].forEach(i=>{const t=$(i);if(t)nvTipHide(t,0)})},true);
 const nvTrN=tr=>tr.map(t=>(typeof MUTN!=='undefined'&&MUTN[t])||t).join(' · ');
 function nvBadges(tr){const m=tr.find(isMut),t=triHTML(tr);return (t?`<span class="nvtr">${t}</span>`:'')+(m?`<i class="nvmu m-${m}">${(MUTN[m]||m).toUpperCase()}</i>`:'')}
@@ -4876,7 +4943,7 @@ async function lkShow(t){const row=$('rzrow'),f=$('lkf');row.className='rzrow n1
 function rzPods(){const p=$('podpill');if(p){p.textContent=pods>1?'🐾 '+pods+' Pets pro Roll':'';p.style.display=pods>1?'':'none'}}
 (function(){const a0=applyPods;applyPods=function(){a0();rzPods()};rzPods()})();
 async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;if(typeof rollsW!=='undefined')rollsW[cw]=(rollsW[cw]||0)+1;snd('roll');
- const n=Math.max(1,Math.min(3,pods)),D=(2.5-.2*rsLv)*1000,z=$('rz'),row=$('rzrow'),cl=$('rzcl'),sk=$('rzsk'),pool=wPets(cw);
+ const n=Math.max(1,Math.min(3,pods)),D=2500,z=$('rz'),row=$('rzrow'),cl=$('rzcl'),sk=$('rzsk'),pool=wPets(cw);
  $('rb').classList.add('dis');z.classList.add('on');sk.classList.remove('on');
  window.__bonusLuck=1;$('rzlk').className='';
  for(;;){const i=window.__bonusLuck==1?0:LUCKT.findIndex(t=>t[0]==window.__bonusLuck)+1;if(i>=LUCKT.length)break;const t=LUCKT[i];if(Math.random()>=t[1])break;await lkShow(t);window.__bonusLuck=t[0];const b=$('rzlk');b.textContent='🍀 '+t[0]+'x LUCK AKTIV';b.className='on '+t[4]}
@@ -5094,7 +5161,7 @@ async function wCine(i){
 
 /* ---------- Tutorial-Meldung beim ersten Betreten ---------- */
 var WTUT={1:{t:'WILLKOMMEN IN DER UNTERWASSERWELT',e:'🌊',col:'#2ac8ff',pts:[
- ['⚠','UPGRADES WERDEN ZURÜCKGESETZT','In dieser Welt starten <b>Roll Speed</b> und <b>Luck</b> wieder bei <b>Level 0</b>. Deine Upgrades der Overworld bleiben gespeichert – wechselst du zurück, sind sie sofort wieder da.','warn'],
+ ['⚠','UPGRADES WERDEN ZURÜCKGESETZT','In dieser Welt startet dein <b>Luck</b> wieder bei <b>Level 0</b>. Deine Upgrades der Overworld bleiben gespeichert – wechselst du zurück, sind sie sofort wieder da.','warn'],
  ['🐠','NEUE PETS SAMMELN','Nur hier findest du die Unterwasser-Pets – mit eigenem Index, eigenen Seltenheiten und eigenen Secret Pets.'],
  ['💧','NEUE WÄHRUNG: WATER COINS','Hier verdienst du <b>Water Coins</b>. Sie lassen sich nur in dieser Welt sammeln und ausgeben – Gold-Coins bleiben in der Overworld.'],
  ['📈','EIGENER FORTSCHRITT','Coins, ausgerüstete Pets und Upgrades jeder Welt sind voneinander getrennt und gehen nie verloren.']]}};
@@ -5237,4 +5304,26 @@ function hwReveal(k,isNew){
  r.className='on';
  for(let i=0;i<22;i++){const e=document.createElement('i');e.className='hwrg';e.textContent=['👻','🎃','🦇','✨'][i%4];e.style.cssText=`left:${Math.random()*100}%;--dl:${(Math.random()*.8).toFixed(2)}s;--dx:${(Math.random()*80-40).toFixed(0)}px;font-size:${12+Math.random()*16|0}px`;r.appendChild(e)}
  $('hwOk').onclick=()=>{r.className='out';setTimeout(()=>{r.className='';r.innerHTML='';HWUI.busy=false;hwRefresh()},380);snd('click')}}
+/* ===== Anleitung / Tutorial (erklärt alles) ===== */
+const GD_PAGES=[
+ {e:'👋',t:'WILLKOMMEN!',c:'#ffd45a',p:[['🎯','Ziel des Spiels','Sammle <b>Pets</b>, verdiene <b>Coins</b> und werde immer reicher. Fülle den <b>Index</b> mit allen Pets und schalte neue Welten frei.'],['🧭','Kurz erklärt','Roll-Button = neue Pets · Inventar = Pets ausrüsten &amp; Coins einsammeln · Upgrade = mehr Luck · Index = Sammlung.'],['❓','Nochmal lesen?','Tippe jederzeit oben links auf <b>?</b>, um diese Anleitung wieder zu öffnen.']]},
+ {e:'🎲',t:'PETS ROLLEN',c:'#ff6bd0',p:[['🔘','Roll-Button','Drücke <b>ROLL</b> – du bekommst zufällig ein Pet (mit Pods bis zu 3 gleichzeitig). Tippe auf den Bildschirm, um die Animation zu überspringen.'],['🌈','Seltenheit','Es gibt Seltenheitsstufen von <b>Common</b> bis ganz selten. Je seltener ein Pet, desto mehr Coins bringt es – aber desto kleiner die Chance. Die Prozente siehst du im Index.'],['✨','Mutationen','Pets können als <b>Rainbow</b>, <b>Golden</b> oder <b>Samurai</b> erscheinen. Mutierte Pets sind mehr wert und zählen extra im Index.']]},
+ {e:'💰',t:'COINS VERDIENEN',c:'#ffcf40',p:[['🐾','Pets ausrüsten','Öffne das <b>Inventar</b> und tippe auf ein Pet, um es oben in einen Slot zu legen. <b>Nur ausgerüstete Pets verdienen Coins.</b>'],['⏱','Coins pro Sekunde','Jedes ausgerüstete Pet bringt Coins pro Sekunde (steht unter dem Pet, z. B. 25K). Rüste immer deine stärksten Pets aus – der <b>Stern-Button</b> wählt die besten automatisch.'],['📥','Einsammeln','Die Coins sammeln sich im Inventar an. Tippe auf <b>EINSAMMELN</b>, um sie deinem Guthaben (unten links) gutzuschreiben.']]},
+ {e:'📖',t:'DER INDEX',c:'#6fe4ff',p:[['🔍','Alle Pets auf einen Blick','Der Index zeigt <b>alle Pets jeder Welt</b>. Unbekannte sind dunkle Silhouetten, gefundene leuchten. Wähle links die Welt/Kategorie.'],['🎁','Belohnungen','Pro Pet siehst du, wie viele Varianten du hast (z. B. 2/4: normal + Mutationen). Wenn eine Kategorie voll genug ist, bekommst du <b>Diamanten</b> und dauerhaft <b>+% Cash/s</b>.'],['🌍','Welten freischalten','Dein Index-Fortschritt ist eine Bedingung für neue Welten. <b>Exclusive</b>-Pets bekommst du nur über Spins und Events.']]},
+ {e:'🍀',t:'UPGRADES &amp; LUCK',c:'#58e070',p:[['⬆','Luck verbessern','Im Menü <b>Upgrade</b> kannst du deinen <b>Luck</b> kaufen. Jedes Upgrade gibt <b>+0,5 Luck</b>, insgesamt bis <b>x10</b>.'],['🎰','Was bringt Luck?','Mehr Luck = höhere Chance auf seltene Pets (Epic und besser). Die neue Chance siehst du direkt in der Upgrade-Karte.'],['🛒','Kaufen','<b>UPGRADE</b> kauft ein Level, <b>MAX KAUFEN</b> kauft so viele, wie du dir leisten kannst. Upgrades gelten <b>pro Welt</b>.']]},
+ {e:'🌍',t:'WELTEN',c:'#2ac8ff',p:[['🔓','Neue Welt freischalten','Klicke oben auf <b>WORLD</b>. Für die nächste Welt brauchst du z. B. genug <b>Index-Fortschritt</b>, <b>Rolls</b> und <b>Coins</b>. Die Anforderungen siehst du dort live.'],['💱','Eigene Währung','Jede Welt hat eigene <b>Coins</b>, eigenes Inventar-Equipment und eigene Upgrades. Beim ersten Betreten starten Upgrades wieder bei Level 0.'],['🎉','Events','Events (z. B. Samurai) gelten in allen Welten und geben Bonus-Luck oder mehr Coins – achte auf die Anzeige oben.']]},
+ {e:'🎡',t:'SHOP, SPINS &amp; MEHR',c:'#b06bff',p:[['🛍','Shop','Im <b>Shop</b> bekommst du Spins, Pods (mehrere Pets pro Roll) und Angebote. Spins können <b>Exclusive</b>-Pets enthalten.'],['💸','Sell &amp; Trading','Mit <b>Sell</b> verkaufst du doppelte Pets für Coins (die 3 besten pro Pet kannst du behalten). Mit <b>Trading</b> tauschst du mit anderen Spielern.'],['🔁','Rebirth &amp; Bestenliste','Später kannst du per <b>Rebirth</b> neu starten und bekommst dauerhaft <b>+% Cash/s</b>. In der <b>Leaderboards</b>-Liste siehst du, wer vorn liegt.']]},
+ {e:'🏆',t:'DEIN START-PLAN',c:'#ffd45a',p:[['1️⃣','Rollen &amp; ausrüsten','Rolle Pets, rüste die besten aus und sammle regelmäßig <b>EINSAMMELN</b>.'],['2️⃣','Luck kaufen','Gib Coins für <b>Luck</b> aus – das ist der schnellste Weg zu seltenen Pets.'],['3️⃣','Index füllen &amp; Welt öffnen','Entdecke neue Pets im Index, schalte die nächste Welt frei und sammle weiter. Viel Spaß!']]}];
+var gdPg=0;
+(function(){const o=document.createElement('div');o.id='gd';o.innerHTML='<div class="gdc"><div id="gdx" class="gdxx">✕</div><div class="gdh"><i id="gde"></i><b id="gdt" class="out"></b></div><div id="gdb"></div><div id="gdd"></div><div class="gdn"><button class="btn gdp" id="gdp">ZURÜCK</button><button class="btn gdq" id="gdq">WEITER</button></div></div>';$('stage').appendChild(o);
+ const b=document.createElement('div');b.className='sb';b.id='guideBtn';b.title='Anleitung';b.textContent='?';$('topl').appendChild(b);b.onclick=()=>guideOpen(0);
+ $('gdx').onclick=guideClose;$('gdp').onclick=()=>guideGo(gdPg-1);$('gdq').onclick=()=>{if(gdPg>=GD_PAGES.length-1)guideClose();else guideGo(gdPg+1)};
+ o.addEventListener('pointerdown',e=>{if(e.target===o)guideClose()})})();
+function guideGo(i){gdPg=Math.max(0,Math.min(GD_PAGES.length-1,i));const g=GD_PAGES[gdPg],c=document.querySelector('#gd .gdc');c.style.setProperty('--ac',g.c);
+ $('gde').textContent=g.e;$('gdt').innerHTML=g.t;$('gdb').innerHTML=g.p.map(([ic,h,tx])=>`<div class="gdi"><span>${ic}</span><div><b>${h}</b><p>${tx}</p></div></div>`).join('');
+ $('gdd').innerHTML=GD_PAGES.map((_,k)=>`<i class="${k==gdPg?'on':''}" data-k="${k}"></i>`).join('');$('gdd').querySelectorAll('i').forEach(d=>d.onclick=()=>guideGo(+d.dataset.k));
+ $('gdp').style.visibility=gdPg?'visible':'hidden';$('gdq').textContent=gdPg>=GD_PAGES.length-1?'LOS GEHT\'S!':'WEITER';c.classList.remove('pg');void c.offsetWidth;c.classList.add('pg');try{snd('click')}catch(e){}}
+function guideOpen(i){guideGo(i||0);$('gd').classList.add('on');try{snd('open')}catch(e){}}
+function guideClose(){$('gd').classList.remove('on');SS('crGuide2','1')}
+setInterval(()=>{if(LS('crGuide2')||typeof AUTHED==='undefined'||!AUTHED||tutStep!==-2||$('ld'))return;if($('gd').classList.contains('on'))return;if(document.querySelector('#stage.tut'))return;guideOpen(0)},2500);
 </script></body></html>
