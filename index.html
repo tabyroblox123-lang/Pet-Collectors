@@ -2409,6 +2409,23 @@ button:focus-visible,.nt:focus-visible{outline:3px solid #fff;outline-offset:2px
 .rzcl.on:hover{filter:brightness(1.1);transform:translate(-50%,-2px) scale(1.03)}.rzcl.on:active{transform:translate(-50%,2px) scale(.97)}
 .rzsk{position:absolute;left:0;right:0;bottom:20px;text-align:center;font:700 12px/1 system-ui,sans-serif;color:rgba(255,255,255,.55);opacity:0;transition:opacity .3s}.rzsk.on{opacity:1}
 #stage:has(#rz.on) #msgs{transform:translateY(-150px);opacity:.0;transition:opacity .2s}
+
+/* ===== LUCK-ZIEHEN ===== */
+#lkf{position:absolute;inset:0;z-index:70;pointer-events:none;opacity:0;box-shadow:inset 0 0 38px 10px var(--lc,#3ddc4a),inset 0 0 110px 14px var(--lc,#3ddc4a)}
+#lkf.go{animation:lkf 1.7s cubic-bezier(.4,0,.3,1)}
+#lkf.rb.go{animation:lkf 1.7s cubic-bezier(.4,0,.3,1),lkh 1.7s linear}
+@keyframes lkf{0%{opacity:0}35%{opacity:.9}100%{opacity:0}}@keyframes lkh{to{filter:hue-rotate(360deg)}}
+.lkcard{width:300px!important;align-items:center;justify-content:center;height:300px;animation:lkin .6s var(--ease-spring) both}
+.lkcard .lkv{width:190px;height:190px;filter:drop-shadow(0 0 22px var(--c))}.lkcard .lkv svg{width:100%;height:100%}
+.lkt{display:flex;flex-direction:column;align-items:center;margin-top:6px}
+.lkt b{font:900 44px/1 'Fredoka','Baloo 2',system-ui,sans-serif;color:var(--c);text-shadow:0 3px 0 #000,0 0 22px var(--c);-webkit-text-stroke:2px #000}
+.lkt small{font:900 14px/1 system-ui,sans-serif;letter-spacing:.35em;color:#fff;text-shadow:0 2px 0 #000;margin-top:4px}
+.lkv.r{animation:lkh 3s linear infinite}.lkv.w{filter:drop-shadow(0 0 28px #fff)}
+.lkv.y{filter:drop-shadow(0 0 22px #ffc928)}
+@keyframes lkin{from{transform:scale(.3) rotate(-25deg);opacity:0}to{transform:none;opacity:1}}
+.rzrow.out .lkcard{animation:lkout .26s ease-in both}@keyframes lkout{to{transform:scale(1.3);opacity:0}}
+#rzlk{position:absolute;left:50%;top:8px;transform:translateX(-50%);padding:5px 14px;border-radius:14px;font:900 12px/1 system-ui,sans-serif;letter-spacing:.1em;color:#fff;background:rgba(10,14,30,.8);border:2px solid var(--lk,#3ddc4a);opacity:0;transition:opacity .3s;z-index:3;pointer-events:none}
+#rzlk.on{opacity:1}#rzlk.g{--lk:#3ddc4a}#rzlk.y{--lk:#ffc928}#rzlk.p{--lk:#a050ff}#rzlk.r{--lk:#ff5aa0}#rzlk.w{--lk:#fff}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -4582,11 +4599,25 @@ function openSell2(){if(stg.classList.contains('tut'))return;SL2.sel={};SL2.conf
  z.innerHTML='<div class="rzbg"></div><div class="rzrow" id="rzrow"></div><button class="rzcl" id="rzcl">EINFORDERN</button><div class="rzsk" id="rzsk">Klicken zum Überspringen</div>';
  host.appendChild(z);
  const pill=document.createElement('div');pill.id='podpill';$('rwrap').appendChild(pill)})();
+/* ===== Luck ziehen beim Rollen: 2x(1/30) 4x(1/30) 8x(1/25) 16x(1/8) 32x(1/20), kettenartig, mit vorhandenem Luck multipliziert ===== */
+window.__bonusLuck=1;
+const LUCKT=[[2,1/30,'#3ddc4a','LUCK','g'],[4,1/30,'#ffc928','LUCK','y'],[8,1/25,'#a050ff','LUCK','p'],[16,1/8,'#ff5aa0','LUCK','r'],[32,1/20,'#ffffff','LUCK','w']];
+(function(){const l0=luckV;luckV=function(){return l0()*(window.__bonusLuck||1)};
+ const f=document.createElement('div');f.id='lkf';$('stage').appendChild(f);
+ const b=document.createElement('div');b.id='rzlk';$('rz').appendChild(b)})();
+const lkClover=(c,cls)=>`<svg viewBox="0 0 100 100" class="lkcl ${cls}"><defs><radialGradient id="lkg${cls}" cx=".4" cy=".35"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset=".5" stop-color="${c}"/><stop offset="1" stop-color="${c}" stop-opacity=".9"/></radialGradient></defs><path d="M50,56 Q52,78 62,92" stroke="#1a6a2a" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="url(#lkg${cls})" stroke="#0a0a0a" stroke-width="3.4" stroke-linejoin="round"><path d="M50,50 C30,50 18,34 26,22 C34,12 48,20 50,34Z"/><path d="M50,50 C70,50 82,34 74,22 C66,12 52,20 50,34Z"/><path d="M50,50 C30,50 18,66 26,78 C34,88 48,80 50,66Z"/><path d="M50,50 C70,50 82,66 74,78 C66,88 52,80 50,66Z"/></g><g stroke="#fff" stroke-opacity=".55" stroke-width="2.4" fill="none" stroke-linecap="round"><path d="M44,40 Q36,36 33,28"/><path d="M56,40 Q64,36 67,28"/></g></svg>`;
+async function lkShow(t){const row=$('rzrow'),f=$('lkf');row.className='rzrow n1';
+ row.innerHTML=`<div class="rzc lkcard" style="--c:${t[2]}"><div class="lkv ${t[4]}">${lkClover(t[2],t[4])}</div><div class="lkt"><b>${t[0]}x</b><small>${t[3]}</small></div></div>`;
+ f.style.setProperty('--lc',t[2]);f.className=t[4]=='r'?'rb':'';void f.offsetWidth;f.classList.add('go');
+ try{snd('reveal');snd('gem')}catch(e){}
+ await wait(1000+500);row.classList.add('out');await wait(260);row.innerHTML='';row.classList.remove('out')}
 function rzPods(){const p=$('podpill');if(p){p.textContent=pods>1?'🐾 '+pods+' Pets pro Roll':'';p.style.display=pods>1?'':'none'}}
 (function(){const a0=applyPods;applyPods=function(){a0();rzPods()};rzPods()})();
 async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;snd('roll');
  const n=Math.max(1,Math.min(3,pods)),D=(2.5-.2*rsLv)*1000,z=$('rz'),row=$('rzrow'),cl=$('rzcl'),sk=$('rzsk'),pool=wPets(cw);
- $('rb').classList.add('dis');
+ $('rb').classList.add('dis');z.classList.add('on');sk.classList.remove('on');
+ window.__bonusLuck=1;$('rzlk').className='';
+ for(;;){const i=window.__bonusLuck==1?0:LUCKT.findIndex(t=>t[0]==window.__bonusLuck)+1;if(i>=LUCKT.length)break;const t=LUCKT[i];if(Math.random()>=t[1])break;await lkShow(t);window.__bonusLuck=t[0];const b=$('rzlk');b.textContent='🍀 '+t[0]+'x LUCK AKTIV';b.className='on '+t[4]}
  const ov=ovPending(),ovOk=ov&&pi(ov.pet)>=0,res=drawN(n);if(ovOk)res[0]=pi(ov.pet);
  row.className='rzrow n'+n;
  row.innerHTML=res.map((k,i)=>`<div class="rzc"><div class="rzt"><b class="rzn">&nbsp;</b><small class="rzr">&nbsp;</small><div class="rztr"></div></div><div class="rzp"><i class="rzg"></i><div class="rzv"></div></div><div class="rzi"></div></div>`).join('');
@@ -4617,6 +4648,6 @@ async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;sn
  try{snd('click')}catch(e){}
  z.classList.remove('on');cl.classList.remove('on');
  await wait(260);
- busy=false;window.__rolling=false;$('rb').classList.remove('dis');tutHook('roll')}
+ busy=false;window.__bonusLuck=1;$('rzlk').className='';window.__rolling=false;$('rb').classList.remove('dis');tutHook('roll')}
 $('rb').onclick=roll;
 </script></body></html>
