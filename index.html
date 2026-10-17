@@ -2648,6 +2648,8 @@ button:focus-visible,.nt:focus-visible{outline:3px solid #fff;outline-offset:2px
 .wtlv{margin-top:6px!important}.wtlv>div{padding:3px 9px!important}.wtf{margin-top:8px!important}.wtf .btn{height:34px}
 #stage:has(#wtu) #msgs,#stage:has(#wq.on) #msgs,#stage.hwOpen #msgs{display:none!important}
 #stage.wtrOn #msgs,#stage.cine #msgs{display:none!important}
+.kk3d{display:block;width:100%;height:100%;min-width:30px;min-height:30px;aspect-ratio:1/1;position:relative}
+.kk3d canvas{display:block;width:100%;height:100%;pointer-events:none}
 </style></head><body>
 <div id="wrap"><div id="stage">
  <div id="game">
@@ -2900,6 +2902,8 @@ const HWL=[['Boo',0,'ghost',600,'15 %'],['Mini Pumpkin',0,'pumpkin',900,'15 %'],
  ['Jack Lantern King',4,'pumpking',600000,'4,2 %'],
  ['Grim Reaper',11,'reaper',2500000,'0,4 %'],['Hallow Dragon',11,'dragon',6000000,'0,4 %']];
 HWL.forEach(([name,ri,ty,cps,pc],j)=>{P.push([name,ri,{hw:ty},pc,'hw','hw_'+(j+1)]);CPS[name]=cps});
+/* Spezial-Pet (nur per Admin „Next Roll“, nicht im Index): King Kong – 3D (siehe 32-kingkong3d.js) */
+P.push(['King Kong',11,{kk:1},'Admin','kk','kk_1']);CPS['King Kong']=25000000;
 P.push(['Cosmo Cat',8,{a:'#4a35b8',b:'#ffc2f0',c:'#1f1655',d:'#ff6bd6',e:'p',t:'l',tc:'#5a42d0',mz:'o',pt:'b',ec:'#ff7ae8',gx:['#7a4cff','#ff6bd6','#3de0ff'],x:'orbit gem',ck:'#ff9ae8',eg:12,pl:[[50,16,12,0,4.2,'#ff9ae8','#a64cff',1],[44,12,17,6,3,'#6be8ff','#3a6aff',0],[36,10,9,3,2.4,'#ffd36b','#ff8a3a',0]]},'50 %'],
 ['Cosmo Dog',8,{a:'#8a3fc8',b:'#ffd0f6',c:'#2a1466',d:'#ff7ae8',e:'f',fc:'#4a2a9a',t:'p',tc:'#8a3fc8',mz:'m',pt:'b',ec:'#c88aff',gx:['#ff6bd6','#7a4cff','#ffb36b'],x:'orbit tongue',wig:1,hw:52,pl:[[48,18,14,2,3.6,'#ffb36b','#ff4a9a',0],[52,12,10,7,4.4,'#c88aff','#4a2a9a',1],[40,14,20,12,2.4,'#6be8ff','#3a6aff',0]]},'30 %'],
 ['Cosmo Bunny',8,{a:'#c8b4ff',b:'#ffffff',c:'#6a4cd8',d:'#ff9ae8',e:'l',t:'p',mz:'m',pt:'b',ec:'#ff7ae8',gx:['#ffffff','#ff9ae8','#7a8cff'],x:'orbit gem',ck:'#ffa6e8',pl:[[50,15,13,1,3.4,'#ffd36b','#ff8a3a',0],[44,12,9,6,4,'#6be8ff','#4a6aff',1],[38,9,18,10,2.4,'#ff9ae8','#a64cff',0]]},'14 %'],
@@ -3083,7 +3087,7 @@ function secFx(i,top){top=top||[50,24];const g=gid(),c1=['#ff3df0','#3df0ff','#f
  const front=orb+crown(top[0],top[1]-2)+[[12,24,3.2],[90,30,3],[8,76,2.8],[92,70,3.4],[22,6,2.6],[80,8,2.8],[50,0,3]].map(([x,y,r],k)=>SPK(x,y,r,['#fff','#ffd0f8','#aef6ff'][k%3],k*.4)).join('');
  return{back,front}}
 
-const SV=P.map((p,i)=>p[2].hw?hwSVG(p[2].hw,i):p[2].ill?illSVG(i,p[2].ill):p[2].cos?cosmo(i):p[2].lion?cosmoLion(i):p[2].ext?extPet(p[2].ext,i):p[2].cashy?cashyPet(i):p[2].comic?comicPet(i):p[2].clocky?clockyPet(i):pet(p[2],i));
+const SV=P.map((p,i)=>p[2].kk?'<div class="kk3d"></div>':p[2].hw?hwSVG(p[2].hw,i):p[2].ill?illSVG(i,p[2].ill):p[2].cos?cosmo(i):p[2].lion?cosmoLion(i):p[2].ext?extPet(p[2].ext,i):p[2].cashy?cashyPet(i):p[2].comic?comicPet(i):p[2].clocky?clockyPet(i):pet(p[2],i));
 const pi=n=>P.findIndex(p=>p[0]==n);
 WL.forEach((str,w)=>{const ent=str.split(';');let n=0;RAR.forEach((cnt,ri)=>{for(let j=0;j<cnt;j++){const name=ent[n++].split(':')[0];if(P.some(p=>p[0]==name))continue;const nri={0:0,1:0,2:2,3:3,4:4,5:4,6:6}[ri],nw=Math.min(w,1),l=P.filter(p=>p[4]===nw&&p[1]===nri);MIG[name]=l[j%l.length][0]}})});
 
@@ -3600,7 +3604,7 @@ function admRender(){const tabs=[['msg','GLOBAL MESSAGES'],['stats','STATS'],['g
  if(admTab=='ev'){const EVN=['samurai'];c.innerHTML=EVN.map(t=>`<div class="aev" id="aev_${t}"><div class="evic" style="background:${EVD[t].bg}">${EVD[t].ic}</div><div class="aen"><b>${EVD[t].n}</b><small id="aes_${t}">Inaktiv</small></div><label>Duration (min)</label><input class="aed" id="aed_${t}" type="number" min="1" max="1440" placeholder="z. B. 30"><button class="btn aeb dis" id="aeb_${t}">START EVENT</button><button class="btn aeb gr" id="aex_${t}" style="display:none">STOP</button></div>`).join('');for(const t of EVN){const d=$('aed_'+t);d.oninput=()=>{const v=+d.value;$('aeb_'+t).classList.toggle('dis',!(v>=1&&v<=1440))};$('aeb_'+t).onclick=()=>admEvent(t,true);$('aex_'+t).onclick=()=>admEvent(t,false)}admTick()}
  if(admTab=='luck'){c.innerHTML=`<div class="amh">Luck-Event starten – Multiplikator wählen und IMMER eine Dauer angeben</div><div class="lkm">${[2,4,8,16].map(m=>`<div class="lkc${lkSel==m?' on':''}" data-m="${m}"><span class="lki">${EVD['luck'+m].ic}</span><b>${m}x</b></div>`).join('')}</div><div class="agr"><input id="lkd" type="number" min="1" placeholder="Dauer"><div class="agc"><span class="on" data-u="1">Min</span><span data-u="60">Std</span></div></div><button class="btn amg dis" id="lkb">LUCK-EVENT STARTEN</button><div class="lka" id="lka"></div>`;let unit=1;const chk=()=>{const v=+$('lkd').value*unit;$('lkb').classList.toggle('dis',!(lkSel&&v>=1&&v<=10080))};document.querySelectorAll('.lkc').forEach(e=>e.onclick=()=>{lkSel=+e.dataset.m;document.querySelectorAll('.lkc').forEach(x=>x.classList.toggle('on',x==e));chk()});$('lkd').oninput=chk;document.querySelectorAll('.agc span').forEach(s=>s.onclick=()=>{unit=+s.dataset.u;document.querySelectorAll('.agc span').forEach(x=>x.classList.toggle('on',x==s));chk()});$('lkb').onclick=async()=>{const v=+$('lkd').value*unit;if(!lkSel||!(v>=1&&v<=10080))return;try{await LB.db.doc('events/luck'+lkSel).set({start:Date.now(),end:Date.now()+Math.round(v*60000),dur:v,mult:lkSel});msg('✓ '+lkSel+'x Luck gestartet')}catch(e){snd('err');msg('Keine Berechtigung')}};
   $('lka').innerHTML=[2,4,8,16].map(m=>`<div class="lkx" id="lkx${m}" style="display:none"><span class="lki">${EVD['luck'+m].ic}</span><b>${m}x Luck</b><em id="lkt${m}">–</em><button class="btn aeb gr" data-m="${m}">STOP</button></div>`).join('');document.querySelectorAll('.lkx button').forEach(b=>b.onclick=async()=>{try{await LB.db.doc('events/luck'+b.dataset.m).delete();msg('Event beendet')}catch(e){snd('err');msg('Keine Berechtigung')}});admTick()}
- if(admTab=='roll'){const grp=[['Basic Animals',P.filter(p=>p[4]===0)],['Water',P.filter(p=>p[4]===1)],['Exclusive',P.filter(p=>p[1]>=8&&p[1]<=10)]];c.innerHTML=`<div class="amh">Nächster Roll eines Spielers: garantiertes Pet + Mutationen</div><div class="agr"><input id="aon" maxlength="10" placeholder="Spielername" autocomplete="off" list="plist"><datalist id="plist">${admNames().map(n=>`<option value="${esc(n)}">`).join('')}</datalist><select id="aop"><option value="">Pet wählen…</option>${grp.map(([n,l])=>`<optgroup label="${n}">${l.map(p=>`<option>${esc(p[0])}</option>`).join('')}</optgroup>`).join('')}</select></div><div class="mtr">${MUTS.map(m=>`<div class="mtc${ovMsel.includes(m)?' on':''}" data-m="${m}"><i class="ti ${m}">${TI[m]}</i>${m[0].toUpperCase()+m.slice(1)}</div>`).join('')}</div><button class="btn amg dis" id="aob">Next Roll: 100% Selected Pet</button><div class="lka" id="aos"></div>`;
+ if(admTab=='roll'){const grp=[['Basic Animals',P.filter(p=>p[4]===0)],['Water',P.filter(p=>p[4]===1)],['Exclusive',P.filter(p=>p[1]>=8&&p[1]<=10)],['Spezial (nur Admin)',P.filter(p=>p[4]==='kk')]];c.innerHTML=`<div class="amh">Nächster Roll eines Spielers: garantiertes Pet + Mutationen</div><div class="agr"><input id="aon" maxlength="10" placeholder="Spielername" autocomplete="off" list="plist"><datalist id="plist">${admNames().map(n=>`<option value="${esc(n)}">`).join('')}</datalist><select id="aop"><option value="">Pet wählen…</option>${grp.map(([n,l])=>`<optgroup label="${n}">${l.map(p=>`<option>${esc(p[0])}</option>`).join('')}</optgroup>`).join('')}</select></div><div class="mtr">${MUTS.map(m=>`<div class="mtc${ovMsel.includes(m)?' on':''}" data-m="${m}"><i class="ti ${m}">${TI[m]}</i>${m[0].toUpperCase()+m.slice(1)}</div>`).join('')}</div><button class="btn amg dis" id="aob">Next Roll: 100% Selected Pet</button><div class="lka" id="aos"></div>`;
   const chk=()=>$('aob').classList.toggle('dis',!($('aon').value.trim()&&$('aop').value));$('aon').oninput=()=>{chk();admOvStatus()};$('aop').onchange=chk;document.querySelectorAll('.mtc').forEach(e=>e.onclick=()=>{const m=e.dataset.m,i=ovMsel.indexOf(m);if(i<0)ovMsel.push(m);else ovMsel.splice(i,1);e.classList.toggle('on',i<0)});$('aob').onclick=admOverride;admOvStatus()}}
 function admNames(){return[...new Set(Object.values(lbDocsX()).map(d=>d.n).filter(Boolean))]}
 function admFind(nm){nm=String(nm).trim().toLowerCase();const h=Object.entries(lbDocsX()).find(([id,d])=>String(d.n||'').toLowerCase()==nm);if(h)return[h[0].split('~')[0],h[1]];return (String(LS('crName')).toLowerCase()==nm?[LB.uid,lbSelf()]:null)}
@@ -4893,12 +4897,12 @@ async function roll(){if(busy)return;busy=true;window.__rolling=true;rollsT++;if
  /* Reveal */
  const trs=[];let anyHi=false;
  cards.forEach((c,i)=>{const k=res[i],tr=(i==0&&ovOk)?ovMuts(ov):rollTraits(),key=mkKey(P[k][0],tr),ri=P[k][1],col=R[ri][1],tl=traitsOf(mkKey('x',tr)),mu=mutOf(mkKey('x',tr));
-  const base=P[k][0],isNew=!found.has(base),newMut=!isNew&&mu&&!((IXM[base]||[]).includes(mu));
+  const base=P[k][0],isNew=!found.has(base)&&P[k][4]!=='kk',newMut=!isNew&&mu&&!((IXM[base]||[]).includes(mu));
   const v=c.querySelector('.rzv');v.innerHTML=tr.length?SVT(k,tr):SV[k];v.className='rzv rev';
   c.style.setProperty('--c',col);c.dataset.r=ri>=7?'s':ri>=6?'x':ri>=4?'l':ri==3?'e':ri==2?'r':'c';
   c.querySelector('.rzn').textContent=P[k][0];const r=c.querySelector('.rzr');r.textContent=ri>=8?'EXCLUSIVE':R[ri][0].toUpperCase();r.style.color=col;
   c.querySelector('.rztr').innerHTML=tl.length?triHTML(tl):'';
-  c.querySelector('.rzi').innerHTML=`${mu?`<i class="mlb m-${mu}">${(MUTN[mu]||mu).toUpperCase()}</i>`:''}<div class="rzinc"><u>${typeof IC_COIN2!=='undefined'?IC_COIN2:''}</u><b>${abbr(cpsOf(key))}</b><em>/s</em></div><div class="rzx ${isNew?'new':newMut?'mut':'old'}">${isNew?'★ NEU IM INDEX!':newMut?'✦ NEUE MUTATION IM INDEX!':'Bereits im Index'}</div>`;
+  c.querySelector('.rzi').innerHTML=`${mu?`<i class="mlb m-${mu}">${(MUTN[mu]||mu).toUpperCase()}</i>`:''}<div class="rzinc"><u>${typeof IC_COIN2!=='undefined'?IC_COIN2:''}</u><b>${abbr(cpsOf(key))}</b><em>/s</em></div>${P[k][4]==='kk'?'<div class="rzx new">👑 SPEZIAL-PET</div>':`<div class="rzx ${isNew?'new':newMut?'mut':'old'}">${isNew?'★ NEU IM INDEX!':newMut?'✦ NEUE MUTATION IM INDEX!':'Bereits im Index'}</div>`}`;
   c.classList.add('shown');c.style.animationDelay=(i*140)+'ms';if(ri>=3)anyHi=true;trs.push([key,k,ri])});
  z.classList.add('rev');try{if(typeof sfx6==='function')sfx6();if(anyHi)snd('reveal')}catch(e){}
  window.__noSecBanner=true;
@@ -5237,4 +5241,210 @@ function hwReveal(k,isNew){
  r.className='on';
  for(let i=0;i<22;i++){const e=document.createElement('i');e.className='hwrg';e.textContent=['👻','🎃','🦇','✨'][i%4];e.style.cssText=`left:${Math.random()*100}%;--dl:${(Math.random()*.8).toFixed(2)}s;--dx:${(Math.random()*80-40).toFixed(0)}px;font-size:${12+Math.random()*16|0}px`;r.appendChild(e)}
  $('hwOk').onclick=()=>{r.className='out';setTimeout(()=>{r.className='';r.innerHTML='';HWUI.busy=false;hwRefresh()},380);snd('click')}}
+/* King Kong – 3D-Voxel-Pet (eigener Software-3D-Renderer, braucht kein WebGL).
+   Brüllt alle paar Sekunden, atmet, Ketten-/Studs-Optik, schwarze Sticker-Kontur. */
+(function(){
+const V=new Map();
+const K=(x,y,z)=>x+','+y+','+z;
+const H=(x,y,z)=>(((x*73856093)^(y*19349663)^(z*83492791))>>>0)%1000/1000;
+const N1='#1b2655',N2='#10173c',N3='#2a3b80',D='#0a0f2c',C='#f1e4c0',C2='#d6c08f',Y='#f8c400',Y2='#ffdf4a',G='#eaa91c',RD='#ff2a1f',W='#ffffff',M='#4a0d1c',T='#e8607a';
+function put(x,y,z,c,p,o){V.set(K(x,y,z),{x,y,z,c,p,e:o&&o.e,ns:o&&o.ns,eye:o&&o.eye,nz:.93+.14*H(x,y,z)})}
+function box(x0,x1,y0,y1,z0,z1,c,p,o){for(let x=x0;x<x1;x++)for(let y=y0;y<y1;y++)for(let z=z0;z<z1;z++)put(x,y,z,c,p,o)}
+function ell(cx,cy,cz,rx,ry,rz,c,p,o){for(let x=Math.floor(cx-rx);x<=cx+rx;x++)for(let y=Math.floor(cy-ry);y<=cy+ry;y++)for(let z=Math.floor(cz-rz);z<=cz+rz;z++){
+ const a=(x+.5-cx)/rx,b=(y+.5-cy)/ry,d=(z+.5-cz)/rz;if(a*a+b*b+d*d<=1)put(x,y,z,c,p,o)}}
+function cap(p0,p1,r0,r1,c,p,o){const R=Math.max(r0,r1)+1;
+ const mn=[0,1,2].map(i=>Math.floor(Math.min(p0[i],p1[i])-R)),mx=[0,1,2].map(i=>Math.ceil(Math.max(p0[i],p1[i])+R));
+ const dx=p1[0]-p0[0],dy=p1[1]-p0[1],dz=p1[2]-p0[2],L2=dx*dx+dy*dy+dz*dz;
+ for(let x=mn[0];x<=mx[0];x++)for(let y=mn[1];y<=mx[1];y++)for(let z=mn[2];z<=mx[2];z++){
+  const px=x+.5-p0[0],py=y+.5-p0[1],pz=z+.5-p0[2];let t=(px*dx+py*dy+pz*dz)/L2;t=Math.max(0,Math.min(1,t));
+  const qx=px-dx*t,qy=py-dy*t,qz=pz-dz*t,r=r0+(r1-r0)*t;if(qx*qx+qy*qy+qz*qz<=r*r)put(x,y,z,c,p,o)}}
+function both(f){f(1,'R');f(-1,'L')}
+/* ---- Beine & Füße ---- */
+both((s,k)=>{
+ cap([s*9.5,38,0],[s*11,23,2],9.8,8.4,N1,'legs');
+ cap([s*11,23,2],[s*11.5,8,2],8.2,6.4,N1,'legs');
+ const X=(a,b)=>s>0?[a,b]:[-b,-a];
+ let [a0,a1]=X(6,17);box(a0,a1,0,6,-4,12,C,'legs');box(a0,a1,0,3,12,14,C,'legs');
+ [[6,9],[9,13],[13,16]].forEach(([u,v],i)=>{const[b0,b1]=X(u,v);box(b0,b1,0,5,14-(i===1?0:0),18,C,'legs');box(b0,b1,0,3,18,20,C2,'legs');box(b0,b1,0,2,20,21,W,'legs')});
+});
+/* ---- Torso ---- */
+ell(0,38,0,13,7,9,N1,'torso');
+ell(0,46,0,12,9,8,N1,'torso');
+ell(0,56,0,18,10.5,10,N1,'torso');ell(0,65,-2,15,6,8,N1,'torso');
+ell(0,63,-3,16,6,9,N1,'torso');
+ell(0,60,2,9,6,8,N1,'torso');
+both((s)=>{ell(s*22,60,0,10,10,10,N1,'torso')});
+/* Brust-/Bauch-Fläche (cremefarben, V-Form) */
+(function(){const pts=[[38,2],[42,3],[46,5],[50,8],[54,12],[57,16],[60,15],[63,11],[66,5]];
+ const w=y=>{for(let i=0;i<pts.length-1;i++){if(y>=pts[i][0]&&y<=pts[i+1][0]){const t=(y-pts[i][0])/(pts[i+1][0]-pts[i][0]);return pts[i][1]+(pts[i+1][1]-pts[i][1])*t}}return -1};
+ both(s=>ell(s*8,55.5,8.5,8.5,6,4.5,C,'chest'));
+ const list=[];V.forEach(v=>{if(v.p==='torso'&&v.y>=38&&v.y<=66&&!V.has(K(v.x,v.y,v.z+2))&&v.z>0){const ww=w(v.y+.5);if(Math.abs(v.x+.5)<ww)list.push(v)}});
+ list.forEach(v=>{v.c=C;v.p='chest';v.nz=.93+.14*H(v.x,v.y,v.z)});
+ for(let y=44;y<58;y++)for(let z=0;z<16;z++){const v=V.get(K(0,y,z));if(v&&v.p==='chest'&&!V.has(K(0,y,z+1)))v.c=C2;const v2=V.get(K(-1,y,z));if(v2&&v2.p==='chest'&&!V.has(K(-1,y,z+1)))v2.c=C2}
+ /* Bauch-Streifen etwas grau */
+ for(let y=38;y<46;y++)V.forEach(v=>{if(v.p==='chest'&&v.y===y&&Math.abs(v.x+.5)<3)v.c='#cdbf9d'});
+})();
+/* ---- Arme ---- */
+both((s,k)=>{const pn='arm'+k,X=(a,b)=>s>0?[a,b]:[-b,-a];
+ cap([s*23,60,0],[s*27,44,1],8.5,8,N1,pn);
+ cap([s*27,44,1],[s*27,17,3],9,7.4,N1,pn);
+ cap([s*27,26.5,2.6],[s*27,19,3],10.4,9.8,Y,pn);
+ cap([s*27,27.4,2.6],[s*27,26.2,2.6],10.1,10.1,Y2,pn);
+ cap([s*27,17,3],[s*28,8,5],8.4,7.2,N1,pn);
+ [[23,26],[26,29],[29,33]].forEach(([u,v])=>{const[b0,b1]=X(u,v);box(b0,b1,3,7,9,12,C2,pn);box(b0,b1,3,5,12,13,W,pn)});
+});
+/* ---- Fell-Stacheln ---- */
+(function(){const snap=[];V.forEach(v=>snap.push(v));
+ snap.forEach(v=>{
+  const r=H(v.x+11,v.y+5,v.z+3);
+  if(v.p==='torso'||v.p.startsWith('arm')){
+   const top=!V.has(K(v.x,v.y+1,v.z));
+   if(top&&v.y>=57&&r<.3&&!(Math.abs(v.x)<9&&v.z>0)){const h=3+Math.floor(H(v.x,v.z,v.y)*6),dir=v.x>0?1:-1;
+    for(let i=1;i<=h;i++)put(v.x+Math.floor(i*.8)*dir,v.y+i,v.z-(i>h-2?1:0),D,v.p,{ns:1})}
+   const out=v.x>0?1:-1;
+   if(v.p.startsWith('arm')&&v.y>=31&&Math.abs(v.x)>=29&&!V.has(K(v.x+out,v.y,v.z))&&r<.2){const L=2+Math.floor(H(v.y,v.x,v.z)*3);
+    for(let i=1;i<=L;i++)put(v.x+i*out,v.y-Math.floor(i*.5),v.z,D,v.p,{ns:1})}
+   if(v.p==='torso'&&v.y>=48&&v.z<-4&&!V.has(K(v.x,v.y,v.z-1))&&r<.3){const L=2+Math.floor(H(v.y,v.x,v.z)*3);for(let i=1;i<=L;i++)put(v.x,v.y-Math.floor(i*.4),v.z-i,D,v.p,{ns:1})}
+  }
+ });
+})();
+/* ---- Kopf ---- */
+ell(0,66,5,10.5,10,11.5,N1,'head');
+ell(0,60.5,13,7.6,5.2,5.4,N3,'head');
+both(s=>{ell(s*5.6,70.5,13.5,6.2,3,4,N2,'head');ell(s*5.4,66.6,14,4.4,2.6,2.8,N2,'head')});
+both(s=>{const X=(a,b)=>s>0?[a,b]:[-b,-a];const[e0,e1]=X(3,8);box(e0,e1,66,69,15,17,RD,'head',{e:1,eye:1})});
+both(s=>{put(s>0?2:-3,62,18,N2,'head');put(s>0?3:-4,62,18,N2,'head');put(s>0?2:-3,63,18,N2,'head');put(s>0?3:-4,63,18,N2,'head')});
+box(-6,6,56,58,6,17,M,'head');
+box(-6,6,57,59,17,18,W,'head');
+[[-6,-4],[4,6]].forEach(([a,b])=>box(a,b,50,58,16,18,W,'head'));
+both(s=>ell(s*10.6,66,4,2.2,4,3.4,C2,'head'));
+/* Krone */
+(function(){
+ for(let x=-13;x<=13;x++)for(let z=-10;z<=19;z++){const a=(x+.5)/11,b=(z+.5-4.5)/13.4,r=a*a+b*b;if(r<=1&&r>=.55)for(let y=73;y<=76;y++)put(x,y,z,y===76?Y2:Y,'head')}
+ for(let a=0;a<360;a+=36){const ang=a*Math.PI/180,sx=Math.round(Math.sin(ang)*9.4),sz=Math.round(Math.cos(ang)*11.4+4.5);
+  const fr=Math.cos(ang),Hh=Math.round(7+3*Math.max(0,fr)+(a%72===0?2:0));
+  for(let l=0;l<Hh;l++){const w=Math.max(0,Math.round(2.4*(1-l/Hh)));for(let x=-w;x<=w;x++)for(let z=-w;z<=w;z++)put(sx+x,77+l,sz+z,l>Hh-3?Y2:Y,'head',{ns:l>1})}}
+})();
+/* ---- Unterkiefer ---- */
+ell(0,52.5,10,7.6,3.8,7,N1,'jaw');
+box(-6,6,54,56,6,16,N1,'jaw');
+ell(0,55.6,10.5,4.4,1.4,5.4,T,'jaw',{e:1});
+box(-5,-3,55,61,16,18,W,'jaw');box(3,5,55,61,16,18,W,'jaw');
+for(let x=-6;x<6;x++)box(x,x+1,55,57,16,17,W,'jaw');
+ell(0,50.5,15,5,2,2.5,C2,'jaw');
+(function(){const mv=[];V.forEach(v=>{if(v.p==='head'||v.p==='jaw')mv.push(v)});mv.forEach(v=>V.delete(K(v.x,v.y,v.z)));
+ mv.forEach(v=>{v.y+=7;V.set(K(v.x,v.y,v.z),v)})})();
+/* Oberflächen-Liste */
+const AX=[[1,0,0],[-1,0,0],[0,1,0],[0,-1,0],[0,0,1],[0,0,-1]];
+const S=[];
+V.forEach(v=>{const f=[];AX.forEach((a,i)=>{const n=V.get(K(v.x+a[0],v.y+a[1],v.z+a[2]));if(!n||n.p!==v.p)f.push(i)});
+ if(f.length){v.f=f;v.stud=!v.ns&&!V.has(K(v.x,v.y+1,v.z));S.push(v)}});
+/* ---- Matrizen ---- */
+const I=()=>({r:[1,0,0,0,1,0,0,0,1],t:[0,0,0]});
+function mul(A,B){const a=A.r,b=B.r,r=new Array(9);
+ for(let i=0;i<3;i++)for(let j=0;j<3;j++)r[i*3+j]=a[i*3]*b[j]+a[i*3+1]*b[3+j]+a[i*3+2]*b[6+j];
+ const t=[a[0]*B.t[0]+a[1]*B.t[1]+a[2]*B.t[2]+A.t[0],a[3]*B.t[0]+a[4]*B.t[1]+a[5]*B.t[2]+A.t[1],a[6]*B.t[0]+a[7]*B.t[1]+a[8]*B.t[2]+A.t[2]];return{r,t}}
+const tr=(x,y,z)=>({r:[1,0,0,0,1,0,0,0,1],t:[x,y,z]});
+const rx=a=>{const c=Math.cos(a),s=Math.sin(a);return{r:[1,0,0,0,c,-s,0,s,c],t:[0,0,0]}};
+const ry=a=>{const c=Math.cos(a),s=Math.sin(a);return{r:[c,0,s,0,1,0,-s,0,c],t:[0,0,0]}};
+const rz=a=>{const c=Math.cos(a),s=Math.sin(a);return{r:[c,-s,0,s,c,0,0,0,1],t:[0,0,0]}};
+function around(p,R){return mul(tr(p[0],p[1],p[2]),mul(R,tr(-p[0],-p[1],-p[2])))}
+const ap=(M,x,y,z)=>{const r=M.r;return[r[0]*x+r[1]*y+r[2]*z+M.t[0],r[3]*x+r[4]*y+r[5]*z+M.t[1],r[6]*x+r[7]*y+r[8]*z+M.t[2]]};
+/* ---- Pose ---- */
+const PER=4.4;
+function pose(t){
+ const ph=t%PER,u=(ph-1.5)/1.9;
+ let e=0;if(u>0&&u<1)e=Math.pow(Math.sin(Math.PI*u),.55);
+ const b=(Math.sin(t*2.2)+1)/2;
+ const sh=Math.sin(t*58)*e;
+ const torso=mul(tr(sh*.3,1.0*b-.5*e,0),around([0,38,0],mul(rx(-.1*e+.02*b),ry(Math.sin(t*.8)*.04))));
+ const head=mul(torso,mul(around([0,67,2],mul(ry(Math.sin(t*.6)*.1*(1-e)),rx(-.5*e+.03*b))),tr(0,.25*b,0)));
+ const jaw=mul(head,around([0,64,5],rx(.3+.7*e+.06*Math.sin(t*3)*(1-e)+Math.sin(t*50)*.06*e)));
+ const chest=mul(torso,tr(0,0,.9*b+.4*e));
+ const arm=s=>mul(torso,around([s*22,60,0],mul(rz(s*(.8*e+.03*Math.sin(t*1.3))),rx(-.12*e))));
+ const M={legs:I(),torso,chest,head,jaw,armR:arm(1),armL:arm(-1)};
+ return{M,e,b};
+}
+/* ---- Renderer ---- */
+const SZ=320,SC=2.95,CX=SZ/2,CY=SZ*.5+46*SC-2;
+const cv=document.createElement('canvas');cv.width=cv.height=SZ;const g=cv.getContext('2d');
+const c2=document.createElement('canvas');c2.width=c2.height=SZ;const g2=c2.getContext('2d');
+const c3=document.createElement('canvas');c3.width=c3.height=SZ;const g3=c3.getContext('2d');
+const pc={};function rgb(h){return pc[h]||(pc[h]=[parseInt(h.substr(1,2),16),parseInt(h.substr(3,2),16),parseInt(h.substr(5,2),16)])}
+const LD=(()=>{const l=[-.35,.75,.55],m=Math.hypot(...l);return l.map(x=>x/m)})();
+const CEN=[0,46,2];
+const FC=[[[1,1],[1,-1],[-1,-1],[-1,1]]];
+function draw(t){
+ const{M,e,b}=pose(t);
+ const yaw=window.kkYaw!==undefined?window.kkYaw:.38+Math.sin(t*.5)*.28,pitch=window.kkPitch!==undefined?window.kkPitch:.3;
+ const cam=mul(tr(CEN[0],CEN[1],CEN[2]),mul(rx(pitch),mul(ry(yaw),tr(-CEN[0],-CEN[1],-CEN[2]))));
+ g.clearRect(0,0,SZ,SZ);
+ const items=[];
+ const PM={};for(const k in M)PM[k]=mul(cam,M[k]);
+ for(let i=0;i<S.length;i++){const v=S[i],m=PM[v.p];const c=ap(m,v.x+.5,v.y+.5,v.z+.5);items.push([c[2],v,m,c])}
+ items.sort((a,b)=>a[0]-b[0]);
+ g.lineJoin='round';
+ const eyes=[];
+ for(let q=0;q<items.length;q++){
+  const[,v,m,c]=items[q],r=m.r;
+  const ex=[r[0],r[3],r[6]],ey=[r[1],r[4],r[7]],ez=[r[2],r[5],r[8]];
+  const bs=[ex,ey,ez];
+  const col=rgb(v.c);
+  for(let k=0;k<v.f.length;k++){
+   const fi=v.f[k],ai=fi>>1,sg=(fi&1)?-1:1;
+   const n=bs[ai].map(x=>x*sg);
+   if(n[2]<=0.02)continue;
+   const u=bs[(ai+1)%3],w=bs[(ai+2)%3];
+   const P=[];
+   const cc=[c[0]+n[0]*.5,c[1]+n[1]*.5,c[2]+n[2]*.5];
+   for(let j=0;j<4;j++){const s1=FC[0][j][0]*.5,s2=FC[0][j][1]*.5;
+    P.push([CX+(cc[0]+u[0]*s1+w[0]*s2)*SC,CY-(cc[1]+u[1]*s1+w[1]*s2)*SC])}
+   let f=v.e?1.05:Math.max(.5,Math.min(1.12,.52+.62*(n[0]*LD[0]+n[1]*LD[1]+n[2]*LD[2])))*v.nz;
+   if(v.e&&v.c===T)f=.9+.15*e;
+   g.fillStyle='rgb('+Math.min(255,col[0]*f|0)+','+Math.min(255,col[1]*f|0)+','+Math.min(255,col[2]*f|0)+')';
+   g.beginPath();g.moveTo(P[0][0],P[0][1]);for(let j=1;j<4;j++)g.lineTo(P[j][0],P[j][1]);g.closePath();g.fill();
+   g.strokeStyle='rgba(0,0,0,.32)';g.lineWidth=.5;g.stroke();
+   if(!v.ns&&!v.e){const mx=(P[0][0]+P[1][0]+P[2][0]+P[3][0])/4,my=(P[0][1]+P[1][1]+P[2][1]+P[3][1])/4,k=.55;
+    g.fillStyle='rgb('+Math.min(255,col[0]*f*1.16|0)+','+Math.min(255,col[1]*f*1.16|0)+','+Math.min(255,col[2]*f*1.16|0)+')';
+    g.beginPath();for(let j=0;j<4;j++){const X=mx+(P[j][0]-mx)*k,Y=my+(P[j][1]-my)*k;j?g.lineTo(X,Y):g.moveTo(X,Y)}g.closePath();g.fill();}
+   if(v.eye&&fi===4)eyes.push([CX+cc[0]*SC,CY-cc[1]*SC]);
+  }
+ }
+ /* Augen-Glühen */
+ g.save();g.globalCompositeOperation='lighter';
+ eyes.forEach(p=>{const R=9+7*e,gr=g.createRadialGradient(p[0],p[1],0,p[0],p[1],R);
+  gr.addColorStop(0,'rgba(255,90,60,'+(.75+.25*e)+')');gr.addColorStop(1,'rgba(255,0,0,0)');g.fillStyle=gr;g.beginPath();g.arc(p[0],p[1],R,0,6.2832);g.fill()});
+ g.restore();
+ /* Kontur + Schatten */
+ g3.clearRect(0,0,SZ,SZ);g3.globalCompositeOperation='source-over';g3.drawImage(cv,0,0);
+ g3.globalCompositeOperation='source-in';g3.fillStyle='#000';g3.fillRect(0,0,SZ,SZ);g3.globalCompositeOperation='source-over';
+ g2.clearRect(0,0,SZ,SZ);
+ const fp=ap(cam,0,0,2);
+ g2.fillStyle='rgba(0,0,0,.28)';g2.beginPath();g2.ellipse(CX+fp[0]*SC,CY-fp[1]*SC+3,SC*26,SC*8,0,0,6.2832);g2.fill();
+ for(let a=0;a<14;a++){const an=a/14*6.2832;g2.drawImage(c3,Math.cos(an)*3,Math.sin(an)*3)}
+ /* Brüll-Wellen */
+ if(e>.15){const mp=ap(mul(cam,M.head),0,63,16),fw=ap(mul(cam,M.head),0,63,26);
+  const mx=CX+mp[0]*SC,my=CY-mp[1]*SC,ang=Math.atan2(-(fw[1]-mp[1]),fw[0]-mp[0]);
+  g2.lineCap='round';
+  for(let k=0;k<3;k++){const rr=16+((t*70+k*22)%70),al=e*(1-(rr-16)/70);
+   g2.strokeStyle='rgba(255,255,255,'+(al*.8).toFixed(3)+')';g2.lineWidth=3;g2.beginPath();g2.arc(mx,my,rr,ang-.7,ang+.7);g2.stroke()}}
+ g2.drawImage(cv,0,0);
+ return e;
+}
+/* ---- Verwaltung: alle .kk3d-Elemente im Dokument bekommen ein Canvas ---- */
+let last=0,t0=0,had=false;
+function tick(ts){
+ requestAnimationFrame(tick);
+ if(ts-last<33)return;last=ts;
+ const els=document.querySelectorAll('.kk3d');
+ let vis=[];els.forEach(el=>{if(el.offsetWidth>0){vis.push(el)}});
+ if(!vis.length){had=false;return}
+ if(!had){had=true;t0=ts/1000-0.8}
+ draw(ts/1000-t0);
+ vis.forEach(el=>{let c=el._c;if(!c||c.parentNode!==el){el.innerHTML='';c=el._c=document.createElement('canvas');c.width=c.height=SZ;el.appendChild(c)}
+  const x=c.getContext('2d');x.clearRect(0,0,SZ,SZ);x.drawImage(c2,0,0)});
+}
+requestAnimationFrame(tick);
+window.kkDraw=draw;window.kkCanvas=c2;
+})();
 </script></body></html>
